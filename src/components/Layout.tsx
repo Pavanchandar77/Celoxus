@@ -76,6 +76,7 @@ export const Navbar = () => {
         <nav className={`hidden md:flex gap-10 text-sm font-semibold tracking-wide ${textColorClass} transition-colors`}>
           <Link to="/products" className="hover:text-indigo-400 hover:scale-105 transition-all">Products</Link>
           <Link to="/services" className="hover:text-indigo-400 hover:scale-105 transition-all">Professional Services</Link>
+          <Link to="/case-studies" className="hover:text-indigo-400 hover:scale-105 transition-all">Case Studies</Link>
           <Link to="/about" className="hover:text-indigo-400 hover:scale-105 transition-all">About</Link>
         </nav>
 
@@ -102,6 +103,7 @@ export const Navbar = () => {
           >
             <Link to="/products" onClick={() => setIsOpen(false)} className="font-bold text-lg hover:text-indigo-400 transition-colors">Products</Link>
             <Link to="/services" onClick={() => setIsOpen(false)} className="font-bold text-lg hover:text-indigo-400 transition-colors">Professional Services</Link>
+            <Link to="/case-studies" onClick={() => setIsOpen(false)} className="font-bold text-lg hover:text-indigo-400 transition-colors">Case Studies</Link>
             <Link to="/about" onClick={() => setIsOpen(false)} className="font-bold text-lg hover:text-indigo-400 transition-colors">About</Link>
             <Link to="/contact" onClick={() => setIsOpen(false)} className="bg-white text-slate-900 w-full rounded-full px-6 py-4 text-center text-sm font-bold mt-4 shadow-xl shadow-white/10 block hover:bg-indigo-50 transition-colors">
               Contact Us
@@ -175,6 +177,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li><Link to="/" className="font-medium text-slate-400 hover:text-indigo-400 transition-colors">Home</Link></li>
               <li><Link to="/about" className="font-medium text-slate-400 hover:text-indigo-400 transition-colors">About Firm</Link></li>
+              <li><Link to="/case-studies" className="font-medium text-slate-400 hover:text-indigo-400 transition-colors">Case Studies</Link></li>
               <li><Link to="/contact" className="font-medium text-slate-400 hover:text-indigo-400 transition-colors">Contact Us</Link></li>
             </ul>
           </div>
@@ -185,8 +188,8 @@ export const Footer = () => {
             &copy; {new Date().getFullYear()} Celoxus Systems Inc. All Rights Reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-500">
-            <a href="/legal/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="/legal/terms" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/legal/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/legal/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

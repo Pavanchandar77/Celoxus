@@ -154,35 +154,55 @@ export const Hero = () => {
 export const TrustBanner = () => {
   return (
     <div className="bg-[#020617] border-b border-slate-800 py-16 relative z-20 overflow-hidden">
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#020617] to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#020617] to-transparent z-10 pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-6 text-center mb-10 relative z-20">
         <p className="text-sm font-bold text-slate-500 uppercase tracking-widest">
-          Trusted by forward-thinking enterprises & IT engineering teams
+          Certified Experts in Enterprise Network Architecture
         </p>
       </div>
       
-      {/* Infinite Marquee */}
-      <div className="flex w-[200%] gap-24 relative overflow-hidden">
-        <motion.div 
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 30, repeat: Infinity }}
-          className="flex flex-nowrap items-center gap-16 md:gap-32 opacity-30 grayscale hover:grayscale-0 transition-all duration-700 w-full justify-around"
-        >
-          {/* First Set */}
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Cloud className="w-10 h-10" /> VORTEX</div>
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Server className="w-10 h-10" /> SYNTHESIS</div>
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Activity className="w-10 h-10" /> LUMINA</div>
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Globe className="w-10 h-10" /> NEXUS</div>
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Shield className="w-10 h-10" /> VERITAS</div>
-          {/* Second Set (Duplicate for smooth infinite scroll) */}
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Cloud className="w-10 h-10" /> VORTEX</div>
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Server className="w-10 h-10" /> SYNTHESIS</div>
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Activity className="w-10 h-10" /> LUMINA</div>
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Globe className="w-10 h-10" /> NEXUS</div>
-          <div className="flex items-center gap-3 font-black text-3xl tracking-tighter text-slate-100 shrink-0"><Shield className="w-10 h-10" /> VERITAS</div>
-        </motion.div>
+      {/* Credentials Band */}
+      <div className="max-w-7xl mx-auto px-6 relative overflow-hidden">
+        <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-70 hover:opacity-100 transition-opacity duration-500 w-full">
+          {/* Badge 1 */}
+          <div className="flex flex-col items-center gap-3 w-48 text-center shrink-0">
+             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center p-2 mb-2 shadow-lg">
+                <svg viewBox="0 0 100 100" fill="none" className="w-8 h-8 text-[#049fd9]" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
+                   <path d="M 20 50 L 20 80 M 35 30 L 35 80 M 50 10 L 50 80 M 65 30 L 65 80 M 80 50 L 80 80" />
+                </svg>
+             </div>
+             <div className="font-bold text-sm tracking-wide text-slate-200">Cisco Premier</div>
+             <div className="text-xs text-slate-500 font-semibold tracking-wider">CERTIFIED PARTNER</div>
+          </div>
+          
+          {/* Badge 2 */}
+          <div className="flex flex-col items-center gap-3 w-48 text-center shrink-0">
+             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center p-2 mb-2 shadow-lg">
+                <svg viewBox="0 0 100 100" fill="none" className="w-8 h-8 text-[#049fd9]" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
+                   <path d="M 20 50 L 20 80 M 35 30 L 35 80 M 50 10 L 50 80 M 65 30 L 65 80 M 80 50 L 80 80" />
+                </svg>
+             </div>
+             <div className="font-bold text-sm tracking-wide text-slate-200">CCIE Collaboration</div>
+             <div className="text-xs text-slate-500 font-semibold tracking-wider">CERTIFIED ARCHITECTS</div>
+          </div>
+
+          {/* Badge 3 */}
+          <div className="flex flex-col items-center gap-3 w-48 text-center shrink-0 hidden md:flex">
+             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center p-2 mb-2 shadow-lg">
+                <Shield className="w-7 h-7 text-[#049fd9] fill-[#049fd9]/10" />
+             </div>
+             <div className="font-bold text-sm tracking-wide text-slate-200">Cisco Advanced</div>
+             <div className="text-xs text-slate-500 font-semibold tracking-wider">DATA CENTER SPECIALIZATION</div>
+          </div>
+
+          {/* Quote */}
+          <div className="flex-1 min-w-[300px] border-l border-slate-700 pl-8 ml-4 hidden lg:block">
+            <p className="italic text-slate-300 font-medium text-sm leading-relaxed">
+              "Celoxus engineered our entire multinational contact center migration with zero downtime. Their CCIE-certified team is unmatched."
+            </p>
+            <p className="text-xs font-bold text-slate-500 mt-3 tracking-widest uppercase">— Director of IT, Fortune 500 Logistics</p>
+          </div>
+        </div>
       </div>
     </div>
   );

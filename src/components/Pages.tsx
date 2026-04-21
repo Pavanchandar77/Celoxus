@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Shield, Settings, Zap, ListCheck, Cloud, LayoutTemplate, Activity, ArrowRight, Headphones, Phone, Mail, Database } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
+import { Shield, Settings, Zap, ListCheck, Cloud, LayoutTemplate, Activity, ArrowRight, Headphones, Phone, Mail, Database, CheckCircle2, XCircle, Code } from 'lucide-react';
 
 export const Products = () => {
   return (
@@ -343,8 +344,29 @@ export const ProfessionalServices = () => {
 };
 
 export const About = () => {
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Celoxus",
+    "description": "Founded in 2018, Celoxus is a full-stack engineering firm delivering zero-trust infrastructure to the Fortune 500.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Celoxus",
+      "url": "https://celoxus.com",
+      "knowsAbout": ["Enterprise Network Architecture", "Cisco Integrations", "CCIE", "Contact Center Infrastructure"]
+    }
+  };
+
   return (
     <div className="bg-[#020617] text-white min-h-screen relative overflow-hidden">
+      <Helmet>
+        <title>About Celoxus | Enterprise Architects & Cisco Partners</title>
+        <meta name="description" content="Discover Celoxus. We embed CCIE-certified architects within operations to engineer bespoke API conduits and zero-trust scaling for Fortune 500 contact centers." />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      </Helmet>
+      
       <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-indigo-600/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
       <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
@@ -356,27 +378,25 @@ export const About = () => {
          </div>
          <div className="max-w-7xl mx-auto px-6 relative z-10 max-w-4xl">
            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
-              About Celoxus
+              Who We Are
            </div>
            <h1 className="text-6xl md:text-8xl font-black font-display tracking-tighter mb-10 leading-[1]">
-             Expertise in Delivering <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Customer Experiences.</span>
+             Engineering the <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Intelligence Age.</span>
            </h1>
            <p className="text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl">
-             Celoxus is a pioneer in building customized software and collaboration solutions for a spectrum of enterprise use cases.
+             Founded in 2018, Celoxus was built on a singular premise: enterprise networks and contact centers require surgical precision, not off-the-shelf compromises. We've scaled from an elite Cisco architecture consultancy to a full-stack engineering firm delivering zero-trust infrastructure to the Fortune 500.
            </p>
          </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Core Philosophy Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
           <div>
-             <h2 className="text-4xl lg:text-5xl font-extrabold font-display mb-6 tracking-tight text-white">Our Core Philosophy</h2>
+             <h2 className="text-4xl lg:text-5xl font-extrabold font-display mb-6 tracking-tight text-white">Why Celoxus</h2>
              <div className="w-20 h-1 bg-indigo-500 mb-8 rounded-full"></div>
              <p className="text-xl text-slate-300 leading-relaxed font-medium mb-8">
-               We have deep insights into next-generation contact center solutions powered by AI agents to provide a seamless customer journey. Our solutions are explicitly engineered to transcend standard constraints and align with extreme enterprise scaling limits.
-             </p>
-             <p className="text-lg text-slate-400 leading-relaxed mb-10">
-               Whether it is unifying a fragmented legacy ecosystem, creating deep API conduits, or engineering full Cisco cloud migrations, we deploy embedded architecture teams that partner intricately with your mission objectives.
+               We don't just deploy solutions; we embed our CCIE-certified architects within your operations. By understanding your exact ecosystem limitations, we engineer custom API conduits and automation workflows that generic SIs simply cannot map.
              </p>
              
              <div className="grid grid-cols-2 gap-8 border-t border-white/10 pt-10">
@@ -384,7 +404,7 @@ export const About = () => {
                    <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30 mb-4">
                      <Activity className="w-6 h-6 text-indigo-400" />
                    </div>
-                   <h4 className="text-xl font-bold mb-2 text-white">Deep Insights</h4>
+                   <h4 className="text-xl font-bold mb-2 text-white">Deep Capabilities</h4>
                    <p className="text-slate-400 text-sm">Advanced telemetry and AI integrations mapping the entire call lifecycle.</p>
                 </div>
                 <div>
@@ -400,7 +420,7 @@ export const About = () => {
           <div className="relative group">
             <div className="absolute inset-0 bg-indigo-500/20 blur-[80px] -z-10 group-hover:bg-indigo-500/30 transition-colors duration-700"></div>
             <div className="rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative aspect-[4/5]">
-               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Data Analytics" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-60 mix-blend-luminosity" referrerPolicy="no-referrer" />
+               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Data Analytics" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-60 mix-blend-luminosity" flex-shrink-0 referrerPolicy="no-referrer" />
                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent"></div>
                <div className="absolute inset-0 bg-indigo-600/10 mix-blend-color"></div>
                
@@ -418,12 +438,82 @@ export const About = () => {
             </div>
           </div>
         </div>
+
+        {/* Engineering Philosophy Matrix Instead of Fake Team */}
+        <div className="mb-32 border-t border-white/10 pt-32">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-white mb-4">Enterprise Engineering Matrix</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg">Strict focus areas where we deliver uncompromising Cisco architectural excellence.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors">
+              <div className="w-12 h-12 bg-indigo-500/20 text-indigo-400 rounded-xl flex items-center justify-center mb-6">
+                <Cloud className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Cloud Center Mapping</h3>
+              <div className="text-xs font-mono text-emerald-400 font-bold tracking-widest uppercase mb-4">Webex & UCCE</div>
+              <p className="text-slate-400 leading-relaxed">Designing, provisioning, and scaling massive hybrid or full-cloud Contact Center topologies.</p>
+            </div>
+            
+            <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors">
+              <div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center mb-6">
+                <Code className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Custom Automations</h3>
+              <div className="text-xs font-mono text-blue-400 font-bold tracking-widest uppercase mb-4">Finesse / API / Dev</div>
+              <p className="text-slate-400 leading-relaxed">Writing custom software, middleware, and notification systems that fill the gaps standard CC deployments have.</p>
+            </div>
+            
+            <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors">
+              <div className="w-12 h-12 bg-purple-500/20 text-purple-400 rounded-xl flex items-center justify-center mb-6">
+                <Shield className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Zero-Trust Backbone</h3>
+              <div className="text-xs font-mono text-purple-400 font-bold tracking-widest uppercase mb-4">Sovereign Focus</div>
+              <p className="text-slate-400 leading-relaxed">Guaranteeing data integrity through air-gapped or localized logic loops, strictly designed for highly regulated Fortune 500 networks.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
 };
 
 export const Contact = () => {
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const formspreeId = (import.meta as any).env.VITE_FORMSPREE_ID || 'dummy_id';
+    
+    try {
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+      
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset();
+      } else {
+        const data = await response.json();
+        console.error("Formspree error:", data);
+        setFormStatus('error');
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setFormStatus('error');
+    }
+  };
+
   return (
     <div className="pt-40 pb-32 px-6 flex items-center justify-center bg-[#020617] relative overflow-hidden min-h-screen">
       {/* Dark background effects */}
@@ -485,27 +575,39 @@ export const Contact = () => {
             <h2 className="text-3xl font-extrabold font-display text-slate-900 mb-2">Initialize Project</h2>
             <p className="text-slate-500 font-medium mb-12 text-lg">Complete the parameters below to route your request to the correct team.</p>
             
-            <form className="space-y-8" onSubmit={(e) => { e.preventDefault(); alert("Request sumbitted successfully. Our team will contact you shortly."); }}>
+            <form className="space-y-8" onSubmit={handleSubmit}>
+              {formStatus === 'success' && (
+                <div className="bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl p-4 flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                  <p className="font-semibold text-sm">Message sent successfully! Our team will contact you shortly.</p>
+                </div>
+              )}
+              {formStatus === 'error' && (
+                <div className="bg-red-50 text-red-800 border border-red-200 rounded-xl p-4 flex items-center gap-3">
+                  <XCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+                  <p className="font-semibold text-sm">Oops! Something went wrong. Please check your configuration or try again.</p>
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
                   <label className="block text-sm font-bold text-slate-900">Name</label>
-                  <input type="text" placeholder="John Doe" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400" />
+                  <input name="name" type="text" placeholder="John Doe" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-medium text-slate-900 placeholder:text-slate-400" />
                 </div>
                 <div className="space-y-2">
                   <label className="block text-sm font-bold text-slate-900">Phone</label>
-                  <input type="tel" placeholder="+1 (555) 000-0000" className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400" />
+                  <input name="phone" type="tel" placeholder="+1 (555) 000-0000" className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-medium text-slate-900 placeholder:text-slate-400" />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label className="block text-sm font-bold text-slate-900">Email Address</label>
-                <input type="email" placeholder="john@enterprise.com" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400" />
+                <input name="email" type="email" placeholder="john@enterprise.com" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-medium text-slate-900 placeholder:text-slate-400" />
               </div>
 
               <div className="space-y-2">
                 <label className="block text-sm font-bold text-slate-900">Select Services</label>
-                <div className="relative border border-slate-200 rounded-xl overflow-hidden focus-within:border-indigo-600 focus-within:ring-4 focus-within:ring-indigo-600/10 transition-all bg-slate-50 focus-within:bg-white">
-                  <select className="w-full px-5 py-4 bg-transparent outline-none font-medium text-slate-900 appearance-none cursor-pointer" defaultValue="" required>
+                <div className="relative border border-slate-200 rounded-xl overflow-hidden focus-within:border-indigo-600 focus-within:bg-white focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-600 transition-all bg-slate-50">
+                  <select name="service" className="w-full px-5 py-4 bg-transparent outline-none font-medium text-slate-900 appearance-none cursor-pointer" defaultValue="" required>
                     <option value="" disabled>Select an architectural domain...</option>
                     <option value="cisco-calling">Cisco Calling Solution</option>
                     <option value="cisco-contact">Cisco Contact Center Solution</option>
@@ -522,11 +624,11 @@ export const Contact = () => {
 
               <div className="space-y-2">
                 <label className="block text-sm font-bold text-slate-900">Message</label>
-                <textarea rows={5} placeholder="Describe your current infrastructure constraints or goals..." className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400 resize-none"></textarea>
+                <textarea name="message" rows={5} placeholder="Describe your current infrastructure constraints or goals..." required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-medium text-slate-900 placeholder:text-slate-400 resize-none"></textarea>
               </div>
 
-              <button type="submit" className="w-full py-5 rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-indigo-600 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(79,70,229,0.4)] hover:-translate-y-1 flex items-center justify-center gap-3 group">
-                Submit Request <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <button disabled={formStatus === 'submitting'} type="submit" className="w-full py-5 rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-600 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(79,70,229,0.4)] hover:-translate-y-1 flex items-center justify-center gap-3 group disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:cursor-not-allowed">
+                {formStatus === 'submitting' ? 'Submitting...' : 'Submit Request'} {formStatus !== 'submitting' && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
               </button>
 
             </form>
