@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowRight, PlayCircle, Shield, Globe, Cloud, Headphones, Server, ChevronRight, Activity, Code, Database, Phone, Mail } from 'lucide-react';
+import { Menu, X, Shield, Globe, Server, Database, Phone, Mail } from 'lucide-react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 
 export const CeloxusLogo = ({ className = "w-10 h-10" }) => (
@@ -80,11 +80,11 @@ export const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-6">
-          <Link 
-            to="/contact" 
+          <Link
+            to="/contact"
             className="hidden md:flex items-center gap-2 px-7 py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-white/10 border border-white/20 text-white hover:bg-white hover:text-slate-900 hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.05)] backdrop-blur-md"
           >
-            Deploy Celoxus
+            Contact Us
           </Link>
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className={`w-6 h-6 flex-shrink-0 ${textColorClass}`} /> : <Menu className={`w-6 h-6 flex-shrink-0 ${textColorClass}`} />}

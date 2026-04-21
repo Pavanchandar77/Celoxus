@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { PlayCircle, ArrowRight, Cloud, Server, Activity, Globe, Headphones, ChevronRight, Code, Shield, Database } from 'lucide-react';
+import { ArrowRight, Cloud, Server, Activity, Globe, Headphones, ChevronRight, Code, Shield, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Hero = () => {
@@ -39,18 +39,17 @@ export const Hero = () => {
         
         {/* Left Typography Block */}
         <div className="lg:w-3/5 text-left pt-10 lg:pt-0">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-white/20 text-white shadow-[0_0_20px_rgba(255,255,255,0.05)] backdrop-blur-xl mb-10 group cursor-pointer hover:bg-white/10 transition-colors"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-white/20 text-white shadow-[0_0_20px_rgba(255,255,255,0.05)] backdrop-blur-xl mb-10"
           >
             <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.8)]"></span>
             </span>
-            <span className="text-sm font-bold tracking-wide">Live: Global Systems Operational</span>
-            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
+            <span className="text-sm font-bold tracking-wide">Cisco-Certified Contact Center Specialists</span>
           </motion.div>
           
           <motion.h1
@@ -361,9 +360,9 @@ export const SplitMission = () => {
               </li>
             </ul>
 
-            <button className="px-8 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-indigo-600 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_10px_30px_rgba(79,70,229,0.3)] hover:-translate-y-1">
-              Meet Our Architects
-            </button>
+            <Link to="/contact" className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-indigo-600 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_10px_30px_rgba(79,70,229,0.3)] hover:-translate-y-1">
+              Talk to Our Team
+            </Link>
           </motion.div>
 
           <motion.div 
