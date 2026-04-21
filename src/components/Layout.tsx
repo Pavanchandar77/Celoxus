@@ -84,7 +84,7 @@ export const Navbar = () => {
             to="/contact" 
             className="hidden md:flex items-center gap-2 px-7 py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-white/10 border border-white/20 text-white hover:bg-white hover:text-slate-900 hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.05)] backdrop-blur-md"
           >
-            Deploy Celoxus
+            Contact Us
           </Link>
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className={`w-6 h-6 flex-shrink-0 ${textColorClass}`} /> : <Menu className={`w-6 h-6 flex-shrink-0 ${textColorClass}`} />}

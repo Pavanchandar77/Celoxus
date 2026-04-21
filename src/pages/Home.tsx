@@ -93,64 +93,58 @@ export const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Right Graphical Element - Glassmorphic Server Status */}
+        {/* Right Graphical Element - Imagery & Glassmorphism */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9, x: 50 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
           className="hidden lg:block lg:w-2/5 relative"
         >
-           <div className="relative w-full aspect-[4/5] bg-gradient-to-br from-slate-900/80 to-[#020617]/90 rounded-[3rem] border border-white/10 shadow-2xl backdrop-blur-xl overflow-hidden p-8 flex flex-col">
-             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-indigo-500/20 blur-[80px] rounded-full"></div>
-             <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-blue-500/20 blur-[80px] rounded-full"></div>
+          <div className="relative w-full aspect-[4/5] overflow-visible">
+             <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/30 to-blue-500/20 rounded-[3rem] blur-2xl transform -rotate-3"></div>
              
-             {/* Fake Code / Metrics UI */}
-             <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-5">
-               <div className="flex gap-1.5">
-                 <div className="w-3 h-3 rounded-full bg-[#ef4444]"></div>
-                 <div className="w-3 h-3 rounded-full bg-[#f59e0b]"></div>
-                 <div className="w-3 h-3 rounded-full bg-[#10b981]"></div>
-               </div>
-               <span className="ml-4 text-xs font-mono text-slate-400">root@celoxus-core-v2.0 ~ %</span>
+             {/* Main Image */}
+             <div className="absolute inset-0 rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(30,58,138,0.3)] relative z-10 group">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Cloud Network Architecture" className="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-indigo-900/10 mix-blend-overlay"></div>
              </div>
 
-             <div className="flex-1 flex flex-col justify-center gap-5">
-               {[
-                 { icon: <Database className="w-5 h-5 text-indigo-400" />, label: "Database Shards" },
-                 { icon: <Cloud className="w-5 h-5 text-blue-400" />, label: "Edge Routing" },
-                 { icon: <Shield className="w-5 h-5 text-purple-400" />, label: "Zero-Trust Firewalls" },
-                 { icon: <Server className="w-5 h-5 text-emerald-400" />, label: "Contact Center SIP" }
-               ].map((item, i) => (
-                 <div key={i} className="flex items-center gap-4 bg-white/5 rounded-2xl p-4 border border-white/5 hover:bg-white/10 transition-colors cursor-default">
-                   <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 backdrop-blur-sm">
-                     {item.icon}
-                   </div>
-                   <div className="flex-1">
-                     <div className="text-sm font-bold text-white mb-1.5">{item.label}</div>
-                     <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                       <motion.div 
-                         initial={{ width: 0 }}
-                         animate={{ width: "100%" }}
-                         transition={{ duration: 1.5, delay: 0.8 + (i * 0.2), ease: "easeOut" }}
-                         className="h-full bg-gradient-to-r from-indigo-500 to-blue-400 rounded-full"
-                       />
-                     </div>
-                   </div>
-                   <div className="text-emerald-400 font-mono text-xs font-bold pl-2 flex items-center gap-1">
-                     <Activity className="w-3 h-3" /> OK
-                   </div>
+             {/* Floating cards */}
+             {/* Card 1 */}
+             <div className="absolute -left-12 top-16 bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-3xl shadow-2xl z-20 flex items-center gap-5 animate-[bounce_8s_infinite]">
+                 <div className="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center">
+                    <Cloud className="w-6 h-6 text-blue-400" />
                  </div>
-               ))}
+                 <div>
+                    <div className="text-white font-bold text-sm tracking-wide">Global CDN Nodes</div>
+                    <div className="text-blue-200 text-xs font-mono mt-1 font-semibold tracking-widest">99.999% UPTIME</div>
+                 </div>
              </div>
              
-             {/* Bottom glowing connector */}
-             <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center relative z-10">
-               <span className="text-sm font-semibold text-slate-400 uppercase tracking-widest">Network Backbone</span>
-               <span className="inline-flex items-center gap-2 text-indigo-300 font-mono text-sm font-bold shadow-[0_0_15px_rgba(99,102,241,0.3)] bg-indigo-500/20 px-3 py-1.5 rounded-full border border-indigo-500/30">
-                 <Globe className="w-4 h-4 animate-spin-slow" /> SYNCED
-               </span>
+             {/* Image 2 smaller */}
+             <div className="absolute -right-8 top-1/3 w-44 h-44 rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-20 animate-[bounce_6s_infinite_reverse]">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="Analytics Platform" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/60 to-transparent"></div>
              </div>
-           </div>
+
+             {/* Card 3 */}
+             <div className="absolute -bottom-8 right-12 bg-[#020617]/60 backdrop-blur-xl border border-white/10 p-5 rounded-3xl shadow-2xl z-20 flex items-center gap-5">
+                 <div className="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                    <Server className="w-6 h-6 text-emerald-400" />
+                 </div>
+                 <div>
+                    <div className="text-white font-bold text-sm tracking-wide">Active Streams</div>
+                    <div className="text-emerald-400 font-mono text-xs font-bold flex items-center gap-1.5 mt-1 tracking-widest">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                      </span>
+                      ROUTING OPTIMAL
+                    </div>
+                 </div>
+             </div>
+          </div>
         </motion.div>
       </div>
     </section>
