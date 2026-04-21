@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Shield, Settings, Zap, ListCheck, Cloud, LayoutTemplate, Activity, ArrowRight, Headphones, Phone, Mail, Database } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export const Products = () => {
   return (
@@ -424,6 +425,8 @@ export const About = () => {
 };
 
 export const Contact = () => {
+  const [state, handleSubmit] = useForm('xwvanzrp');
+
   return (
     <div className="pt-40 pb-32 px-6 flex items-center justify-center bg-[#020617] relative overflow-hidden min-h-screen">
       {/* Dark background effects */}
@@ -431,18 +434,17 @@ export const Contact = () => {
       <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-indigo-900/20 blur-[150px] rounded-full pointer-events-none"></div>
 
       <div className="w-full max-w-7xl relative z-10 bg-white rounded-[3rem] border border-slate-100 overflow-hidden flex flex-col lg:flex-row shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
-        
+
         {/* Left Side: Dark & Visual with Background Image */}
         <div className="lg:w-5/12 bg-[#020617] p-12 lg:p-20 relative overflow-hidden flex flex-col justify-between group">
-          {/* High-quality background image overlay */}
           <div className="absolute inset-0 z-0">
-             <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Enterprise Architecture" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/90 to-[#020617]/50"></div>
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Enterprise Architecture" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/90 to-[#020617]/50"></div>
           </div>
-          
+
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[100px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3 z-0"></div>
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#2b3c98]/30 blur-[100px] rounded-full pointer-events-none -translate-x-1/3 translate-y-1/3 z-0"></div>
-          
+
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/90 text-sm font-semibold mb-8 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
@@ -466,7 +468,7 @@ export const Contact = () => {
                 <p className="text-2xl font-bold text-white">+1 469 994 4602</p>
               </div>
             </a>
-            
+
             <a href="mailto:info@celoxus.com" className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group">
               <div className="w-14 h-14 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30 group-hover:scale-110 transition-transform duration-300">
                 <Mail className="w-6 h-6 text-blue-400" />
@@ -479,57 +481,75 @@ export const Contact = () => {
           </div>
         </div>
 
-        {/* Right Side: The Form */}
+        {/* Right Side: Form or Success */}
         <div className="lg:w-7/12 p-12 lg:p-20 bg-white">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-extrabold font-display text-slate-900 mb-2">Start Your Project</h2>
-            <p className="text-slate-500 font-medium mb-12 text-lg">Tell us about your project and a senior engineer will respond within 1 business day.</p>
-
-            <form className="space-y-8" onSubmit={(e) => { e.preventDefault(); alert("Request submitted successfully. Our team will contact you shortly."); }}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="block text-sm font-bold text-slate-900">Name</label>
-                  <input type="text" placeholder="John Doe" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400" />
+            {state.succeeded ? (
+              <div className="flex flex-col items-center justify-center py-24 text-center">
+                <div className="w-20 h-20 rounded-full bg-emerald-50 border-2 border-emerald-200 flex items-center justify-center mb-8">
+                  <span className="text-emerald-500 font-black text-3xl">✓</span>
                 </div>
-                <div className="space-y-2">
-                  <label className="block text-sm font-bold text-slate-900">Phone</label>
-                  <input type="tel" placeholder="+1 (555) 000-0000" className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400" />
-                </div>
+                <h2 className="text-3xl font-extrabold font-display text-slate-900 mb-4">Request Received</h2>
+                <p className="text-slate-500 text-lg leading-relaxed max-w-sm">A senior engineer will review your request and respond within 1 business day.</p>
               </div>
-              
-              <div className="space-y-2">
-                <label className="block text-sm font-bold text-slate-900">Email Address</label>
-                <input type="email" placeholder="john@enterprise.com" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400" />
-              </div>
+            ) : (
+              <>
+                <h2 className="text-3xl font-extrabold font-display text-slate-900 mb-2">Start Your Project</h2>
+                <p className="text-slate-500 font-medium mb-12 text-lg">Tell us about your project and a senior engineer will respond within 1 business day.</p>
 
-              <div className="space-y-2">
-                <label className="block text-sm font-bold text-slate-900">Select Services</label>
-                <div className="relative border border-slate-200 rounded-xl overflow-hidden focus-within:border-indigo-600 focus-within:ring-4 focus-within:ring-indigo-600/10 transition-all bg-slate-50 focus-within:bg-white">
-                  <select className="w-full px-5 py-4 bg-transparent outline-none font-medium text-slate-900 appearance-none cursor-pointer" defaultValue="" required>
-                    <option value="" disabled>Select an architectural domain...</option>
-                    <option value="cisco-calling">Cisco Calling Solution</option>
-                    <option value="cisco-contact">Cisco Contact Center Solution</option>
-                    <option value="cisco-cloud">Cisco Cloud Applications</option>
-                    <option value="products">Products & Custom Integration</option>
-                  </select>
-                  <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
-                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 1.5L6 6.5L11 1.5" stroke="#475569" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                <form className="space-y-8" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-2">
+                      <label className="block text-sm font-bold text-slate-900">Name</label>
+                      <input type="text" name="name" placeholder="John Doe" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="block text-sm font-bold text-slate-900">Phone</label>
+                      <input type="tel" name="phone" placeholder="+1 (555) 000-0000" className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400" />
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="space-y-2">
-                <label className="block text-sm font-bold text-slate-900">Message</label>
-                <textarea rows={5} placeholder="Describe your current infrastructure constraints or goals..." className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400 resize-none"></textarea>
-              </div>
+                  <div className="space-y-2">
+                    <label className="block text-sm font-bold text-slate-900">Email Address</label>
+                    <input type="email" name="email" placeholder="john@enterprise.com" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400" />
+                    <ValidationError field="email" errors={state.errors} className="text-red-500 text-sm font-medium pt-1 block" />
+                  </div>
 
-              <button type="submit" className="w-full py-5 rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-indigo-600 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(79,70,229,0.4)] hover:-translate-y-1 flex items-center justify-center gap-3 group">
-                Submit Request <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+                  <div className="space-y-2">
+                    <label className="block text-sm font-bold text-slate-900">Select Services</label>
+                    <div className="relative border border-slate-200 rounded-xl overflow-hidden focus-within:border-indigo-600 focus-within:ring-4 focus-within:ring-indigo-600/10 transition-all bg-slate-50 focus-within:bg-white">
+                      <select name="service" className="w-full px-5 py-4 bg-transparent outline-none font-medium text-slate-900 appearance-none cursor-pointer" defaultValue="" required>
+                        <option value="" disabled>Select an architectural domain...</option>
+                        <option value="cisco-calling">Cisco Calling Solution</option>
+                        <option value="cisco-contact">Cisco Contact Center Solution</option>
+                        <option value="cisco-cloud">Cisco Cloud Applications</option>
+                        <option value="products">Products & Custom Integration</option>
+                      </select>
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 1.5L6 6.5L11 1.5" stroke="#475569" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
 
-            </form>
+                  <div className="space-y-2">
+                    <label className="block text-sm font-bold text-slate-900">Message</label>
+                    <textarea name="message" rows={5} placeholder="Describe your current infrastructure constraints or goals..." className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:ring-4 focus:ring-indigo-600/10 transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400 resize-none"></textarea>
+                  </div>
+
+                  <ValidationError errors={state.errors} className="text-red-500 text-sm font-medium block" />
+
+                  <button
+                    type="submit"
+                    disabled={state.submitting}
+                    className="w-full py-5 rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-indigo-600 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(79,70,229,0.4)] hover:-translate-y-1 flex items-center justify-center gap-3 group disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-slate-900 disabled:hover:shadow-none"
+                  >
+                    {state.submitting ? 'Submitting…' : <><span>Submit Request</span><ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
       </div>
