@@ -482,10 +482,10 @@ export const Contact = () => {
         {/* Right Side: The Form */}
         <div className="lg:w-7/12 p-12 lg:p-20 bg-white">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-extrabold font-display text-slate-900 mb-2">Initialize Project</h2>
-            <p className="text-slate-500 font-medium mb-12 text-lg">Complete the parameters below to route your request to the correct team.</p>
-            
-            <form className="space-y-8" onSubmit={(e) => { e.preventDefault(); alert("Request sumbitted successfully. Our team will contact you shortly."); }}>
+            <h2 className="text-3xl font-extrabold font-display text-slate-900 mb-2">Start Your Project</h2>
+            <p className="text-slate-500 font-medium mb-12 text-lg">Tell us about your project and a senior engineer will respond within 1 business day.</p>
+
+            <form className="space-y-8" onSubmit={(e) => { e.preventDefault(); alert("Request submitted successfully. Our team will contact you shortly."); }}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
                   <label className="block text-sm font-bold text-slate-900">Name</label>

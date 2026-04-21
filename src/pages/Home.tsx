@@ -53,31 +53,31 @@ export const Hero = () => {
             <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
           </motion.div>
           
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-6xl md:text-[5.5rem] lg:text-[6rem] font-black font-display tracking-tighter text-white mb-8 leading-[1.05]"
           >
-            Engineering the <br className="hidden lg:block" />
+            Cisco Contact Centers. <br className="hidden lg:block" />
             <span className="relative inline-block">
               <span className="absolute -inset-1 bg-blue-500/20 blur-xl rounded-full"></span>
               <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-white">
-                Intelligence Age.
+                Built Right.
               </span>
             </span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="text-xl md:text-2xl text-slate-300 font-medium max-w-2xl mb-12 leading-relaxed"
           >
-            Celoxus delivers zero-trust infrastructure, bespoke middleware, and AI-powered contact centers that redefine the enterprise baseline.
+            We design, deploy, and manage Cisco Webex Contact Centers, Webex Calling, and custom integrations — with zero-downtime implementations by certified architects.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
@@ -85,10 +85,10 @@ export const Hero = () => {
           >
             <Link to="/products" className="h-16 px-10 rounded-full bg-white text-slate-900 font-bold hover:bg-slate-100 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 text-lg shadow-[0_0_30px_rgba(255,255,255,0.3)] relative group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out opacity-50"></div>
-              Initialize Architecture <ArrowRight className="w-5 h-5 flex-shrink-0" />
+              View Our Solutions <ArrowRight className="w-5 h-5 flex-shrink-0" />
             </Link>
             <Link to="/contact" className="h-16 px-10 rounded-full bg-transparent border border-slate-600 text-white font-bold hover:bg-white/5 hover:border-white/40 transition-all duration-300 flex items-center justify-center gap-3 text-lg backdrop-blur-md">
-              <Activity className="w-5 h-5 flex-shrink-0 text-blue-400" /> Book an Engineer
+              <Activity className="w-5 h-5 flex-shrink-0 text-blue-400" /> Get a Free Consultation
             </Link>
           </motion.div>
         </div>
