@@ -1,8 +1,7 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, OrbitControls, Points, PointMaterial } from '@react-three/drei';
+import { Float, OrbitControls, Points, PointMaterial, Edges } from '@react-three/drei';
 import * as THREE from 'three';
-import { motion } from 'framer-motion-3d';
 
 // 3D Abstract Logistics Node / Data Rack
 export const HeroNode3D = () => {
@@ -86,6 +85,17 @@ export const Globe3D = () => {
     return new Float32Array(pts);
   }, []);
 
+  const arcs = useMemo(() => {
+    return [...Array(5)].map((_, i) => {
+      const curve = new THREE.QuadraticBezierCurve3(
+        new THREE.Vector3(Math.cos(i) * 2, Math.sin(i) * 2, Math.cos(i) * 1),
+        new THREE.Vector3(Math.cos(i)*1.5, Math.sin(i)*1.5, 2.5),
+        new THREE.Vector3(Math.cos(i+2) * 2, Math.sin(i+2) * 2, Math.cos(i+2) * 1)
+      );
+      return curve;
+    });
+  }, []);
+
   useFrame((state) => {
     if (pointsRef.current) {
         pointsRef.current.rotation.y = state.clock.elapsedTime * 0.05;
@@ -103,51 +113,50 @@ export const Globe3D = () => {
         
         {/* Fake Arcs - a few curved tubes connecting random points */}
         <group ref={arcsRef}>
-           {[...Array(5)].map((_, i) => {
-             const curve = new THREE.QuadraticBezierCurve3(
-                new THREE.Vector3(Math.cos(i) * 2, Math.sin(i) * 2, Math.cos(i) * 1),
-                new THREE.Vector3(Math.cos(i)*1.5, Math.sin(i)*1.5, 2.5),
-                new THREE.Vector3(Math.cos(i+2) * 2, Math.sin(i+2) * 2, Math.cos(i+2) * 1)
-             );
-             return (
-                 <mesh key={i}>
-                     <tubeGeometry args={[curve, 20, 0.015, 8, false]} />
-                     <meshBasicMaterial color="#049fd9" transparent opacity={0.8} />
-                 </mesh>
-             )
-           })}
+           {arcs.map((curve, i) => (
+             <mesh key={i}>
+                 <tubeGeometry args={[curve, 20, 0.015, 8, false]} />
+                 <meshBasicMaterial color="#049fd9" transparent opacity={0.8} />
+             </mesh>
+           ))}
         </group>
     </group>
   );
 };
 
 export const LogisticsContainers3D = ({ scrollYProgress }: { scrollYProgress: any }) => {
+  const mesh1 = useRef<THREE.Mesh>(null);
+  const mesh2 = useRef<THREE.Mesh>(null);
+
+  useFrame(() => {
+    // Only apply animation if scrollYProgress exists
+    if (scrollYProgress && scrollYProgress.get) {
+      const progress = scrollYProgress.get() || 0;
+      if (mesh1.current) {
+        mesh1.current.position.y = progress;
+        mesh1.current.rotation.y = progress;
+      }
+      if (mesh2.current) {
+        mesh2.current.rotation.x = progress;
+      }
+    }
+  });
+
   return (
     <group>
       <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
-        <motion.mesh
-          position-y={scrollYProgress}
-          rotation-y={scrollYProgress}
-          scale={0.8}
-        >
+        <mesh ref={mesh1} scale={0.8}>
            <boxGeometry args={[2, 2, 2]} />
            <meshStandardMaterial color="#ffffff" roughness={0.1} metalness={0.2} />
-           <lineSegments>
-             <edgesGeometry args={[new THREE.BoxGeometry(2, 2, 2)]} />
-             <lineBasicMaterial color="#049fd9" />
-           </lineSegments>
-        </motion.mesh>
+           <Edges linewidth={2} color="#049fd9" />
+        </mesh>
       </Float>
       
       <Float speed={2} rotationIntensity={0.4} floatIntensity={0.8}>
-        <motion.mesh
-          position={[-1.5, -1, 1]}
-          rotation-x={scrollYProgress}
-          scale={0.5}
-        >
+        <mesh ref={mesh2} position={[-1.5, -1, 1]} scale={0.5}>
            <boxGeometry args={[2, 2, 2]} />
            <meshStandardMaterial color="#f1f5f9" roughness={0.5} metalness={0.1} />
-        </motion.mesh>
+        </mesh>
       </Float>
     </group>
   );

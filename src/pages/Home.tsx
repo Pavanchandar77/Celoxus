@@ -11,12 +11,11 @@ export const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
       {/* Dynamic Master Background */}
       <div className="absolute inset-0 z-0">
-        {/* Subtle dot pattern with invert for white bg */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiLz48L3N2Zz4=')] opacity-30 filter invert"></div>
+        {/* Modern Engineering Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
         
         {/* Deep fade gradients for white background */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
       </div>
 
       {/* Advanced Animated Glowing Orbs for Cisco Blue Theme */}
@@ -24,13 +23,13 @@ export const Hero = () => {
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }} 
         transition={{ duration: 3 }}
-        className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[#049fd9]/10 blur-[130px] mix-blend-multiply pointer-events-none animate-[pulse_8s_ease-in-out_infinite]"
+        className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[#049fd9]/15 blur-[130px] mix-blend-multiply pointer-events-none animate-[pulse_8s_ease-in-out_infinite]"
       />
       <motion.div 
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }} 
         transition={{ duration: 3, delay: 1 }}
-        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-[#049fd9]/5 blur-[130px] mix-blend-multiply pointer-events-none animate-[pulse_10s_ease-in-out_infinite_alternate]"
+        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-blue-100 blur-[130px] mix-blend-multiply pointer-events-none animate-[pulse_10s_ease-in-out_infinite_alternate]"
       />
 
       <div className="relative z-10 w-full px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 pt-24 pb-12">
@@ -41,14 +40,14 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#049fd9]/5 border border-[#049fd9]/20 text-slate-700 shadow-sm backdrop-blur-xl mb-10 group cursor-pointer hover:bg-[#049fd9]/10 transition-colors"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-slate-900 text-white shadow-xl mb-10 group cursor-pointer hover:bg-slate-800 transition-colors"
           >
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#049fd9] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-[#049fd9]"></span>
             </span>
             <span className="text-sm font-bold tracking-wide">Live: Global Systems Operational</span>
-            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#049fd9] transition-colors" />
+            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
           </motion.div>
           
           <motion.h1 
@@ -57,11 +56,11 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-6xl md:text-[5.5rem] lg:text-[6rem] font-black font-display tracking-tighter text-slate-900 mb-8 leading-[1.05]"
           >
-            Engineering the <br className="hidden lg:block" />
+            Engineering for <br className="hidden lg:block" />
             <span className="relative inline-block">
-              <span className="absolute -inset-1 bg-[#049fd9]/10 blur-xl rounded-full"></span>
+              <span className="absolute -inset-2 bg-gradient-to-r from-[#049fd9]/20 to-transparent blur-2xl rounded-full"></span>
               <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#049fd9] to-blue-800">
-                Intelligence Age.
+                Global Edge.
               </span>
             </span>
           </motion.h1>
@@ -72,7 +71,7 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="text-xl md:text-2xl text-slate-600 font-medium max-w-2xl mb-12 leading-relaxed"
           >
-            Celoxus delivers zero-trust infrastructure, bespoke middleware, and AI-powered contact centers that redefine the enterprise baseline.
+            Celoxus architectures power the world's most critical logistics, finance, and enterprise networks with CCIE-certified precision.
           </motion.p>
           
           <motion.div 
@@ -81,11 +80,11 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-5 relative z-20"
           >
-            <Link to="/products" className="h-16 px-10 rounded-full bg-[#049fd9] text-white font-bold hover:bg-[#037bb0] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 text-lg shadow-[0_10px_30px_rgba(4,159,217,0.3)] relative group overflow-hidden">
+            <Link to="/products" className="h-16 px-10 rounded-full bg-[#049fd9] text-white font-bold hover:bg-[#037bb0] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 text-lg shadow-[0_15px_40px_rgba(4,159,217,0.4)] relative group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
               Initialize Architecture <ArrowRight className="w-5 h-5 flex-shrink-0" />
             </Link>
-            <Link to="/contact" className="h-16 px-10 rounded-full bg-white border border-slate-200 text-slate-700 font-bold hover:bg-slate-50 hover:border-[#049fd9]/30 transition-all duration-300 flex items-center justify-center gap-3 text-lg backdrop-blur-md shadow-sm">
+            <Link to="/contact" className="h-16 px-10 rounded-full bg-slate-900 text-white font-bold hover:bg-slate-800 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 text-lg shadow-xl shadow-slate-900/20">
               <Activity className="w-5 h-5 flex-shrink-0 text-[#049fd9]" /> Book an Engineer
             </Link>
           </motion.div>
@@ -99,25 +98,28 @@ export const Hero = () => {
           className="hidden lg:block lg:w-2/5 relative"
         >
           <div className="relative w-full aspect-[4/5] overflow-visible">
-             <div className="absolute inset-0 bg-gradient-to-tr from-[#049fd9]/20 to-blue-300/10 rounded-[3rem] blur-2xl transform -rotate-3"></div>
+             <div className="absolute inset-0 bg-gradient-to-tr from-[#049fd9]/30 to-blue-300/10 rounded-[3rem] blur-3xl transform -rotate-3"></div>
              
-             {/* 3D Canvas container */}
-             <div className="absolute inset-0 rounded-[3rem] overflow-hidden border border-[#049fd9]/20 shadow-[0_20px_50px_rgba(4,159,217,0.15)] relative z-10 bg-gradient-to-b from-slate-50 to-white">
-                <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-                   <ambientLight intensity={1} color="#ffffff" />
-                   <pointLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
-                   <directionalLight position={[-5, 5, -5]} intensity={1} color="#049fd9" />
-                   <Suspense fallback={
-                     <mesh>
-                       <boxGeometry args={[1, 1, 1]} />
-                       <meshBasicMaterial color="#f0f9ff" />
-                     </mesh>
-                   }>
+             {/* 3D Canvas container with a dark inner for depth */}
+             <div className="absolute inset-0 rounded-[4rem] overflow-hidden border-4 border-white shadow-[0_40px_80px_rgba(15,23,42,0.15)] relative z-10 bg-[#0f172a] flex items-center justify-center">
+                <Canvas camera={{ position: [0, 0, 5], fov: 45 }} gl={{ antialias: true }}>
+                   <ambientLight intensity={0.5} />
+                   <pointLight position={[10, 10, 10]} intensity={1} color="#ffffff" />
+                   <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={1.5} color="#049fd9" />
+                   <Suspense fallback={null}>
                      <HeroNode3D />
+                     <Environment preset="city" />
                    </Suspense>
-                   <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} maxPolarAngle={Math.PI / 2 + 0.2} minPolarAngle={Math.PI / 2 - 0.2} />
+                   <OrbitControls 
+                     enableZoom={false} 
+                     enablePan={false} 
+                     autoRotate 
+                     autoRotateSpeed={0.5} 
+                     maxPolarAngle={Math.PI / 2 + 0.1} 
+                     minPolarAngle={Math.PI / 2 - 0.1} 
+                   />
                 </Canvas>
-                <div className="absolute inset-0 pointer-events-none rounded-[3rem] border border-white/40 mix-blend-overlay"></div>
+                <div className="absolute inset-0 pointer-events-none border border-white/10"></div>
              </div>
 
              {/* Floating cards */}
@@ -157,24 +159,34 @@ export const Hero = () => {
 
 export const TrustBanner = () => {
   return (
-    <div className="bg-[#0f172a] py-24 relative z-20 overflow-hidden">
+    <div className="bg-[#0f172a] py-32 relative z-20 overflow-hidden border-y border-white/5">
       {/* 3D Globe Background Layer - Minimalist */}
-      <div className="absolute inset-0 z-0 opacity-40">
-        <Canvas camera={{ position: [0, 0, 4.5], fov: 45 }}>
-          <Suspense fallback={null}>
-             <Globe3D />
-          </Suspense>
-          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.8} />
-        </Canvas>
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[radial-gradient(#049fd9_1px,transparent_1px)] bg-[size:40px_40px] opacity-10"></div>
+        <div className="absolute inset-0 opacity-40">
+          <Canvas camera={{ position: [0, 0, 4.5], fov: 45 }}>
+            <Suspense fallback={null}>
+               <Globe3D />
+            </Suspense>
+            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.8} />
+          </Canvas>
+        </div>
         {/* Gradients to blend globe into edge */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-[#0f172a] pointer-events-none"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-transparent to-[#0f172a] pointer-events-none"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 text-center mb-16 relative z-20">
-        <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">
-           Certified Experts in Enterprise Network Architecture
-        </p>
+      <div className="max-w-7xl mx-auto px-6 text-center mb-20 relative z-20">
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="text-xs font-black text-[#049fd9] uppercase tracking-[0.4em] mb-4"
+        >
+           Operational Excellence
+        </motion.p>
+        <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          Certified Experts in Enterprise <br/> Network Architecture
+        </h3>
       </div>
       
       {/* Credentials Band */}
@@ -369,8 +381,11 @@ export const SplitMission = () => {
   const yRotation = useTransform(scrollYProgress, [0, 1], [0, Math.PI * 2]);
 
   return (
-    <section className="py-32 bg-white overflow-hidden border-t border-slate-100">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 bg-slate-50 overflow-hidden border-t border-slate-100 relative">
+      {/* Background Texture */}
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-20">
           
           <motion.div 
