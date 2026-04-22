@@ -7,6 +7,7 @@ import { Products, ProfessionalServices, About, Contact } from './components/Pag
 import { CaseStudies } from './pages/CaseStudies';
 import { NotFound } from './pages/NotFound';
 import { PrivacyPolicy, TermsOfService } from './pages/Legal';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 const Home = () => {
   return (
@@ -22,22 +23,24 @@ const Home = () => {
 
 export default function App() {
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="products" element={<Products />} />
-            <Route path="services" element={<ProfessionalServices />} />
-            <Route path="about" element={<About />} />
-            <Route path="case-studies" element={<CaseStudies />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="legal/privacy" element={<PrivacyPolicy />} />
-            <Route path="legal/terms" element={<TermsOfService />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </HelmetProvider>
+    <ErrorBoundary>
+      <HelmetProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="products" element={<Products />} />
+              <Route path="services" element={<ProfessionalServices />} />
+              <Route path="about" element={<About />} />
+              <Route path="case-studies" element={<CaseStudies />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="legal/privacy" element={<PrivacyPolicy />} />
+              <Route path="legal/terms" element={<TermsOfService />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </HelmetProvider>
+    </ErrorBoundary>
   );
 }

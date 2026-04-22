@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Shield, Settings, Zap, ListCheck, Cloud, LayoutTemplate, Activity, ArrowRight, Headphones, Phone, Mail, Database, CheckCircle2, XCircle, Code } from 'lucide-react';
 
@@ -9,7 +9,7 @@ export const Products = () => {
       {/* Hero */}
       <div className="relative pt-40 pb-32 overflow-hidden bg-[#020617]">
         <div className="absolute inset-0 z-0">
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2850&q=80" alt="Server Operations" className="w-full h-full object-cover opacity-20 mix-blend-luminosity sepia-[.3] hue-rotate-[200deg]" referrerPolicy="no-referrer" />
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2850&q=80" alt="Server Operations" fetchPriority="high" className="w-full h-full object-cover opacity-20 mix-blend-luminosity sepia-[.3] hue-rotate-[200deg]" referrerPolicy="no-referrer" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent"></div>
         </div>
         <div className="text-center max-w-4xl mx-auto md:mt-12 relative z-10 px-6">
@@ -36,7 +36,7 @@ export const Products = () => {
           className="bg-[#020617] rounded-[3rem] overflow-hidden flex flex-col lg:flex-row shadow-[0_30px_100px_rgba(30,27,75,0.15)] border border-slate-800 relative group"
         >
           <div className="absolute inset-0 z-0">
-             <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80" alt="Notification Network" className="w-full h-full object-cover opacity-10 mix-blend-screen group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+             <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80" alt="Notification Network" className="w-full h-full object-cover opacity-10 mix-blend-screen group-hover:scale-105 transition-transform duration-1000" loading="lazy" referrerPolicy="no-referrer" />
           </div>
           <div className="lg:w-1/2 p-12 lg:p-20 flex flex-col justify-center relative z-10 bg-gradient-to-r from-[#020617] to-transparent">
              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3 group-hover:bg-indigo-500/30 transition-colors duration-700"></div>
@@ -123,7 +123,7 @@ export const Products = () => {
           </div>
           <div className="lg:w-1/2 p-0 flex relative overflow-hidden bg-[#020617] border-l border-white/10 group">
              <div className="absolute inset-0 z-0">
-               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Monitoring Dashboard" className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity sepia-[.2] hue-rotate-[200deg] group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Monitoring Dashboard" className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity sepia-[.2] hue-rotate-[200deg] group-hover:scale-105 transition-transform duration-1000" loading="lazy" referrerPolicy="no-referrer" />
                <div className="absolute inset-0 bg-gradient-to-tr from-[#020617] via-[#020617]/80 to-[#2b3c98]/40"></div>
              </div>
              
@@ -172,7 +172,7 @@ export const Products = () => {
             </ul>
           </div>
           <div className="lg:w-1/2 p-12 lg:p-20 flex items-center justify-center relative overflow-hidden border-l border-white/10">
-             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Global Network" className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity sepia-[.2] hue-rotate-[200deg] group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Global Network" className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity sepia-[.2] hue-rotate-[200deg] group-hover:scale-105 transition-transform duration-1000" loading="lazy" referrerPolicy="no-referrer" />
              <div className="absolute inset-0 bg-gradient-to-bl from-indigo-900/40 to-transparent"></div>
              
              {/* Abstract API / Integration Diagram */}
@@ -210,7 +210,7 @@ export const ProfessionalServices = () => {
       {/* Hero Section */}
       <div className="relative pt-40 pb-32 overflow-hidden bg-[#020617] border-b border-slate-800">
         <div className="absolute inset-0 z-0">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2850&q=80" alt="Consulting" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-luminosity" referrerPolicy="no-referrer" />
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2850&q=80" alt="Consulting" fetchPriority="high" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-luminosity" referrerPolicy="no-referrer" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-[#020617]/30"></div>
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-500/10 blur-[150px] rounded-full"></div>
         </div>
@@ -260,7 +260,7 @@ export const ProfessionalServices = () => {
               </ul>
             </div>
             <div className="w-full lg:w-[500px] aspect-[4/3] rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden relative group-hover:-translate-y-2 transition-all duration-500 border border-white">
-               <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1200&q=80" alt="Meeting Collaboration" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+               <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1200&q=80" alt="Meeting Collaboration" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" loading="lazy" referrerPolicy="no-referrer" />
                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent mix-blend-multiply"></div>
                <div className="absolute bottom-6 left-6 right-6 p-6 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 text-white flex gap-4 items-center shadow-xl">
                  <Headphones className="w-10 h-10 text-white" />
@@ -296,7 +296,7 @@ export const ProfessionalServices = () => {
               </ul>
             </div>
             <div className="w-full lg:w-[500px] aspect-[4/3] rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden relative group-hover:-translate-y-2 transition-all duration-500 border border-white">
-               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Data Analytics" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Data Analytics" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" loading="lazy" referrerPolicy="no-referrer" />
                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent mix-blend-multiply"></div>
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                  <div className="w-24 h-24 rounded-[2rem] bg-white/10 border border-white/20 flex items-center justify-center z-10 backdrop-blur-xl shadow-2xl relative">
@@ -325,7 +325,7 @@ export const ProfessionalServices = () => {
               </ul>
             </div>
             <div className="w-full lg:w-[500px] aspect-[4/3] rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden relative group-hover:-translate-y-2 transition-all duration-500 border border-white">
-               <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80" alt="Cloud Network" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+               <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80" alt="Cloud Network" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" loading="lazy" referrerPolicy="no-referrer" />
                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent mix-blend-multiply"></div>
                <div className="absolute bottom-6 left-6 right-6 p-6 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 text-white flex gap-4 items-center shadow-xl">
                  <Cloud className="w-10 h-10 text-white" />
@@ -373,7 +373,7 @@ export const About = () => {
       {/* Hero with full-bleed image background */}
       <div className="relative pt-40 pb-32 overflow-hidden border-b border-white/10 z-10 w-full mb-16">
          <div className="absolute inset-0">
-           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2850&q=80" alt="Corporate Architecture" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-luminosity" referrerPolicy="no-referrer" />
+           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2850&q=80" alt="Corporate Architecture" fetchPriority="high" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-luminosity" referrerPolicy="no-referrer" />
            <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent"></div>
          </div>
          <div className="max-w-7xl mx-auto px-6 relative z-10 max-w-4xl">
@@ -420,7 +420,7 @@ export const About = () => {
           <div className="relative group">
             <div className="absolute inset-0 bg-indigo-500/20 blur-[80px] -z-10 group-hover:bg-indigo-500/30 transition-colors duration-700"></div>
             <div className="rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative aspect-[4/5]">
-               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Data Analytics" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-60 mix-blend-luminosity" flex-shrink-0 referrerPolicy="no-referrer" />
+               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Data Analytics" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-60 mix-blend-luminosity" loading="lazy" referrerPolicy="no-referrer" />
                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent"></div>
                <div className="absolute inset-0 bg-indigo-600/10 mix-blend-color"></div>
                
@@ -526,7 +526,7 @@ export const Contact = () => {
         <div className="lg:w-5/12 bg-[#020617] p-12 lg:p-20 relative overflow-hidden flex flex-col justify-between group">
           {/* High-quality background image overlay */}
           <div className="absolute inset-0 z-0">
-             <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Enterprise Architecture" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+             <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Enterprise Architecture" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" loading="lazy" referrerPolicy="no-referrer" />
              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/90 to-[#020617]/50"></div>
           </div>
           

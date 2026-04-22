@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Shield, BookOpen } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
