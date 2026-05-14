@@ -23,7 +23,7 @@ export const Products = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
               <Zap className="w-4 h-4 flex-shrink-0" /> Engineered for Performance
             </div>
-            <h1 className="text-5xl md:text-7xl font-black font-display text-white tracking-tight mb-8">
+            <h1 className="text-5xl md:text-7xl font-light font-display text-white tracking-tight mb-8">
               Products built to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">accelerate</span> your operations.
             </h1>
             <p className="text-2xl text-slate-300 font-medium leading-relaxed">
@@ -50,7 +50,7 @@ export const Products = () => {
                <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 flex items-center justify-center mb-8">
                  <Activity className="w-8 h-8 text-indigo-400" />
                </div>
-               <h2 className="text-4xl font-extrabold font-display text-white mb-6 leading-tight">Finesse Notifications</h2>
+               <h2 className="text-4xl font-light font-display text-white mb-6 leading-tight">Finesse Notifications</h2>
                <p className="text-slate-400 text-xl leading-relaxed mb-10 font-medium">
                  A real-time "Toaster" wrapper designed to drastically improve agent responsiveness. Ensure agents stay informed of critical metrics instantaneously without needing to monitor dashboards. Includes immediate RONA alerts out of the box.
                </p>
@@ -110,7 +110,7 @@ export const Products = () => {
             <div className="w-16 h-16 bg-blue-50 rounded-2xl border border-blue-100 flex items-center justify-center mb-8">
               <LayoutTemplate className="w-8 h-8 text-[#2b3c98]" />
             </div>
-            <h2 className="text-4xl font-extrabold font-display text-white mb-6 leading-tight tracking-tight">Contact Center Monitoring</h2>
+            <h2 className="text-4xl font-light font-display text-white mb-6 leading-tight tracking-tight">Contact Center Monitoring</h2>
             <div className="w-16 h-1 bg-[#2b3c98] mb-8 rounded-full"></div>
             <p className="text-slate-600 text-xl leading-relaxed mb-10 font-medium">
               Full-stack visibility into your operational flows. Track SLA breaches, active queues, and system health status. Intervene instantly when thresholds are violated.
@@ -161,7 +161,7 @@ export const Products = () => {
             <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 flex items-center justify-center mb-8">
               <Settings className="w-8 h-8 text-[#8fa1d5]" />
             </div>
-            <h2 className="text-4xl font-extrabold font-display text-white mb-6 leading-tight tracking-tight">Custom Integrations</h2>
+            <h2 className="text-4xl font-light font-display text-white mb-6 leading-tight tracking-tight">Custom Integrations</h2>
             <p className="text-slate-400 text-xl leading-relaxed mb-10 font-medium">
               Off-the-shelf software rarely fits complex enterprise architectures. Celoxus specializes in building entirely custom middleware, complex CRM conduits, and unique automation widgets.
             </p>
@@ -232,7 +232,7 @@ export const ProfessionalServices = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest">
               Professional Services
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black font-display text-white tracking-tight mb-8 leading-[1]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light font-display text-white tracking-tight mb-8 leading-[1]">
               Enterprise intelligence, <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">architected with precision.</span>
             </h1>
@@ -251,7 +251,7 @@ export const ProfessionalServices = () => {
           {/* Item 1 */}
           <div className="flex flex-col lg:flex-row gap-16 items-center group rounded-[3rem] p-8 hover:bg-white/[0.02] transition-colors relative" data-cursor="hover">
             <div className="flex-1 lg:pr-10">
-              <h2 className="text-4xl lg:text-5xl font-extrabold font-display text-white mb-6 tracking-tight">Cisco Calling Solution</h2>
+              <h2 className="text-4xl lg:text-5xl font-light font-display text-white mb-6 tracking-tight">Cisco Calling Solution</h2>
               <div className="w-16 h-1 bg-indigo-600 mb-8 rounded-full"></div>
               <p className="text-xl text-slate-400 leading-relaxed mb-8">
                 Transform your cloud-based calling experience. Enjoy the full power of the Webex Cloud and bid goodbye to the friction of legacy phone systems. The Webex Calling experience extends flawlessly across desktop and mobile devices.
@@ -284,7 +284,7 @@ export const ProfessionalServices = () => {
           {/* Item 2 */}
           <div className="flex flex-col lg:flex-row-reverse gap-16 items-center group rounded-[3rem] p-8 hover:bg-white/[0.02] transition-colors relative" data-cursor="hover">
             <div className="flex-1 lg:pl-10">
-              <h2 className="text-4xl lg:text-5xl font-extrabold font-display text-white mb-6 tracking-tight">Cisco Contact Center Solution</h2>
+              <h2 className="text-4xl lg:text-5xl font-light font-display text-white mb-6 tracking-tight">Cisco Contact Center Solution</h2>
               <div className="w-16 h-1 bg-blue-600 mb-8 rounded-full"></div>
               <p className="text-xl text-slate-400 leading-relaxed mb-6">
                 Deliver seamless Omnichannel experiences. We design, deploy, and manage Cisco Contact Centers that utilize AI-driven automation and real-time data ingestion to supercharge your agent performance and cut down Average Handle Time (AHT).
@@ -319,7 +319,7 @@ export const ProfessionalServices = () => {
           {/* Item 3 */}
           <div className="flex flex-col lg:flex-row gap-16 items-center group rounded-[3rem] p-8 hover:bg-white/[0.02] transition-colors relative" data-cursor="hover">
             <div className="flex-1 lg:pr-10">
-              <h2 className="text-4xl lg:text-5xl font-extrabold font-display text-white mb-6 tracking-tight">Cisco Cloud Applications</h2>
+              <h2 className="text-4xl lg:text-5xl font-light font-display text-white mb-6 tracking-tight">Cisco Cloud Applications</h2>
               <div className="w-16 h-1 bg-purple-600 mb-8 rounded-full"></div>
               <p className="text-xl text-slate-400 leading-relaxed mb-8">
                 Transition smoothly to flexible, robust cloud-native applications. We provide end-to-end cloud migrations ensuring high availability, global data redundancy, and uncompromising security.
@@ -392,7 +392,7 @@ export const About = () => {
            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
               Who We Are
            </div>
-           <h1 className="text-6xl md:text-8xl font-black font-display tracking-tighter mb-10 leading-[1]">
+           <h1 className="text-6xl md:text-8xl font-light font-display tracking-tighter mb-10 leading-[1]">
              Engineering the <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Intelligence Age.</span>
            </h1>
            <p className="text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl">
@@ -405,7 +405,7 @@ export const About = () => {
         {/* Core Philosophy Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
           <div>
-             <h2 className="text-4xl lg:text-5xl font-extrabold font-display mb-6 tracking-tight text-white">Why Celoxus</h2>
+             <h2 className="text-4xl lg:text-5xl font-light font-display mb-6 tracking-tight text-white">Why Celoxus</h2>
              <div className="w-20 h-1 bg-indigo-500 mb-8 rounded-full"></div>
              <p className="text-xl text-slate-300 leading-relaxed font-medium mb-8">
                We don't just deploy solutions; we embed our CCIE-certified architects within your operations. By understanding your exact ecosystem limitations, we engineer custom API conduits and automation workflows that generic SIs simply cannot map.
@@ -442,7 +442,7 @@ export const About = () => {
                      <Cloud className="w-8 h-8 text-white" />
                    </div>
                    <div>
-                     <div className="text-3xl font-black font-display text-white">Scale Global</div>
+                     <div className="text-3xl font-light font-display text-white">Scale Global</div>
                      <div className="text-indigo-200 font-medium">Bespoke Cisco Architectures</div>
                    </div>
                  </div>
@@ -454,7 +454,7 @@ export const About = () => {
         {/* Engineering Philosophy Matrix Instead of Fake Team */}
         <div className="mb-32 border-t border-white/10 pt-32">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-white mb-4">Enterprise Engineering Matrix</h2>
+            <h2 className="text-4xl lg:text-5xl font-light font-display tracking-tight text-white mb-4">Enterprise Engineering Matrix</h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-lg">Strict focus areas where we deliver uncompromising Cisco architectural excellence.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -556,7 +556,7 @@ export const Contact = () => {
               <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
               Global Connectivity
             </div>
-            <h1 className="text-4xl md:text-5xl font-black font-display text-white tracking-tight mb-6 leading-[1.1]">
+            <h1 className="text-4xl md:text-5xl font-light font-display text-white tracking-tight mb-6 leading-[1.1]">
               Architect Your <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Digital Evolution.</span>
             </h1>
             <p className="text-lg text-slate-400 font-medium leading-relaxed max-w-md">
@@ -590,7 +590,7 @@ export const Contact = () => {
         {/* Right Side: The Form */}
         <div className="lg:w-7/12 p-12 lg:p-20 bg-white">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-extrabold font-display text-white mb-2">Initialize Project</h2>
+            <h2 className="text-3xl font-light font-display text-white mb-2">Initialize Project</h2>
             <p className="text-slate-500 font-medium mb-12 text-lg">Complete the parameters below to route your request to the correct team.</p>
             
             <form className="space-y-8" onSubmit={handleSubmit}>

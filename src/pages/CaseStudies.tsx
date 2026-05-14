@@ -18,7 +18,7 @@ export const CaseStudies = () => {
        <div className="max-w-7xl mx-auto px-6 relative z-10">
          <div className="text-center max-w-4xl mx-auto mb-20">
            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-             <h1 className="text-5xl md:text-7xl font-black font-display tracking-tight mb-8">
+             <h1 className="text-5xl md:text-7xl font-light font-display tracking-tight mb-8">
                Proven <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Implementations.</span>
              </h1>
              <p className="text-xl text-slate-300 font-medium leading-relaxed">
@@ -43,7 +43,7 @@ export const CaseStudies = () => {
                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-400/20 text-indigo-300 text-sm font-bold tracking-widest uppercase mb-4 backdrop-blur-md">
                      <Lock className="w-4 h-4" /> Anonymized Brief
                    </div>
-                   <h2 className="text-3xl md:text-5xl font-black font-display text-white">Fortune 500 Global Logistics</h2>
+                   <h2 className="text-3xl md:text-5xl font-light font-display text-white">Fortune 500 Global Logistics</h2>
                  </div>
                  <div className="flex items-center gap-4 hidden sm:flex">
                    <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">

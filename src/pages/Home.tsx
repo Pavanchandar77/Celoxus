@@ -113,82 +113,57 @@ export const Hero = () => {
         />
       </motion.div>
 
-      {/* ----- Layer 7: typography (left col) ----- */}
+      {/* ----- Layer 7: typography (celoxus-2 editorial system) ----- */}
       <motion.div style={{ y: headlineY }} className="absolute inset-0 z-[10]">
         <div className="mx-auto h-full w-full max-w-7xl px-6 lg:px-8 grid grid-cols-12 gap-4">
-          <div className="col-span-12 lg:col-span-7 self-end pb-[18vh] lg:pb-0 lg:self-center lg:pt-12">
-            {/* Status pill */}
-            <motion.div
+          <div className="col-span-12 col-start-1 lg:col-span-7 lg:col-start-2 self-start pt-[36vh] lg:pt-[40vh]">
+            {/* Mono spec label */}
+            <motion.p
               variants={labelVariant}
               initial="hidden"
               animate="shown"
-              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#049fd9]/10 border border-[#049fd9]/30 text-[#049fd9] mb-10 backdrop-blur-md"
+              className="font-mono text-[0.7rem] text-slate-500 uppercase tracking-[0.1em]"
             >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-              </span>
-              <span className="text-[11px] font-mono uppercase tracking-[0.18em]">
-                Cisco Premier Partner <span className="text-emerald-400/80 ml-2 hidden sm:inline">SYS · NOMINAL</span>
-              </span>
-            </motion.div>
+              CELOXUS / SYSTEMS INTEGRATION
+            </motion.p>
 
-            {/* Headline */}
-            <h1 className="font-display font-black tracking-tighter text-white text-[3.5rem] sm:text-[5rem] lg:text-[7.5rem] leading-[0.92] mb-10">
-              <motion.span variants={headlineVariant} initial="hidden" animate="shown" className="block">
-                Infrastructure
-              </motion.span>
-              <motion.span variants={headlineVariant} initial="hidden" animate="shown" className="block">
-                <span className="relative inline-block">
-                  <span className="absolute -inset-6 bg-[#049fd9]/20 blur-3xl rounded-full"></span>
-                  <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-[#049fd9] to-blue-300">
-                    without friction.
-                  </span>
-                </span>
+            {/* Headline — font-display font-light, single line, no gradient */}
+            <h1 className="mt-6 font-display font-light text-white text-[3rem] leading-[1.0] sm:text-[4.5rem] lg:text-[7rem] tracking-[-0.015em]">
+              <motion.span
+                variants={headlineVariant}
+                initial="hidden"
+                animate="shown"
+                className="block"
+              >
+                Infrastructure without friction.
               </motion.span>
             </h1>
 
-            {/* Subcopy */}
+            {/* Subcopy — intentionally narrow + indented to col 4 */}
             <motion.p
               variants={subcopyVariant}
               initial="hidden"
               animate="shown"
-              className="max-w-xl text-xl md:text-2xl text-slate-400 font-light leading-relaxed mb-12"
+              className="mt-10 max-w-[300px] font-body font-light text-slate-400 text-[1rem] leading-relaxed lg:ml-[16.6667%]"
             >
-              Celoxus architectures power the world's most critical logistics, finance, and enterprise networks with{' '}
-              <span className="text-white font-normal">CCIE-certified precision.</span>
+              Cloud communications. Contact centers. Persistent operational visibility.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTA — text-only, accent, hover nudges arrow */}
             <motion.div
               variants={ctaVariant}
               initial="hidden"
               animate="shown"
-              className="flex flex-col sm:flex-row gap-5"
+              className="mt-8 lg:ml-[16.6667%]"
             >
-              <MagneticButton to="/products" className="cursor-pointer">
-                <div className="h-16 px-10 rounded-full bg-[#049fd9] text-white font-bold flex items-center gap-3 text-lg shadow-[0_15px_40px_rgba(4,159,217,0.45)] relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
-                  <span className="relative">Initialize Architecture</span>
-                  <ArrowRight className="relative w-5 h-5" />
-                </div>
-              </MagneticButton>
-              <MagneticButton to="/contact" className="cursor-pointer" strength={0.2}>
-                <div className="h-16 px-10 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/15 text-white font-bold flex items-center gap-3 text-lg hover:bg-white/[0.10] transition-colors">
-                  <Activity className="w-5 h-5 text-[#049fd9]" /> Book an Engineer
-                </div>
-              </MagneticButton>
+              <Link
+                to="/products"
+                className="group inline-flex items-baseline gap-2 font-body font-light text-[#049fd9] text-[0.95rem] tracking-[0.02em]"
+              >
+                <span>Initialize the system</span>
+                <span aria-hidden className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-[4px]">→</span>
+              </Link>
             </motion.div>
-
-            {/* spec label */}
-            <motion.p
-              variants={labelVariant}
-              initial="hidden"
-              animate="shown"
-              className="mt-16 font-mono text-[10px] text-slate-500 uppercase tracking-[0.25em]"
-            >
-              CELOXUS · v25 · SYSTEMS INTEGRATION · CCIE · DALLAS · BANGALORE
-            </motion.p>
           </div>
         </div>
       </motion.div>

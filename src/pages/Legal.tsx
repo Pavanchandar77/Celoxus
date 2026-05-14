@@ -18,7 +18,7 @@ export const PrivacyPolicy = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
              <Shield className="w-4 h-4" /> Legal Framework
           </div>
-          <h1 className="text-4xl md:text-5xl font-black font-display tracking-tight mb-8">
+          <h1 className="text-4xl md:text-5xl font-light font-display tracking-tight mb-8">
             Privacy Policy
           </h1>
           <p className="text-slate-400 font-medium mb-12">Effective Date: January 1, 2024</p>
@@ -97,7 +97,7 @@ export const TermsOfService = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
              <BookOpen className="w-4 h-4" /> Legal Framework
           </div>
-          <h1 className="text-4xl md:text-5xl font-black font-display tracking-tight mb-8">
+          <h1 className="text-4xl md:text-5xl font-light font-display tracking-tight mb-8">
             Terms of Service
           </h1>
           <p className="text-slate-400 font-medium mb-12">Effective Date: January 1, 2024</p>
