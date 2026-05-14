@@ -67,21 +67,16 @@ export const Hero = () => {
         className="absolute inset-0 z-[1] pointer-events-none bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-30"
       />
 
-      {/* ----- Layer 3: animated glow orbs ----- */}
+      {/* ----- Layer 3: subtle ambient wash (toned down) ----- */}
       <motion.div
-        animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.14, 0.08], x: [0, 40, 0], y: [0, -20, 0] }}
+        animate={{ opacity: [0.04, 0.07, 0.04] }}
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-[10%] left-[10%] w-[700px] h-[700px] rounded-full bg-[#049fd9] blur-[160px] mix-blend-screen pointer-events-none z-[1]"
-      />
-      <motion.div
-        animate={{ scale: [1, 1.15, 1], opacity: [0.05, 0.12, 0.05], x: [0, -50, 0], y: [0, 40, 0] }}
-        transition={{ duration: 19, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] rounded-full bg-blue-700 blur-[160px] mix-blend-screen pointer-events-none z-[1]"
+        className="absolute top-[10%] left-[10%] w-[600px] h-[600px] rounded-full bg-[#049fd9] blur-[140px] mix-blend-screen pointer-events-none z-[1]"
       />
 
       {/* ----- Layer 4: chapter cipher 01 ----- */}
       <div className="pointer-events-none absolute bottom-0 left-0 z-[2] h-[55%] w-auto overflow-hidden leading-none">
-        <span className="block font-display font-black leading-none text-[20vw] text-white/[0.025]" style={{ lineHeight: 1 }}>
+        <span className="block font-display font-light leading-none text-[20vw] text-white/[0.025]" style={{ lineHeight: 1 }}>
           01
         </span>
       </div>
@@ -95,7 +90,7 @@ export const Hero = () => {
           className="absolute inset-0 -right-[6%]"
           style={{ transform: 'perspective(1200px) rotateX(8deg) rotateY(-6deg)', transformOrigin: '60% 50%' }}
         >
-          <NetworkTopology />
+          <NetworkTopology showLabels />
         </div>
       </motion.div>
 
@@ -113,96 +108,63 @@ export const Hero = () => {
         />
       </motion.div>
 
-      {/* ----- Layer 7: typography (left col) ----- */}
+      {/* ----- Layer 7: typography (celoxus-2 editorial system) ----- */}
       <motion.div style={{ y: headlineY }} className="absolute inset-0 z-[10]">
         <div className="mx-auto h-full w-full max-w-7xl px-6 lg:px-8 grid grid-cols-12 gap-4">
-          <div className="col-span-12 lg:col-span-7 self-end pb-[18vh] lg:pb-0 lg:self-center lg:pt-12">
-            {/* Status pill */}
-            <motion.div
+          <div className="col-span-12 col-start-1 lg:col-span-7 lg:col-start-2 self-start pt-[36vh] lg:pt-[40vh]">
+            {/* Mono spec label */}
+            <motion.p
               variants={labelVariant}
               initial="hidden"
               animate="shown"
-              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#049fd9]/10 border border-[#049fd9]/30 text-[#049fd9] mb-10 backdrop-blur-md"
+              className="font-mono text-[0.7rem] text-slate-500 uppercase tracking-[0.1em]"
             >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-              </span>
-              <span className="text-[11px] font-mono uppercase tracking-[0.18em]">
-                Cisco Premier Partner <span className="text-emerald-400/80 ml-2 hidden sm:inline">SYS · NOMINAL</span>
-              </span>
-            </motion.div>
+              CELOXUS / SYSTEMS INTEGRATION
+            </motion.p>
 
-            {/* Headline */}
-            <h1 className="font-display font-black tracking-tighter text-white text-[3.5rem] sm:text-[5rem] lg:text-[7.5rem] leading-[0.92] mb-10">
-              <motion.span variants={headlineVariant} initial="hidden" animate="shown" className="block">
-                Infrastructure
-              </motion.span>
-              <motion.span variants={headlineVariant} initial="hidden" animate="shown" className="block">
-                <span className="relative inline-block">
-                  <span className="absolute -inset-6 bg-[#049fd9]/20 blur-3xl rounded-full"></span>
-                  <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-[#049fd9] to-blue-300">
-                    without friction.
-                  </span>
-                </span>
+            {/* Headline — font-display font-light, single line, no gradient */}
+            <h1 className="mt-6 font-display font-light text-white text-[3rem] leading-[1.0] sm:text-[4.5rem] lg:text-[6rem] xl:text-[7rem] tracking-[-0.015em] break-words">
+              <motion.span
+                variants={headlineVariant}
+                initial="hidden"
+                animate="shown"
+                className="block"
+              >
+                Infrastructure without friction.
               </motion.span>
             </h1>
 
-            {/* Subcopy */}
+            {/* Subcopy — intentionally narrow + indented to col 4 */}
             <motion.p
               variants={subcopyVariant}
               initial="hidden"
               animate="shown"
-              className="max-w-xl text-xl md:text-2xl text-slate-400 font-light leading-relaxed mb-12"
+              className="mt-10 max-w-[300px] font-body font-light text-slate-400 text-[1rem] leading-relaxed lg:ml-[16.6667%]"
             >
-              Celoxus architectures power the world's most critical logistics, finance, and enterprise networks with{' '}
-              <span className="text-white font-normal">CCIE-certified precision.</span>
+              Cloud communications. Contact centers. Persistent operational visibility.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTA — text-only, accent, hover nudges arrow */}
             <motion.div
               variants={ctaVariant}
               initial="hidden"
               animate="shown"
-              className="flex flex-col sm:flex-row gap-5"
+              className="mt-8 lg:ml-[16.6667%]"
             >
-              <MagneticButton to="/products" className="cursor-pointer">
-                <div className="h-16 px-10 rounded-full bg-[#049fd9] text-white font-bold flex items-center gap-3 text-lg shadow-[0_15px_40px_rgba(4,159,217,0.45)] relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
-                  <span className="relative">Initialize Architecture</span>
-                  <ArrowRight className="relative w-5 h-5" />
-                </div>
-              </MagneticButton>
-              <MagneticButton to="/contact" className="cursor-pointer" strength={0.2}>
-                <div className="h-16 px-10 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/15 text-white font-bold flex items-center gap-3 text-lg hover:bg-white/[0.10] transition-colors">
-                  <Activity className="w-5 h-5 text-[#049fd9]" /> Book an Engineer
-                </div>
-              </MagneticButton>
+              <Link
+                to="/products"
+                className="group inline-flex items-baseline gap-2 font-body font-light text-[#049fd9] text-[0.95rem] tracking-[0.02em]"
+              >
+                <span>Initialize the system</span>
+                <span aria-hidden className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-[4px]">→</span>
+              </Link>
             </motion.div>
-
-            {/* spec label */}
-            <motion.p
-              variants={labelVariant}
-              initial="hidden"
-              animate="shown"
-              className="mt-16 font-mono text-[10px] text-slate-500 uppercase tracking-[0.25em]"
-            >
-              CELOXUS · v25 · SYSTEMS INTEGRATION · CCIE · DALLAS · BANGALORE
-            </motion.p>
           </div>
         </div>
       </motion.div>
 
-      {/* ----- Persistent signal line ----- */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px z-[11]" style={{ backgroundColor: 'rgba(4, 159, 217, 0.4)' }}>
-        <motion.span
-          className="absolute top-1/2 block h-[3px] w-[3px] -translate-y-1/2 rounded-full bg-[#049fd9]"
-          style={{ filter: 'drop-shadow(0 0 6px #049fd9)' }}
-          initial={{ left: '0%' }}
-          animate={{ left: '100%' }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-        />
-      </div>
+      {/* ----- Quiet baseline rule ----- */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px z-[11] bg-white/10" />
     </section>
   );
 };
@@ -238,7 +200,7 @@ export const TrustBanner = () => {
           className="text-3xl md:text-5xl font-light text-white tracking-tight font-display"
         >
           Enterprise solutions powered by <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#049fd9] to-blue-300">CCIE-certified architects.</span>
+          <span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-[#049fd9] to-blue-300">CCIE-certified architects.</span>
         </motion.h3>
       </div>
 
@@ -263,7 +225,7 @@ export const TrustBanner = () => {
               <div className="relative w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-1 group-hover:scale-110 transition-transform duration-500">
                 <b.icon className="w-7 h-7 text-[#049fd9]" />
               </div>
-              <div className="relative font-bold text-sm tracking-tight text-white">{b.label}</div>
+              <div className="relative font-normal text-sm tracking-tight text-white">{b.label}</div>
               <div className="relative font-mono text-[10px] text-slate-400 uppercase tracking-[0.18em]">{b.sub}</div>
             </motion.div>
           ))}
@@ -301,7 +263,7 @@ export const CoreSection = () => {
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/[0.05] blur-[140px] rounded-full"></div>
 
           {/* chapter cipher */}
-          <span aria-hidden className="pointer-events-none absolute -left-[2vw] -top-[6vw] block font-display font-black leading-none text-[20vw] text-white/[0.025]">
+          <span aria-hidden className="pointer-events-none absolute -left-[2vw] -top-[6vw] block font-display font-light leading-none text-[20vw] text-white/[0.025]">
             02
           </span>
 
@@ -376,7 +338,7 @@ export const BentoGrid = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:80px_80px]"></div>
       </div>
       <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-[#049fd9]/[0.06] rounded-full blur-[140px] pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-600/[0.05] rounded-full blur-[160px] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-600/[0.05] rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -529,7 +491,7 @@ export const SplitMission = () => {
   return (
     <section className="py-32 bg-[#020617] overflow-hidden border-t border-white/5 relative">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#049fd9]/[0.08] blur-[160px] rounded-full"></div>
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#049fd9]/[0.08] blur-[120px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-20">
@@ -576,7 +538,7 @@ export const SplitMission = () => {
             </ul>
 
             <MagneticButton to="/about" strength={0.2}>
-              <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 hover:border-[#049fd9]/30 transition-all duration-500 backdrop-blur-md">
+              <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-light hover:bg-white/10 hover:border-[#049fd9]/30 transition-all duration-500 backdrop-blur-md">
                 Meet our architects <ArrowRight className="inline w-4 h-4 ml-2" />
               </button>
             </MagneticButton>
@@ -675,7 +637,7 @@ export const CTASection = () => {
           className="text-5xl md:text-7xl lg:text-8xl font-display font-light text-white tracking-tight mb-10 leading-[0.95]"
         >
           Evolve your <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#049fd9] to-blue-300">enterprise network.</span>
+          <span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-white via-[#049fd9] to-blue-300">enterprise network.</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -694,7 +656,7 @@ export const CTASection = () => {
           className="inline-block"
         >
           <MagneticButton to="/contact" strength={0.35}>
-            <div className="inline-flex items-center gap-3 px-14 py-6 rounded-full bg-[#049fd9] text-white font-bold shadow-[0_20px_50px_rgba(4,159,217,0.5)] text-lg relative overflow-hidden group">
+            <div className="inline-flex items-center gap-3 px-14 py-6 rounded-full bg-[#049fd9] text-white font-normal shadow-[0_10px_30px_rgba(4,159,217,0.2)] text-lg relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
               <span className="relative">Book a Strategic Assessment</span>
               <ArrowRight className="relative w-5 h-5" />

@@ -101,7 +101,38 @@ function nodeRadius(i: number): number {
   return 3.0 + h * 1.5;
 }
 
-export function NetworkTopology({ interactive = true }: { interactive?: boolean }) {
+/** Labels for the active nodes — these turn the abstract topology into
+ *  a readable architectural map. Each active node carries a capability tag
+ *  that appears as small mono caption text. */
+const NODE_LABELS: Record<number, { label: string; align?: 'left' | 'right' | 'above' | 'below' }> = {
+  2:  { label: 'WEBEX',          align: 'right' },
+  5:  { label: 'CONTACT CENTER', align: 'right' },
+  7:  { label: 'CALLING',        align: 'left'  },
+  10: { label: 'CLOUD',          align: 'above' },
+  13: { label: 'OBSERVABILITY',  align: 'right' },
+  14: { label: 'NOTIFICATIONS',  align: 'left'  },
+  17: { label: 'INTEGRATION',    align: 'below' },
+  19: { label: 'IDENTITY',       align: 'left'  },
+};
+
+function labelOffset(align: 'left' | 'right' | 'above' | 'below' = 'right') {
+  switch (align) {
+    case 'left':  return { dx: -10, dy: 4,  anchor: 'end' as const };
+    case 'right': return { dx: 10,  dy: 4,  anchor: 'start' as const };
+    case 'above': return { dx: 0,   dy: -10, anchor: 'middle' as const };
+    case 'below': return { dx: 0,   dy: 16, anchor: 'middle' as const };
+  }
+}
+
+type TopologyProps = {
+  interactive?: boolean;
+  showLabels?: boolean;
+  /** When true, paints the topology for a light surface (darker strokes,
+   *  darker labels, dimmer accent). Defaults to dark theme. */
+  theme?: 'dark' | 'light';
+};
+
+export function NetworkTopology({ interactive = true, showLabels = false, theme = 'dark' }: TopologyProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [mouse, setMouse] = useState<Vec | null>(null);
 
@@ -136,13 +167,20 @@ export function NetworkTopology({ interactive = true }: { interactive?: boolean 
     });
   }, [mouse]);
 
+  const isDark = theme === 'dark';
+  const ghostStroke = isDark ? 'rgba(226,232,240,0.07)' : 'rgba(15,23,42,0.10)';
+  const activeStroke = isDark ? 'rgba(4,159,217,0.36)' : 'rgba(4,159,217,0.55)';
+  const inactiveFill = isDark ? 'rgba(226,232,240,0.35)' : 'rgba(15,23,42,0.45)';
+  const activeFill = isDark ? '#e2e8f0' : '#0f172a';
+  const labelFill = isDark ? 'rgba(226,232,240,0.55)' : 'rgba(15,23,42,0.55)';
+
   return (
     <svg
       ref={svgRef}
       viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
       preserveAspectRatio="xMidYMid meet"
       role="img"
-      aria-label="Abstract network topology"
+      aria-label="Network architecture topology"
       className="h-full w-full"
     >
       <defs>
@@ -161,7 +199,7 @@ export function NetworkTopology({ interactive = true }: { interactive?: boolean 
               key={`ge-${a}-${b}`}
               animate={{ x1: na.x, y1: na.y, x2: nb.x, y2: nb.y }}
               transition={{ type: 'spring', stiffness: 90, damping: 20 }}
-              stroke="rgba(226,232,240,0.07)"
+              stroke={ghostStroke}
             />
           );
         })}
@@ -176,7 +214,7 @@ export function NetworkTopology({ interactive = true }: { interactive?: boolean 
               key={`ae-${a}-${b}`}
               animate={{ x1: na.x, y1: na.y, x2: nb.x, y2: nb.y }}
               transition={{ type: 'spring', stiffness: 90, damping: 20 }}
-              stroke="rgba(4,159,217,0.42)"
+              stroke={activeStroke}
             />
           );
         })}
@@ -202,6 +240,7 @@ export function NetworkTopology({ interactive = true }: { interactive?: boolean 
               cx={n.x} cy={n.y}
               r={nodeRadius(i)}
               periodScale={i === DRIFT_NODE_INDEX ? 1 : 1.45}
+              fill={activeFill}
             />
           );
         }
@@ -212,8 +251,45 @@ export function NetworkTopology({ interactive = true }: { interactive?: boolean 
             animate={{ cx: n.x, cy: n.y }}
             transition={{ type: 'spring', stiffness: 90, damping: 20 }}
             r={nodeRadius(i)}
-            fill={isActive ? '#e2e8f0' : 'rgba(226,232,240,0.35)'}
+            fill={isActive ? activeFill : inactiveFill}
           />
+        );
+      })}
+
+      {/* Capability labels next to active nodes */}
+      {showLabels && Object.entries(NODE_LABELS).map(([idxStr, { label, align }]) => {
+        const i = Number(idxStr);
+        const n = displaced[i]!;
+        const off = labelOffset(align);
+        return (
+          <motion.g
+            key={`lbl-${i}`}
+            animate={{ x: n.x, y: n.y }}
+            transition={{ type: 'spring', stiffness: 90, damping: 20 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <line
+              x1={0}
+              y1={0}
+              x2={off.dx * 0.5}
+              y2={off.dy * 0.5}
+              stroke={activeStroke}
+              strokeWidth="0.6"
+            />
+            <text
+              x={off.dx}
+              y={off.dy}
+              textAnchor={off.anchor}
+              fontFamily="JetBrains Mono, monospace"
+              fontSize="10"
+              fill={labelFill}
+              letterSpacing="0.18em"
+            >
+              {label}
+            </text>
+          </motion.g>
         );
       })}
 
@@ -255,12 +331,11 @@ function SignalPulse({ ax, ay, bx, by, period, offset }: {
         delay: offset,
         ease: [0.4, 0, 0.6, 1],
       }}
-      style={{ filter: 'drop-shadow(0 0 4px #049fd9)' }}
     />
   );
 }
 
-function DriftNode({ cx, cy, r, periodScale }: { cx: number; cy: number; r: number; periodScale: number }) {
+function DriftNode({ cx, cy, r, periodScale, fill = '#049fd9' }: { cx: number; cy: number; r: number; periodScale: number; fill?: string }) {
   const driftCtl = useAnimationControls();
   const pulseCtl = useAnimationControls();
   const alive = useRef(true);
@@ -302,8 +377,7 @@ function DriftNode({ cx, cy, r, periodScale }: { cx: number; cy: number; r: numb
           animate={{ cx, cy }}
           transition={{ type: 'spring', stiffness: 90, damping: 20 }}
           r={r}
-          fill="#049fd9"
-          style={{ filter: 'drop-shadow(0 0 5px #049fd9)' }}
+          fill={fill}
         />
       </motion.g>
     </>

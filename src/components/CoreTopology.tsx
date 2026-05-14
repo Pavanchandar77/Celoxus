@@ -1,5 +1,14 @@
 import { motion, MotionValue, useTransform } from 'framer-motion';
 
+/** Cluster captions — shown while the clusters are scattered (state 1),
+ *  fade out as they converge. Anchored above each cluster centroid. */
+const CLUSTER_LABELS: ReadonlyArray<{ x: number; y: number; label: string }> = [
+  { x: 105, y: 45,  label: 'CALLING' },        // cluster 0 (TL, contains hub)
+  { x: 495, y: 60,  label: 'CONTACT CENTER' }, // cluster 1 (TR)
+  { x: 130, y: 450, label: 'OBSERVABILITY' },  // cluster 2 (BL)
+  { x: 495, y: 450, label: 'INTEGRATION' },    // cluster 3 (BR)
+];
+
 /**
  * CoreTopology — Faithful port of celoxus-2's scroll-driven cluster-combine.
  * Four scattered clusters of nodes lerp from their hand-authored "from"
@@ -59,12 +68,27 @@ function lerpMV(mix: MotionValue<number>, from: number, to: number) {
   return useTransform(mix, [0, 1], [from, to]);
 }
 
-export function CoreTopology({ progress }: { progress: MotionValue<number> }) {
+type CoreProps = {
+  progress: MotionValue<number>;
+  theme?: 'dark' | 'light';
+};
+
+export function CoreTopology({ progress, theme = 'dark' }: CoreProps) {
+  const isDark = theme === 'dark';
+  const edgeStroke = isDark ? 'rgba(148,163,184,0.35)' : 'rgba(15,23,42,0.30)';
+  const interStroke = isDark ? 'rgba(148,163,184,0.45)' : 'rgba(15,23,42,0.45)';
+  const nodeIdle = isDark ? 'rgba(226,232,240,0.85)' : '#0f172a';
+  const labelFill = isDark ? 'rgba(226,232,240,0.55)' : 'rgba(15,23,42,0.65)';
+
   const mix = useTransform(progress, [0.15, 0.66], [0, 1], { clamp: true });
   const dashoffset = useTransform(progress, [0.33, 0.66], [100, 0], { clamp: true });
   const hubFillProgress = useTransform(progress, [0.62, 0.78], [0, 1], { clamp: true });
-  const hubFill = useTransform(hubFillProgress, [0, 1], ['rgba(226,232,240,0.85)', '#049fd9']);
+  const hubFill = useTransform(hubFillProgress, [0, 1], [nodeIdle, '#049fd9']);
   const pulseOpacity = useTransform(progress, [0.66, 1], [0, 1], { clamp: true });
+  // Cluster labels: visible while scattered, fade out as they converge.
+  const clusterLabelOpacity = useTransform(progress, [0, 0.2, 0.45], [1, 1, 0]);
+  // Unified-hub caption: appears as the cluster labels fade out.
+  const hubLabelOpacity = useTransform(progress, [0.55, 0.75], [0, 1], { clamp: true });
 
   return (
     <svg
@@ -74,12 +98,12 @@ export function CoreTopology({ progress }: { progress: MotionValue<number> }) {
       role="img"
       aria-label="System unification visualization"
     >
-      <g stroke="rgba(148,163,184,0.35)" strokeWidth="1" fill="none">
+      <g stroke={edgeStroke} strokeWidth="1" fill="none">
         {INTER_EDGES.map(([a, b]) => (
           <InterEdge key={`inter-${a}-${b}`} aIdx={a} bIdx={b} mix={mix} dashoffset={dashoffset} />
         ))}
       </g>
-      <g stroke="rgba(148,163,184,0.45)" strokeWidth="1" fill="none">
+      <g stroke={interStroke} strokeWidth="1" fill="none">
         {INTRA_EDGES.map(([a, b]) => (
           <IntraEdge key={`intra-${a}-${b}`} aIdx={a} bIdx={b} mix={mix} />
         ))}
@@ -90,22 +114,56 @@ export function CoreTopology({ progress }: { progress: MotionValue<number> }) {
             key={`n-${i}`}
             idx={i}
             mix={mix}
+            idleFill={nodeIdle}
             hubFill={n.isHub ? hubFill : undefined}
             pulseOpacity={n.isHub ? pulseOpacity : undefined}
           />
         ))}
       </g>
+
+      {/* Cluster captions — scattered state */}
+      <motion.g style={{ opacity: clusterLabelOpacity }}>
+        {CLUSTER_LABELS.map((c) => (
+          <text
+            key={c.label}
+            x={c.x}
+            y={c.y}
+            textAnchor="middle"
+            fontFamily="JetBrains Mono, monospace"
+            fontSize="11"
+            letterSpacing="0.22em"
+            fill={labelFill}
+          >
+            {c.label}
+          </text>
+        ))}
+      </motion.g>
+
+      {/* Unified hub caption — appears once clusters have converged */}
+      <motion.text
+        x={300}
+        y={272}
+        textAnchor="middle"
+        fontFamily="JetBrains Mono, monospace"
+        fontSize="11"
+        letterSpacing="0.32em"
+        fill="#049fd9"
+        style={{ opacity: hubLabelOpacity }}
+      >
+        UNIFIED OPS LAYER
+      </motion.text>
     </svg>
   );
 }
 
 function NodeCircle({
-  idx, mix, hubFill, pulseOpacity,
+  idx, mix, hubFill, pulseOpacity, idleFill,
 }: {
   idx: number;
   mix: MotionValue<number>;
   hubFill?: MotionValue<string>;
   pulseOpacity?: MotionValue<number>;
+  idleFill: string;
 }) {
   const n = NODES[idx]!;
   const cx = lerpMV(mix, n.from.x, n.to.x);
@@ -116,12 +174,12 @@ function NodeCircle({
         <motion.circle
           cx={cx} cy={cy} r={14}
           fill="#049fd9"
-          style={{ opacity: pulseOpacity, filter: 'drop-shadow(0 0 8px #049fd9)' }}
-          animate={{ r: [14, 24, 14], opacity: [0.4, 0, 0.4] }}
+          style={{ opacity: pulseOpacity }}
+          animate={{ r: [14, 24, 14], opacity: [0.3, 0, 0.3] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
         />
       )}
-      <motion.circle cx={cx} cy={cy} r={6} style={{ fill: hubFill ?? 'rgba(226,232,240,0.85)' }} />
+      <motion.circle cx={cx} cy={cy} r={6} style={{ fill: hubFill ?? idleFill }} />
     </>
   );
 }
