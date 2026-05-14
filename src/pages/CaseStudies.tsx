@@ -19,7 +19,7 @@ export const CaseStudies = () => {
          <div className="text-center max-w-4xl mx-auto mb-20">
            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
              <h1 className="text-5xl md:text-7xl font-light font-display tracking-tight mb-8">
-               Proven <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Implementations.</span>
+               Proven <span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Implementations.</span>
              </h1>
              <p className="text-xl text-slate-300 font-light leading-relaxed">
                Due to strict Non-Disclosure Agreements (NDAs), we do not publish identifiable client metadata. Below is a sanitized architectural brief demonstrating our capability baseline.
@@ -75,15 +75,15 @@ export const CaseStudies = () => {
                <div className="bg-[#020617]/50 border border-white/5 rounded-3xl p-8 relative z-10">
                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
                    <div className="sm:border-r sm:border-white/10">
-                     <div className="text-4xl md:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-2">2,500+</div>
+                     <div className="text-4xl md:text-5xl font-light inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-2">2,500+</div>
                      <div className="text-sm font-normal text-slate-400 uppercase tracking-widest">Seats Migrated</div>
                    </div>
                    <div className="sm:border-r sm:border-white/10">
-                     <div className="text-4xl md:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mb-2">-40%</div>
+                     <div className="text-4xl md:text-5xl font-light inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mb-2">-40%</div>
                      <div className="text-sm font-normal text-slate-400 uppercase tracking-widest">Avg Handle Time (AHT)</div>
                    </div>
                    <div>
-                     <div className="text-4xl md:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">99.999%</div>
+                     <div className="text-4xl md:text-5xl font-light inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">99.999%</div>
                      <div className="text-sm font-normal text-slate-400 uppercase tracking-widest">Architecture Uptime</div>
                    </div>
                  </div>

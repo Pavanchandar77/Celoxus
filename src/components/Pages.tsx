@@ -24,7 +24,7 @@ export const Products = () => {
               <Zap className="w-4 h-4 flex-shrink-0" /> Engineered for Performance
             </div>
             <h1 className="text-5xl md:text-7xl font-light font-display text-white tracking-tight mb-8">
-              Products built to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">accelerate</span> your operations.
+              Products built to <span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">accelerate</span> your operations.
             </h1>
             <p className="text-2xl text-slate-300 font-light leading-relaxed">
               Improve agent experience by automating repetitive tasks, providing real-time alerts, and orchestrating unified dashboards.
@@ -234,7 +234,7 @@ export const ProfessionalServices = () => {
             </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light font-display text-white tracking-tight mb-8 leading-[1]">
               Enterprise intelligence, <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">architected with precision.</span>
+              <span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">architected with precision.</span>
             </h1>
             <p className="text-2xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto">
               From seamless cloud calling architectures to AI-driven agent empowerment, we handle the complexity so you can focus on scale.
@@ -393,7 +393,7 @@ export const About = () => {
               Who We Are
            </div>
            <h1 className="text-6xl md:text-8xl font-light font-display tracking-tighter mb-10 leading-[1]">
-             Engineering the <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Intelligence Age.</span>
+             Engineering the <br/> <span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Intelligence Age.</span>
            </h1>
            <p className="text-2xl text-slate-300 font-light leading-relaxed max-w-3xl">
              Founded in 2018, Celoxus was built on a singular premise: enterprise networks and contact centers require surgical precision, not off-the-shelf compromises. We've scaled from an elite Cisco architecture consultancy to a full-stack engineering firm delivering zero-trust infrastructure to the Fortune 500.
@@ -557,7 +557,7 @@ export const Contact = () => {
               Global Connectivity
             </div>
             <h1 className="text-4xl md:text-5xl font-light font-display text-white tracking-tight mb-6 leading-[1.1]">
-              Architect Your <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Digital Evolution.</span>
+              Architect Your <br/><span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Digital Evolution.</span>
             </h1>
             <p className="text-lg text-slate-400 font-light leading-relaxed max-w-md">
               Reach out to our senior engineers and deployment specialists. We are ready to map out your custom integration or Cisco deployment.

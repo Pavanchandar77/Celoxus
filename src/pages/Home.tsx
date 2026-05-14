@@ -128,7 +128,7 @@ export const Hero = () => {
             </motion.p>
 
             {/* Headline — font-display font-light, single line, no gradient */}
-            <h1 className="mt-6 font-display font-light text-white text-[3rem] leading-[1.0] sm:text-[4.5rem] lg:text-[7rem] tracking-[-0.015em]">
+            <h1 className="mt-6 font-display font-light text-white text-[3rem] leading-[1.0] sm:text-[4.5rem] lg:text-[6rem] xl:text-[7rem] tracking-[-0.015em] break-words">
               <motion.span
                 variants={headlineVariant}
                 initial="hidden"
@@ -213,7 +213,7 @@ export const TrustBanner = () => {
           className="text-3xl md:text-5xl font-light text-white tracking-tight font-display"
         >
           Enterprise solutions powered by <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#049fd9] to-blue-300">CCIE-certified architects.</span>
+          <span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-[#049fd9] to-blue-300">CCIE-certified architects.</span>
         </motion.h3>
       </div>
 
@@ -650,7 +650,7 @@ export const CTASection = () => {
           className="text-5xl md:text-7xl lg:text-8xl font-display font-light text-white tracking-tight mb-10 leading-[0.95]"
         >
           Evolve your <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#049fd9] to-blue-300">enterprise network.</span>
+          <span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-white via-[#049fd9] to-blue-300">enterprise network.</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

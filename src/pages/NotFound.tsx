@@ -10,7 +10,7 @@ export const NotFound = () => {
 
       <div className="relative z-10 text-center px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <h1 className="text-8xl md:text-9xl font-light font-display tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-6 border-b border-indigo-500/20 pb-4 inline-block">
+          <h1 className="text-8xl md:text-9xl font-light font-display tracking-tighter inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-6 border-b border-indigo-500/20">
             404
           </h1>
           <h2 className="text-3xl md:text-4xl font-normal mb-6 font-display">System Node Not Found</h2>
