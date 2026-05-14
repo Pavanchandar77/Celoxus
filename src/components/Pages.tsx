@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Shield, Settings, Zap, ListCheck, Cloud, LayoutTemplate, Activity, ArrowRight, Headphones, Phone, Mail, Database, CheckCircle2, XCircle, Code } from 'lucide-react';
+import { InteractiveCard } from './InteractiveCard';
+import { MagneticButton } from './MagneticButton';
+import { NetworkTopology } from './NetworkTopology';
 
 export const Products = () => {
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-[#020617] min-h-screen">
       {/* Hero */}
       <div className="relative pt-40 pb-32 overflow-hidden bg-[#020617]">
         <div className="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2850&q=80" alt="Server Operations" fetchPriority="high" className="w-full h-full object-cover opacity-20 mix-blend-luminosity sepia-[.3] hue-rotate-[200deg]" referrerPolicy="no-referrer" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent"></div>
+        </div>
+        <div className="absolute left-0 top-0 hidden lg:block w-[55%] h-full opacity-40 pointer-events-auto z-0">
+          <NetworkTopology />
         </div>
         <div className="text-center max-w-4xl mx-auto md:mt-12 relative z-10 px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -104,7 +110,7 @@ export const Products = () => {
             <div className="w-16 h-16 bg-blue-50 rounded-2xl border border-blue-100 flex items-center justify-center mb-8">
               <LayoutTemplate className="w-8 h-8 text-[#2b3c98]" />
             </div>
-            <h2 className="text-4xl font-extrabold font-display text-slate-900 mb-6 leading-tight tracking-tight">Contact Center Monitoring</h2>
+            <h2 className="text-4xl font-extrabold font-display text-white mb-6 leading-tight tracking-tight">Contact Center Monitoring</h2>
             <div className="w-16 h-1 bg-[#2b3c98] mb-8 rounded-full"></div>
             <p className="text-slate-600 text-xl leading-relaxed mb-10 font-medium">
               Full-stack visibility into your operational flows. Track SLA breaches, active queues, and system health status. Intervene instantly when thresholds are violated.
@@ -206,13 +212,16 @@ export const Products = () => {
 
 export const ProfessionalServices = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#020617] min-h-screen">
       {/* Hero Section */}
-      <div className="relative pt-40 pb-32 overflow-hidden bg-[#020617] border-b border-slate-800">
+      <div className="relative pt-40 pb-32 overflow-hidden bg-[#020617] border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2850&q=80" alt="Consulting" fetchPriority="high" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-luminosity" referrerPolicy="no-referrer" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-[#020617]/30"></div>
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-500/10 blur-[150px] rounded-full"></div>
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#049fd9]/10 blur-[150px] rounded-full"></div>
+        </div>
+        <div className="absolute inset-x-0 top-0 hidden lg:block h-full opacity-30 pointer-events-auto z-0">
+          <NetworkTopology />
         </div>
         <div className="px-6 max-w-7xl mx-auto relative z-10 text-center">
           <motion.div 
@@ -235,26 +244,26 @@ export const ProfessionalServices = () => {
       </div>
 
       {/* Services Breakdown */}
-      <div className="py-32 relative bg-slate-50">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+      <div className="py-32 relative bg-[#020617]">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#049fd9]/30 to-transparent"></div>
         <div className="px-6 max-w-7xl mx-auto space-y-32">
           
           {/* Item 1 */}
-          <div className="flex flex-col lg:flex-row gap-16 items-center group">
+          <div className="flex flex-col lg:flex-row gap-16 items-center group rounded-[3rem] p-8 hover:bg-white/[0.02] transition-colors relative" data-cursor="hover">
             <div className="flex-1 lg:pr-10">
-              <h2 className="text-4xl lg:text-5xl font-extrabold font-display text-slate-900 mb-6 tracking-tight">Cisco Calling Solution</h2>
+              <h2 className="text-4xl lg:text-5xl font-extrabold font-display text-white mb-6 tracking-tight">Cisco Calling Solution</h2>
               <div className="w-16 h-1 bg-indigo-600 mb-8 rounded-full"></div>
-              <p className="text-xl text-slate-600 leading-relaxed mb-8">
+              <p className="text-xl text-slate-400 leading-relaxed mb-8">
                 Transform your cloud-based calling experience. Enjoy the full power of the Webex Cloud and bid goodbye to the friction of legacy phone systems. The Webex Calling experience extends flawlessly across desktop and mobile devices.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <li className="flex items-center gap-3 font-bold text-slate-800 text-lg">
+                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0 text-indigo-600">✓</div> Global Reach Scalability
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-800 text-lg">
+                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0 text-indigo-600">✓</div> Mobile Continuity
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-800 text-lg">
+                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0 text-indigo-600">✓</div> High-Availability Uptime
                 </li>
               </ul>
@@ -273,24 +282,24 @@ export const ProfessionalServices = () => {
           </div>
 
           {/* Item 2 */}
-          <div className="flex flex-col lg:flex-row-reverse gap-16 items-center group">
+          <div className="flex flex-col lg:flex-row-reverse gap-16 items-center group rounded-[3rem] p-8 hover:bg-white/[0.02] transition-colors relative" data-cursor="hover">
             <div className="flex-1 lg:pl-10">
-              <h2 className="text-4xl lg:text-5xl font-extrabold font-display text-slate-900 mb-6 tracking-tight">Cisco Contact Center Solution</h2>
+              <h2 className="text-4xl lg:text-5xl font-extrabold font-display text-white mb-6 tracking-tight">Cisco Contact Center Solution</h2>
               <div className="w-16 h-1 bg-blue-600 mb-8 rounded-full"></div>
-              <p className="text-xl text-slate-600 leading-relaxed mb-6">
+              <p className="text-xl text-slate-400 leading-relaxed mb-6">
                 Deliver seamless Omnichannel experiences. We design, deploy, and manage Cisco Contact Centers that utilize AI-driven automation and real-time data ingestion to supercharge your agent performance and cut down Average Handle Time (AHT).
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                <li className="flex items-center gap-3 font-bold text-slate-800 text-lg">
+                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">✓</div> Omnichannel Integration
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-800 text-lg">
+                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">✓</div> AI-Driven Automation
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-800 text-lg">
+                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">✓</div> Data-Driven Insights
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-800 text-lg">
+                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">✓</div> Seamless APIs
                 </li>
               </ul>
@@ -308,18 +317,18 @@ export const ProfessionalServices = () => {
           </div>
 
           {/* Item 3 */}
-          <div className="flex flex-col lg:flex-row gap-16 items-center group">
+          <div className="flex flex-col lg:flex-row gap-16 items-center group rounded-[3rem] p-8 hover:bg-white/[0.02] transition-colors relative" data-cursor="hover">
             <div className="flex-1 lg:pr-10">
-              <h2 className="text-4xl lg:text-5xl font-extrabold font-display text-slate-900 mb-6 tracking-tight">Cisco Cloud Applications</h2>
+              <h2 className="text-4xl lg:text-5xl font-extrabold font-display text-white mb-6 tracking-tight">Cisco Cloud Applications</h2>
               <div className="w-16 h-1 bg-purple-600 mb-8 rounded-full"></div>
-              <p className="text-xl text-slate-600 leading-relaxed mb-8">
+              <p className="text-xl text-slate-400 leading-relaxed mb-8">
                 Transition smoothly to flexible, robust cloud-native applications. We provide end-to-end cloud migrations ensuring high availability, global data redundancy, and uncompromising security.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <li className="flex items-center gap-3 font-bold text-slate-800 text-lg">
+                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-purple-50 border border-purple-100 flex items-center justify-center flex-shrink-0 text-purple-600">✓</div> Zero-Downtime Migration
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-800 text-lg">
+                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-purple-50 border border-purple-100 flex items-center justify-center flex-shrink-0 text-purple-600">✓</div> End-to-End Encryption
                 </li>
               </ul>
@@ -375,6 +384,9 @@ export const About = () => {
          <div className="absolute inset-0">
            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2850&q=80" alt="Corporate Architecture" fetchPriority="high" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-luminosity" referrerPolicy="no-referrer" />
            <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent"></div>
+         </div>
+         <div className="absolute right-0 top-0 hidden lg:block w-[50%] h-full opacity-50 pointer-events-auto z-0">
+           <NetworkTopology />
          </div>
          <div className="max-w-7xl mx-auto px-6 relative z-10 max-w-4xl">
            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
@@ -446,32 +458,38 @@ export const About = () => {
             <p className="text-slate-400 max-w-2xl mx-auto text-lg">Strict focus areas where we deliver uncompromising Cisco architectural excellence.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors">
-              <div className="w-12 h-12 bg-indigo-500/20 text-indigo-400 rounded-xl flex items-center justify-center mb-6">
-                <Cloud className="w-6 h-6" />
+            <InteractiveCard className="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-[#049fd9]/40 transition-colors">
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-[#049fd9]/15 text-[#049fd9] rounded-xl flex items-center justify-center mb-6 border border-[#049fd9]/20">
+                  <Cloud className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Cloud Center Mapping</h3>
+                <div className="text-xs font-mono text-emerald-400 font-bold tracking-widest uppercase mb-4">Webex & UCCE</div>
+                <p className="text-slate-400 leading-relaxed">Designing, provisioning, and scaling massive hybrid or full-cloud Contact Center topologies.</p>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Cloud Center Mapping</h3>
-              <div className="text-xs font-mono text-emerald-400 font-bold tracking-widest uppercase mb-4">Webex & UCCE</div>
-              <p className="text-slate-400 leading-relaxed">Designing, provisioning, and scaling massive hybrid or full-cloud Contact Center topologies.</p>
-            </div>
-            
-            <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors">
-              <div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center mb-6">
-                <Code className="w-6 h-6" />
+            </InteractiveCard>
+
+            <InteractiveCard className="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-[#049fd9]/40 transition-colors">
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-[#049fd9]/15 text-[#049fd9] rounded-xl flex items-center justify-center mb-6 border border-[#049fd9]/20">
+                  <Code className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Custom Automations</h3>
+                <div className="text-xs font-mono text-[#049fd9] font-bold tracking-widest uppercase mb-4">Finesse / API / Dev</div>
+                <p className="text-slate-400 leading-relaxed">Writing custom software, middleware, and notification systems that fill the gaps standard CC deployments have.</p>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Custom Automations</h3>
-              <div className="text-xs font-mono text-blue-400 font-bold tracking-widest uppercase mb-4">Finesse / API / Dev</div>
-              <p className="text-slate-400 leading-relaxed">Writing custom software, middleware, and notification systems that fill the gaps standard CC deployments have.</p>
-            </div>
-            
-            <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors">
-              <div className="w-12 h-12 bg-purple-500/20 text-purple-400 rounded-xl flex items-center justify-center mb-6">
-                <Shield className="w-6 h-6" />
+            </InteractiveCard>
+
+            <InteractiveCard className="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-[#049fd9]/40 transition-colors">
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-[#049fd9]/15 text-[#049fd9] rounded-xl flex items-center justify-center mb-6 border border-[#049fd9]/20">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Zero-Trust Backbone</h3>
+                <div className="text-xs font-mono text-[#049fd9] font-bold tracking-widest uppercase mb-4">Sovereign Focus</div>
+                <p className="text-slate-400 leading-relaxed">Guaranteeing data integrity through air-gapped or localized logic loops, strictly designed for highly regulated Fortune 500 networks.</p>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Zero-Trust Backbone</h3>
-              <div className="text-xs font-mono text-purple-400 font-bold tracking-widest uppercase mb-4">Sovereign Focus</div>
-              <p className="text-slate-400 leading-relaxed">Guaranteeing data integrity through air-gapped or localized logic loops, strictly designed for highly regulated Fortune 500 networks.</p>
-            </div>
+            </InteractiveCard>
           </div>
         </div>
 
@@ -572,7 +590,7 @@ export const Contact = () => {
         {/* Right Side: The Form */}
         <div className="lg:w-7/12 p-12 lg:p-20 bg-white">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-extrabold font-display text-slate-900 mb-2">Initialize Project</h2>
+            <h2 className="text-3xl font-extrabold font-display text-white mb-2">Initialize Project</h2>
             <p className="text-slate-500 font-medium mb-12 text-lg">Complete the parameters below to route your request to the correct team.</p>
             
             <form className="space-y-8" onSubmit={handleSubmit}>

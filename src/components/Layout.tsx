@@ -58,8 +58,8 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navClass = scrolled 
-    ? 'bg-[#0b1120]/70 backdrop-blur-3xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] py-4' 
+  const navClass = scrolled
+    ? 'bg-[#020617]/70 backdrop-blur-3xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)] py-4'
     : 'bg-transparent py-6';
 
   const textColorClass = 'text-white';
@@ -197,7 +197,7 @@ export const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-[#049fd9] selection:text-white">
       <Navbar />
-      <main className="flex-1 bg-[#f8fafc]">
+      <main className="flex-1 bg-[#020617]">
         <Outlet />
       </main>
       <Footer />

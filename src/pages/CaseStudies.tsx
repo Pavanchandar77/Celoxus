@@ -1,14 +1,19 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Server, Activity, ArrowRight, Lock, BarChart } from 'lucide-react';
+import { Server, Activity, ArrowRight, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { InteractiveCard } from '../components/InteractiveCard';
+import { MagneticButton } from '../components/MagneticButton';
+import { NetworkTopology } from '../components/NetworkTopology';
 
 export const CaseStudies = () => {
   return (
     <div className="bg-[#020617] text-white min-h-[90vh] relative overflow-hidden pt-40 pb-32 flex flex-col justify-center">
        {/* Background effects */}
-       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-indigo-900/20 blur-[150px] rounded-full pointer-events-none z-0"></div>
+       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#049fd9]/12 blur-[150px] rounded-full pointer-events-none z-0"></div>
        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-900/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
+       <div className="absolute inset-0 hidden lg:block opacity-25 pointer-events-auto">
+         <NetworkTopology />
+       </div>
 
        <div className="max-w-7xl mx-auto px-6 relative z-10">
          <div className="text-center max-w-4xl mx-auto mb-20">
@@ -23,14 +28,14 @@ export const CaseStudies = () => {
          </div>
 
          <div className="space-y-24 max-w-5xl mx-auto">
-             <motion.div 
+             <motion.div
                initial={{ opacity: 0, y: 40 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true, margin: "-100px" }}
                transition={{ duration: 0.7 }}
-               className="bg-white/5 border border-white/10 rounded-[3rem] p-8 md:p-16 relative overflow-hidden group"
              >
-               <div className="absolute inset-0 bg-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <InteractiveCard className="bg-white/5 border border-white/10 rounded-[3rem] p-8 md:p-16 relative overflow-hidden hover:border-[#049fd9]/40 transition-colors">
+               <div className="absolute inset-0 bg-[#049fd9]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                
                {/* Header */}
                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-white/10 pb-12 relative z-10">
@@ -83,6 +88,7 @@ export const CaseStudies = () => {
                    </div>
                  </div>
                </div>
+             </InteractiveCard>
              </motion.div>
          </div>
 
@@ -94,9 +100,13 @@ export const CaseStudies = () => {
            className="mt-24 text-center max-w-2xl mx-auto"
          >
            <h3 className="text-2xl font-bold text-white mb-6">Need the full technical spec?</h3>
-           <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-slate-100 transition-all group shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-             Contact Engineering for Capabilities Brief <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-           </Link>
+           <MagneticButton to="/contact">
+             <div className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#049fd9] text-white font-bold shadow-[0_15px_40px_rgba(4,159,217,0.45)] relative overflow-hidden group">
+               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
+               <span className="relative">Contact Engineering for Capabilities Brief</span>
+               <ArrowRight className="relative w-5 h-5" />
+             </div>
+           </MagneticButton>
          </motion.div>
 
        </div>
