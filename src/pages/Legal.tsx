@@ -15,15 +15,15 @@ export const PrivacyPolicy = () => {
       
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-normal mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
              <Shield className="w-4 h-4" /> Legal Framework
           </div>
           <h1 className="text-4xl md:text-5xl font-light font-display tracking-tight mb-8">
             Privacy Policy
           </h1>
-          <p className="text-slate-400 font-medium mb-12">Effective Date: January 1, 2024</p>
+          <p className="text-slate-400 font-light mb-12">Effective Date: January 1, 2024</p>
 
-          <div className="text-slate-300 text-lg leading-[1.8] tracking-wide [&>p]:mb-8 [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:text-white [&>h2]:mt-16 [&>h2]:mb-6 [&>ul]:list-disc [&>ul]:pl-8 [&>ul>li]:mb-4 [&>ul>li>strong]:text-white">
+          <div className="text-slate-300 text-lg leading-[1.8] tracking-wide [&>p]:mb-8 [&>h2]:text-3xl [&>h2]:font-normal [&>h2]:text-white [&>h2]:mt-16 [&>h2]:mb-6 [&>ul]:list-disc [&>ul]:pl-8 [&>ul>li]:mb-4 [&>ul>li>strong]:text-white">
             <p>
               Celoxus ("we", "our", or "us") is deeply committed to protecting your privacy and ensuring that your personal data is handled securely and responsibly. This Privacy Policy details the types of information we collect, the purposes for which we use it, your rights regarding your personal data, and the rigorous measures we implement to protect it.
             </p>
@@ -94,15 +94,15 @@ export const TermsOfService = () => {
       
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-normal mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
              <BookOpen className="w-4 h-4" /> Legal Framework
           </div>
           <h1 className="text-4xl md:text-5xl font-light font-display tracking-tight mb-8">
             Terms of Service
           </h1>
-          <p className="text-slate-400 font-medium mb-12">Effective Date: January 1, 2024</p>
+          <p className="text-slate-400 font-light mb-12">Effective Date: January 1, 2024</p>
 
-          <div className="text-slate-300 text-lg leading-[1.8] tracking-wide [&>p]:mb-8 [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:text-white [&>h2]:mt-16 [&>h2]:mb-6 [&>ul]:list-disc [&>ul]:pl-8 [&>ul>li]:mb-4 [&>ul>li>strong]:text-white">
+          <div className="text-slate-300 text-lg leading-[1.8] tracking-wide [&>p]:mb-8 [&>h2]:text-3xl [&>h2]:font-normal [&>h2]:text-white [&>h2]:mt-16 [&>h2]:mb-6 [&>ul]:list-disc [&>ul]:pl-8 [&>ul>li]:mb-4 [&>ul>li>strong]:text-white">
             <p>
               These Terms of Service ("Terms") constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and Celoxus ("we", "us", or "our"), concerning your access to and use of the Celoxus website and our associated consultative and professional integration services (collectively, the "Services"). By accessing the Services, you agree that you have read, understood, and agree to be bound by all of these Terms.
             </p>

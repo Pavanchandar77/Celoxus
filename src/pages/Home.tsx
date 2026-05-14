@@ -81,7 +81,7 @@ export const Hero = () => {
 
       {/* ----- Layer 4: chapter cipher 01 ----- */}
       <div className="pointer-events-none absolute bottom-0 left-0 z-[2] h-[55%] w-auto overflow-hidden leading-none">
-        <span className="block font-display font-black leading-none text-[20vw] text-white/[0.025]" style={{ lineHeight: 1 }}>
+        <span className="block font-display font-light leading-none text-[20vw] text-white/[0.025]" style={{ lineHeight: 1 }}>
           01
         </span>
       </div>
@@ -238,7 +238,7 @@ export const TrustBanner = () => {
               <div className="relative w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-1 group-hover:scale-110 transition-transform duration-500">
                 <b.icon className="w-7 h-7 text-[#049fd9]" />
               </div>
-              <div className="relative font-bold text-sm tracking-tight text-white">{b.label}</div>
+              <div className="relative font-normal text-sm tracking-tight text-white">{b.label}</div>
               <div className="relative font-mono text-[10px] text-slate-400 uppercase tracking-[0.18em]">{b.sub}</div>
             </motion.div>
           ))}
@@ -276,7 +276,7 @@ export const CoreSection = () => {
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/[0.05] blur-[140px] rounded-full"></div>
 
           {/* chapter cipher */}
-          <span aria-hidden className="pointer-events-none absolute -left-[2vw] -top-[6vw] block font-display font-black leading-none text-[20vw] text-white/[0.025]">
+          <span aria-hidden className="pointer-events-none absolute -left-[2vw] -top-[6vw] block font-display font-light leading-none text-[20vw] text-white/[0.025]">
             02
           </span>
 
@@ -551,7 +551,7 @@ export const SplitMission = () => {
             </ul>
 
             <MagneticButton to="/about" strength={0.2}>
-              <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 hover:border-[#049fd9]/30 transition-all duration-500 backdrop-blur-md">
+              <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-light hover:bg-white/10 hover:border-[#049fd9]/30 transition-all duration-500 backdrop-blur-md">
                 Meet our architects <ArrowRight className="inline w-4 h-4 ml-2" />
               </button>
             </MagneticButton>
@@ -669,7 +669,7 @@ export const CTASection = () => {
           className="inline-block"
         >
           <MagneticButton to="/contact" strength={0.35}>
-            <div className="inline-flex items-center gap-3 px-14 py-6 rounded-full bg-[#049fd9] text-white font-bold shadow-[0_20px_50px_rgba(4,159,217,0.5)] text-lg relative overflow-hidden group">
+            <div className="inline-flex items-center gap-3 px-14 py-6 rounded-full bg-[#049fd9] text-white font-normal shadow-[0_20px_50px_rgba(4,159,217,0.5)] text-lg relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
               <span className="relative">Book a Strategic Assessment</span>
               <ArrowRight className="relative w-5 h-5" />

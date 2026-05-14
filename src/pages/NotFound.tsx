@@ -13,13 +13,13 @@ export const NotFound = () => {
           <h1 className="text-8xl md:text-9xl font-light font-display tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-6 border-b border-indigo-500/20 pb-4 inline-block">
             404
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">System Node Not Found</h2>
+          <h2 className="text-3xl md:text-4xl font-normal mb-6 font-display">System Node Not Found</h2>
           <p className="text-lg text-slate-400 max-w-md mx-auto mb-10 leading-relaxed">
             The endpoint you are attempting to access does not exist in our current architecture topology.
           </p>
           <div className="inline-block relative group">
             <div className="absolute inset-x-0 -bottom-1 h-3 bg-indigo-500/30 group-hover:bg-indigo-500/50 transition-colors blur-sm"></div>
-            <Link to="/" className="relative flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full font-bold shadow-xl hover:bg-slate-100 transition-colors">
+            <Link to="/" className="relative flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full font-normal shadow-xl hover:bg-slate-100 transition-colors">
               <ArrowLeft className="w-5 h-5" /> Return to Core Infrastructure
             </Link>
           </div>

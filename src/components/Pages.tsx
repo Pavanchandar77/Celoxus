@@ -20,13 +20,13 @@ export const Products = () => {
         </div>
         <div className="text-center max-w-4xl mx-auto md:mt-12 relative z-10 px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-normal mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
               <Zap className="w-4 h-4 flex-shrink-0" /> Engineered for Performance
             </div>
             <h1 className="text-5xl md:text-7xl font-light font-display text-white tracking-tight mb-8">
               Products built to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">accelerate</span> your operations.
             </h1>
-            <p className="text-2xl text-slate-300 font-medium leading-relaxed">
+            <p className="text-2xl text-slate-300 font-light leading-relaxed">
               Improve agent experience by automating repetitive tasks, providing real-time alerts, and orchestrating unified dashboards.
             </p>
           </motion.div>
@@ -51,17 +51,17 @@ export const Products = () => {
                  <Activity className="w-8 h-8 text-indigo-400" />
                </div>
                <h2 className="text-4xl font-light font-display text-white mb-6 leading-tight">Finesse Notifications</h2>
-               <p className="text-slate-400 text-xl leading-relaxed mb-10 font-medium">
+               <p className="text-slate-400 text-xl leading-relaxed mb-10 font-light">
                  A real-time "Toaster" wrapper designed to drastically improve agent responsiveness. Ensure agents stay informed of critical metrics instantaneously without needing to monitor dashboards. Includes immediate RONA alerts out of the box.
                </p>
                <ul className="space-y-5 mb-10">
-                 <li className="flex items-center gap-4 text-slate-300 font-medium text-lg">
+                 <li className="flex items-center gap-4 text-slate-300 font-light text-lg">
                    <div className="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm">✓</div> Zero-delay alerting
                  </li>
-                 <li className="flex items-center gap-4 text-slate-300 font-medium text-lg">
+                 <li className="flex items-center gap-4 text-slate-300 font-light text-lg">
                    <div className="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm">✓</div> RONA immediate interception
                  </li>
-                 <li className="flex items-center gap-4 text-slate-300 font-medium text-lg">
+                 <li className="flex items-center gap-4 text-slate-300 font-light text-lg">
                    <div className="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm">✓</div> Custom metric overlays
                  </li>
                </ul>
@@ -85,13 +85,13 @@ export const Products = () => {
                  <div className="h-2 w-5/6 bg-slate-700 rounded-full mb-4"></div>
                  <div className="h-2 w-4/6 bg-slate-700 rounded-full"></div>
                  <div className="absolute -right-5 -bottom-5 w-16 h-16 bg-[#ef4444] rounded-full border-[6px] border-[#0f172a] shadow-lg flex items-center justify-center animate-pulse">
-                   <span className="text-white font-black text-sm tracking-wider">RONA</span>
+                   <span className="text-white font-light text-sm tracking-wider">RONA</span>
                  </div>
                </div>
                {/* Floating elements */}
                <div className="absolute -left-12 top-1/2 bg-slate-800 border border-slate-700 rounded-2xl p-4 shadow-xl flex items-center gap-3">
                  <div className="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></div>
-                 <span className="text-slate-300 text-sm font-bold">Online</span>
+                 <span className="text-slate-300 text-sm font-normal">Online</span>
                </div>
             </div>
             {/* Grid bg */}
@@ -112,17 +112,17 @@ export const Products = () => {
             </div>
             <h2 className="text-4xl font-light font-display text-white mb-6 leading-tight tracking-tight">Contact Center Monitoring</h2>
             <div className="w-16 h-1 bg-[#2b3c98] mb-8 rounded-full"></div>
-            <p className="text-slate-600 text-xl leading-relaxed mb-10 font-medium">
+            <p className="text-slate-600 text-xl leading-relaxed mb-10 font-light">
               Full-stack visibility into your operational flows. Track SLA breaches, active queues, and system health status. Intervene instantly when thresholds are violated.
             </p>
             <ul className="space-y-5">
-               <li className="flex items-center gap-4 text-slate-700 font-bold text-lg">
+               <li className="flex items-center gap-4 text-slate-700 font-normal text-lg">
                  <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-700 text-sm flex-shrink-0">✓</div> Global Dashboard Visibility
                </li>
-               <li className="flex items-center gap-4 text-slate-700 font-bold text-lg">
+               <li className="flex items-center gap-4 text-slate-700 font-normal text-lg">
                  <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-700 text-sm flex-shrink-0">✓</div> SLA Violation Tracking
                </li>
-               <li className="flex items-center gap-4 text-slate-700 font-bold text-lg">
+               <li className="flex items-center gap-4 text-slate-700 font-normal text-lg">
                  <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-700 text-sm flex-shrink-0">✓</div> Historical Pulse Analytics
                </li>
             </ul>
@@ -138,13 +138,13 @@ export const Products = () => {
                 <div className="w-1/4 bg-gradient-to-t from-indigo-500/80 to-indigo-400/40 rounded-t-xl h-[40%] group-hover:h-[60%] transition-all duration-700 ease-out border border-white/10 border-b-0 backdrop-blur-sm"></div>
                 
                 <div className="w-1/4 bg-gradient-to-t from-blue-500/90 to-blue-400/50 rounded-t-xl h-[70%] group-hover:h-[85%] transition-all duration-700 ease-out relative border border-white/10 border-b-0 backdrop-blur-sm shadow-[0_0_30px_rgba(59,130,246,0.3)]">
-                   <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-sm font-bold py-1.5 px-4 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300">Active</div>
+                   <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-sm font-normal py-1.5 px-4 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300">Active</div>
                 </div>
                 
                 <div className="w-1/4 bg-gradient-to-t from-indigo-400/70 to-indigo-300/30 rounded-t-xl h-[55%] group-hover:h-[45%] transition-all duration-700 ease-out border border-white/10 border-b-0 backdrop-blur-sm"></div>
                 
                 <div className="w-1/4 bg-gradient-to-t from-[#8fa1d5] to-indigo-300 rounded-t-xl h-[85%] group-hover:h-[100%] transition-all duration-700 ease-out relative border border-white/20 border-b-0 backdrop-blur-sm shadow-[0_0_40px_rgba(143,161,213,0.4)]">
-                   <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-[#2b3c98] text-sm font-bold py-1.5 px-4 rounded-full whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.8)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-500">Peak Volume</div>
+                   <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-[#2b3c98] text-sm font-normal py-1.5 px-4 rounded-full whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.8)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-500">Peak Volume</div>
                 </div>
              </div>
           </div>
@@ -162,17 +162,17 @@ export const Products = () => {
               <Settings className="w-8 h-8 text-[#8fa1d5]" />
             </div>
             <h2 className="text-4xl font-light font-display text-white mb-6 leading-tight tracking-tight">Custom Integrations</h2>
-            <p className="text-slate-400 text-xl leading-relaxed mb-10 font-medium">
+            <p className="text-slate-400 text-xl leading-relaxed mb-10 font-light">
               Off-the-shelf software rarely fits complex enterprise architectures. Celoxus specializes in building entirely custom middleware, complex CRM conduits, and unique automation widgets.
             </p>
             <ul className="space-y-5">
-               <li className="flex items-center gap-4 text-slate-300 font-bold text-lg">
+               <li className="flex items-center gap-4 text-slate-300 font-normal text-lg">
                  <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm flex-shrink-0">✓</div> Legacy Architecture Bridging
                </li>
-               <li className="flex items-center gap-4 text-slate-300 font-bold text-lg">
+               <li className="flex items-center gap-4 text-slate-300 font-normal text-lg">
                  <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm flex-shrink-0">✓</div> Third-party API Conduits
                </li>
-               <li className="flex items-center gap-4 text-slate-300 font-bold text-lg">
+               <li className="flex items-center gap-4 text-slate-300 font-normal text-lg">
                  <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm flex-shrink-0">✓</div> Enterprise CRM Synchronization
                </li>
             </ul>
@@ -229,14 +229,14 @@ export const ProfessionalServices = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-indigo-300 text-sm font-normal mb-8 uppercase tracking-widest">
               Professional Services
             </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light font-display text-white tracking-tight mb-8 leading-[1]">
               Enterprise intelligence, <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">architected with precision.</span>
             </h1>
-            <p className="text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto">
+            <p className="text-2xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto">
               From seamless cloud calling architectures to AI-driven agent empowerment, we handle the complexity so you can focus on scale.
             </p>
           </motion.div>
@@ -257,13 +257,13 @@ export const ProfessionalServices = () => {
                 Transform your cloud-based calling experience. Enjoy the full power of the Webex Cloud and bid goodbye to the friction of legacy phone systems. The Webex Calling experience extends flawlessly across desktop and mobile devices.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
+                <li className="flex items-center gap-3 font-normal text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0 text-indigo-600">✓</div> Global Reach Scalability
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
+                <li className="flex items-center gap-3 font-normal text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0 text-indigo-600">✓</div> Mobile Continuity
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
+                <li className="flex items-center gap-3 font-normal text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0 text-indigo-600">✓</div> High-Availability Uptime
                 </li>
               </ul>
@@ -274,8 +274,8 @@ export const ProfessionalServices = () => {
                <div className="absolute bottom-6 left-6 right-6 p-6 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 text-white flex gap-4 items-center shadow-xl">
                  <Headphones className="w-10 h-10 text-white" />
                  <div>
-                   <div className="font-bold text-lg">Webex Calling</div>
-                   <div className="text-white/80 font-medium text-sm">Deployed seamlessly</div>
+                   <div className="font-normal text-lg">Webex Calling</div>
+                   <div className="text-white/80 font-light text-sm">Deployed seamlessly</div>
                  </div>
                </div>
             </div>
@@ -290,16 +290,16 @@ export const ProfessionalServices = () => {
                 Deliver seamless Omnichannel experiences. We design, deploy, and manage Cisco Contact Centers that utilize AI-driven automation and real-time data ingestion to supercharge your agent performance and cut down Average Handle Time (AHT).
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
+                <li className="flex items-center gap-3 font-normal text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">✓</div> Omnichannel Integration
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
+                <li className="flex items-center gap-3 font-normal text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">✓</div> AI-Driven Automation
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
+                <li className="flex items-center gap-3 font-normal text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">✓</div> Data-Driven Insights
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
+                <li className="flex items-center gap-3 font-normal text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">✓</div> Seamless APIs
                 </li>
               </ul>
@@ -325,10 +325,10 @@ export const ProfessionalServices = () => {
                 Transition smoothly to flexible, robust cloud-native applications. We provide end-to-end cloud migrations ensuring high availability, global data redundancy, and uncompromising security.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
+                <li className="flex items-center gap-3 font-normal text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-purple-50 border border-purple-100 flex items-center justify-center flex-shrink-0 text-purple-600">✓</div> Zero-Downtime Migration
                 </li>
-                <li className="flex items-center gap-3 font-bold text-slate-200 text-lg">
+                <li className="flex items-center gap-3 font-normal text-slate-200 text-lg">
                   <div className="w-8 h-8 rounded-full bg-purple-50 border border-purple-100 flex items-center justify-center flex-shrink-0 text-purple-600">✓</div> End-to-End Encryption
                 </li>
               </ul>
@@ -339,8 +339,8 @@ export const ProfessionalServices = () => {
                <div className="absolute bottom-6 left-6 right-6 p-6 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 text-white flex gap-4 items-center shadow-xl">
                  <Cloud className="w-10 h-10 text-white" />
                  <div>
-                   <div className="font-bold text-lg">Cloud Infrastructure</div>
-                   <div className="text-white/80 font-medium text-sm">Globally distributed</div>
+                   <div className="font-normal text-lg">Cloud Infrastructure</div>
+                   <div className="text-white/80 font-light text-sm">Globally distributed</div>
                  </div>
                </div>
             </div>
@@ -389,13 +389,13 @@ export const About = () => {
            <NetworkTopology />
          </div>
          <div className="max-w-7xl mx-auto px-6 relative z-10 max-w-4xl">
-           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-bold mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
+           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 text-indigo-300 text-sm font-normal mb-8 uppercase tracking-widest bg-white/5 backdrop-blur-md">
               Who We Are
            </div>
            <h1 className="text-6xl md:text-8xl font-light font-display tracking-tighter mb-10 leading-[1]">
              Engineering the <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Intelligence Age.</span>
            </h1>
-           <p className="text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl">
+           <p className="text-2xl text-slate-300 font-light leading-relaxed max-w-3xl">
              Founded in 2018, Celoxus was built on a singular premise: enterprise networks and contact centers require surgical precision, not off-the-shelf compromises. We've scaled from an elite Cisco architecture consultancy to a full-stack engineering firm delivering zero-trust infrastructure to the Fortune 500.
            </p>
          </div>
@@ -407,7 +407,7 @@ export const About = () => {
           <div>
              <h2 className="text-4xl lg:text-5xl font-light font-display mb-6 tracking-tight text-white">Why Celoxus</h2>
              <div className="w-20 h-1 bg-indigo-500 mb-8 rounded-full"></div>
-             <p className="text-xl text-slate-300 leading-relaxed font-medium mb-8">
+             <p className="text-xl text-slate-300 leading-relaxed font-light mb-8">
                We don't just deploy solutions; we embed our CCIE-certified architects within your operations. By understanding your exact ecosystem limitations, we engineer custom API conduits and automation workflows that generic SIs simply cannot map.
              </p>
              
@@ -416,14 +416,14 @@ export const About = () => {
                    <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30 mb-4">
                      <Activity className="w-6 h-6 text-indigo-400" />
                    </div>
-                   <h4 className="text-xl font-bold mb-2 text-white">Deep Capabilities</h4>
+                   <h4 className="text-xl font-normal mb-2 text-white">Deep Capabilities</h4>
                    <p className="text-slate-400 text-sm">Advanced telemetry and AI integrations mapping the entire call lifecycle.</p>
                 </div>
                 <div>
                    <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30 mb-4">
                      <Shield className="w-6 h-6 text-blue-400" />
                    </div>
-                   <h4 className="text-xl font-bold mb-2 text-white">Sovereign Focus</h4>
+                   <h4 className="text-xl font-normal mb-2 text-white">Sovereign Focus</h4>
                    <p className="text-slate-400 text-sm">Uncompromising security standards designed for highly-regulated environments.</p>
                 </div>
              </div>
@@ -443,7 +443,7 @@ export const About = () => {
                    </div>
                    <div>
                      <div className="text-3xl font-light font-display text-white">Scale Global</div>
-                     <div className="text-indigo-200 font-medium">Bespoke Cisco Architectures</div>
+                     <div className="text-indigo-200 font-light">Bespoke Cisco Architectures</div>
                    </div>
                  </div>
                </div>
@@ -463,8 +463,8 @@ export const About = () => {
                 <div className="w-12 h-12 bg-[#049fd9]/15 text-[#049fd9] rounded-xl flex items-center justify-center mb-6 border border-[#049fd9]/20">
                   <Cloud className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Cloud Center Mapping</h3>
-                <div className="text-xs font-mono text-emerald-400 font-bold tracking-widest uppercase mb-4">Webex & UCCE</div>
+                <h3 className="text-xl font-normal text-white mb-2">Cloud Center Mapping</h3>
+                <div className="text-xs font-mono text-emerald-400 font-normal tracking-widest uppercase mb-4">Webex & UCCE</div>
                 <p className="text-slate-400 leading-relaxed">Designing, provisioning, and scaling massive hybrid or full-cloud Contact Center topologies.</p>
               </div>
             </InteractiveCard>
@@ -474,8 +474,8 @@ export const About = () => {
                 <div className="w-12 h-12 bg-[#049fd9]/15 text-[#049fd9] rounded-xl flex items-center justify-center mb-6 border border-[#049fd9]/20">
                   <Code className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Custom Automations</h3>
-                <div className="text-xs font-mono text-[#049fd9] font-bold tracking-widest uppercase mb-4">Finesse / API / Dev</div>
+                <h3 className="text-xl font-normal text-white mb-2">Custom Automations</h3>
+                <div className="text-xs font-mono text-[#049fd9] font-normal tracking-widest uppercase mb-4">Finesse / API / Dev</div>
                 <p className="text-slate-400 leading-relaxed">Writing custom software, middleware, and notification systems that fill the gaps standard CC deployments have.</p>
               </div>
             </InteractiveCard>
@@ -485,8 +485,8 @@ export const About = () => {
                 <div className="w-12 h-12 bg-[#049fd9]/15 text-[#049fd9] rounded-xl flex items-center justify-center mb-6 border border-[#049fd9]/20">
                   <Shield className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Zero-Trust Backbone</h3>
-                <div className="text-xs font-mono text-[#049fd9] font-bold tracking-widest uppercase mb-4">Sovereign Focus</div>
+                <h3 className="text-xl font-normal text-white mb-2">Zero-Trust Backbone</h3>
+                <div className="text-xs font-mono text-[#049fd9] font-normal tracking-widest uppercase mb-4">Sovereign Focus</div>
                 <p className="text-slate-400 leading-relaxed">Guaranteeing data integrity through air-gapped or localized logic loops, strictly designed for highly regulated Fortune 500 networks.</p>
               </div>
             </InteractiveCard>
@@ -552,14 +552,14 @@ export const Contact = () => {
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#2b3c98]/30 blur-[100px] rounded-full pointer-events-none -translate-x-1/3 translate-y-1/3 z-0"></div>
           
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/90 text-sm font-semibold mb-8 backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/90 text-sm font-normal mb-8 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
               Global Connectivity
             </div>
             <h1 className="text-4xl md:text-5xl font-light font-display text-white tracking-tight mb-6 leading-[1.1]">
               Architect Your <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Digital Evolution.</span>
             </h1>
-            <p className="text-lg text-slate-400 font-medium leading-relaxed max-w-md">
+            <p className="text-lg text-slate-400 font-light leading-relaxed max-w-md">
               Reach out to our senior engineers and deployment specialists. We are ready to map out your custom integration or Cisco deployment.
             </p>
           </div>
@@ -570,8 +570,8 @@ export const Contact = () => {
                 <Phone className="w-6 h-6 text-indigo-400" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-1">Direct Line</p>
-                <p className="text-2xl font-bold text-white">+1 469 994 4602</p>
+                <p className="text-sm font-normal text-slate-400 uppercase tracking-widest mb-1">Direct Line</p>
+                <p className="text-2xl font-normal text-white">+1 469 994 4602</p>
               </div>
             </a>
             
@@ -580,8 +580,8 @@ export const Contact = () => {
                 <Mail className="w-6 h-6 text-blue-400" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-1">Technical Support</p>
-                <p className="text-2xl font-bold text-white">info@celoxus.com</p>
+                <p className="text-sm font-normal text-slate-400 uppercase tracking-widest mb-1">Technical Support</p>
+                <p className="text-2xl font-normal text-white">info@celoxus.com</p>
               </div>
             </a>
           </div>
@@ -591,41 +591,41 @@ export const Contact = () => {
         <div className="lg:w-7/12 p-12 lg:p-20 bg-white">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-light font-display text-white mb-2">Initialize Project</h2>
-            <p className="text-slate-500 font-medium mb-12 text-lg">Complete the parameters below to route your request to the correct team.</p>
+            <p className="text-slate-500 font-light mb-12 text-lg">Complete the parameters below to route your request to the correct team.</p>
             
             <form className="space-y-8" onSubmit={handleSubmit}>
               {formStatus === 'success' && (
                 <div className="bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl p-4 flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                  <p className="font-semibold text-sm">Message sent successfully! Our team will contact you shortly.</p>
+                  <p className="font-normal text-sm">Message sent successfully! Our team will contact you shortly.</p>
                 </div>
               )}
               {formStatus === 'error' && (
                 <div className="bg-red-50 text-red-800 border border-red-200 rounded-xl p-4 flex items-center gap-3">
                   <XCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
-                  <p className="font-semibold text-sm">Oops! Something went wrong. Please check your configuration or try again.</p>
+                  <p className="font-normal text-sm">Oops! Something went wrong. Please check your configuration or try again.</p>
                 </div>
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-slate-900">Name</label>
-                  <input name="name" type="text" placeholder="John Doe" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-medium text-slate-900 placeholder:text-slate-400" />
+                  <label className="block text-sm font-normal text-slate-900">Name</label>
+                  <input name="name" type="text" placeholder="John Doe" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-light text-slate-900 placeholder:text-slate-400" />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-slate-900">Phone</label>
-                  <input name="phone" type="tel" placeholder="+1 (555) 000-0000" className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-medium text-slate-900 placeholder:text-slate-400" />
+                  <label className="block text-sm font-normal text-slate-900">Phone</label>
+                  <input name="phone" type="tel" placeholder="+1 (555) 000-0000" className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-light text-slate-900 placeholder:text-slate-400" />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <label className="block text-sm font-bold text-slate-900">Email Address</label>
-                <input name="email" type="email" placeholder="john@enterprise.com" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-medium text-slate-900 placeholder:text-slate-400" />
+                <label className="block text-sm font-normal text-slate-900">Email Address</label>
+                <input name="email" type="email" placeholder="john@enterprise.com" required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-light text-slate-900 placeholder:text-slate-400" />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-bold text-slate-900">Select Services</label>
+                <label className="block text-sm font-normal text-slate-900">Select Services</label>
                 <div className="relative border border-slate-200 rounded-xl overflow-hidden focus-within:border-indigo-600 focus-within:bg-white focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-600 transition-all bg-slate-50">
-                  <select name="service" className="w-full px-5 py-4 bg-transparent outline-none font-medium text-slate-900 appearance-none cursor-pointer" defaultValue="" required>
+                  <select name="service" className="w-full px-5 py-4 bg-transparent outline-none font-light text-slate-900 appearance-none cursor-pointer" defaultValue="" required>
                     <option value="" disabled>Select an architectural domain...</option>
                     <option value="cisco-calling">Cisco Calling Solution</option>
                     <option value="cisco-contact">Cisco Contact Center Solution</option>
@@ -641,11 +641,11 @@ export const Contact = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-bold text-slate-900">Message</label>
-                <textarea name="message" rows={5} placeholder="Describe your current infrastructure constraints or goals..." required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-medium text-slate-900 placeholder:text-slate-400 resize-none"></textarea>
+                <label className="block text-sm font-normal text-slate-900">Message</label>
+                <textarea name="message" rows={5} placeholder="Describe your current infrastructure constraints or goals..." required className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all font-light text-slate-900 placeholder:text-slate-400 resize-none"></textarea>
               </div>
 
-              <button disabled={formStatus === 'submitting'} type="submit" className="w-full py-5 rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-600 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(79,70,229,0.4)] hover:-translate-y-1 flex items-center justify-center gap-3 group disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:cursor-not-allowed">
+              <button disabled={formStatus === 'submitting'} type="submit" className="w-full py-5 rounded-xl bg-slate-900 text-white font-normal text-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-600 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(79,70,229,0.4)] hover:-translate-y-1 flex items-center justify-center gap-3 group disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:cursor-not-allowed">
                 {formStatus === 'submitting' ? 'Submitting...' : 'Submit Request'} {formStatus !== 'submitting' && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
               </button>
 

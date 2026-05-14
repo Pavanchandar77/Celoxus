@@ -21,7 +21,7 @@ export const CaseStudies = () => {
              <h1 className="text-5xl md:text-7xl font-light font-display tracking-tight mb-8">
                Proven <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-[#8fa1d5]">Implementations.</span>
              </h1>
-             <p className="text-xl text-slate-300 font-medium leading-relaxed">
+             <p className="text-xl text-slate-300 font-light leading-relaxed">
                Due to strict Non-Disclosure Agreements (NDAs), we do not publish identifiable client metadata. Below is a sanitized architectural brief demonstrating our capability baseline.
              </p>
            </motion.div>
@@ -40,7 +40,7 @@ export const CaseStudies = () => {
                {/* Header */}
                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-white/10 pb-12 relative z-10">
                  <div>
-                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-400/20 text-indigo-300 text-sm font-bold tracking-widest uppercase mb-4 backdrop-blur-md">
+                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-400/20 text-indigo-300 text-sm font-normal tracking-widest uppercase mb-4 backdrop-blur-md">
                      <Lock className="w-4 h-4" /> Anonymized Brief
                    </div>
                    <h2 className="text-3xl md:text-5xl font-light font-display text-white">Fortune 500 Global Logistics</h2>
@@ -58,13 +58,13 @@ export const CaseStudies = () => {
                {/* Content */}
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10 mb-16">
                  <div>
-                   <h3 className="text-2xl font-bold mb-4 text-white">The Challenge</h3>
+                   <h3 className="text-2xl font-normal mb-4 text-white">The Challenge</h3>
                    <p className="text-lg text-slate-300 leading-relaxed">
                      A leading global logistics provider was operating on a heavily fragmented, legacy on-premise UCCX system. Escalating call volumes were causing unacceptable queue delays, and agents lacked real-time visibility into incoming freight priority metrics due to disparate CRM platforms.
                    </p>
                  </div>
                  <div>
-                   <h3 className="text-2xl font-bold mb-4 text-white">Our Solution</h3>
+                   <h3 className="text-2xl font-normal mb-4 text-white">Our Solution</h3>
                    <p className="text-lg text-slate-300 leading-relaxed">
                      Celoxus CCIE architects orchestrated a completely zero-downtime, phased migration to Cisco Webex Contact Center. We engineered custom middleware to bridge their proprietary freight tracking databases directly into the agent desktop via real-time Finesse pop-overs, instantly mapping caller ID to active global shipments.
                    </p>
@@ -75,16 +75,16 @@ export const CaseStudies = () => {
                <div className="bg-[#020617]/50 border border-white/5 rounded-3xl p-8 relative z-10">
                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
                    <div className="sm:border-r sm:border-white/10">
-                     <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-2">2,500+</div>
-                     <div className="text-sm font-bold text-slate-400 uppercase tracking-widest">Seats Migrated</div>
+                     <div className="text-4xl md:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-2">2,500+</div>
+                     <div className="text-sm font-normal text-slate-400 uppercase tracking-widest">Seats Migrated</div>
                    </div>
                    <div className="sm:border-r sm:border-white/10">
-                     <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mb-2">-40%</div>
-                     <div className="text-sm font-bold text-slate-400 uppercase tracking-widest">Avg Handle Time (AHT)</div>
+                     <div className="text-4xl md:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mb-2">-40%</div>
+                     <div className="text-sm font-normal text-slate-400 uppercase tracking-widest">Avg Handle Time (AHT)</div>
                    </div>
                    <div>
-                     <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">99.999%</div>
-                     <div className="text-sm font-bold text-slate-400 uppercase tracking-widest">Architecture Uptime</div>
+                     <div className="text-4xl md:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">99.999%</div>
+                     <div className="text-sm font-normal text-slate-400 uppercase tracking-widest">Architecture Uptime</div>
                    </div>
                  </div>
                </div>
@@ -99,9 +99,9 @@ export const CaseStudies = () => {
            viewport={{ once: true }}
            className="mt-24 text-center max-w-2xl mx-auto"
          >
-           <h3 className="text-2xl font-bold text-white mb-6">Need the full technical spec?</h3>
+           <h3 className="text-2xl font-normal text-white mb-6">Need the full technical spec?</h3>
            <MagneticButton to="/contact">
-             <div className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#049fd9] text-white font-bold shadow-[0_15px_40px_rgba(4,159,217,0.45)] relative overflow-hidden group">
+             <div className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#049fd9] text-white font-normal shadow-[0_15px_40px_rgba(4,159,217,0.45)] relative overflow-hidden group">
                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
                <span className="relative">Contact Engineering for Capabilities Brief</span>
                <ArrowRight className="relative w-5 h-5" />
