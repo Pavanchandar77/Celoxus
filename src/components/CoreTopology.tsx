@@ -1,97 +1,155 @@
 import { motion, MotionValue, useTransform } from 'framer-motion';
 
 /**
- * CoreTopology — scroll-progress driven topology that morphs through three
- * states: Fragmented → Converging → Unified. Adapted from celoxus-2 for
- * the dark theme.
+ * CoreTopology — Faithful port of celoxus-2's scroll-driven cluster-combine.
+ * Four scattered clusters of nodes lerp from their hand-authored "from"
+ * positions to their unified "to" positions as scroll progress runs.
+ * Inter-cluster edges draw via stroke-dashoffset 100→0 during 0.33–0.66.
+ * Past 0.66, the hub recolors to accent and emits a pulse halo.
+ *
+ * Recolored for the dark Cisco theme (slate strokes, accent on hub).
  */
 
-const VIEW = 600;
+const VIEW_W = 600;
+const VIEW_H = 600;
 
-type Props = { progress: MotionValue<number> };
+type ClusterNode = {
+  isHub?: boolean;
+  from: { x: number; y: number };
+  to: { x: number; y: number };
+};
 
-export const CoreTopology = ({ progress }: Props) => {
-  // 3 fragmented islands at start, converging to a center hub
-  const islands = [
-    { cx: 150, cy: 150, nodes: [[0, 0], [60, -20], [40, 50], [-20, 30]] },
-    { cx: 450, cy: 200, nodes: [[0, 0], [-50, 40], [40, 60], [60, -30]] },
-    { cx: 300, cy: 450, nodes: [[0, 0], [70, 20], [-40, 50], [30, -50]] },
-  ];
+const NODES: ReadonlyArray<ClusterNode> = [
+  // Cluster 0 — top-left, contains hub
+  { isHub: true, from: { x: 110, y: 130 }, to: { x: 300, y: 300 } },
+  { from: { x: 60, y: 80 },   to: { x: 235, y: 235 } },
+  { from: { x: 165, y: 75 },  to: { x: 365, y: 235 } },
+  { from: { x: 70, y: 185 },  to: { x: 235, y: 365 } },
 
-  const hubX = 300, hubY = 300;
+  // Cluster 1 — top-right
+  { from: { x: 470, y: 90 },  to: { x: 365, y: 365 } },
+  { from: { x: 540, y: 130 }, to: { x: 470, y: 180 } },
+  { from: { x: 480, y: 175 }, to: { x: 460, y: 110 } },
 
-  // Use a single transform per island to drive position interpolation
-  const i0X = useTransform(progress, [0, 0.5, 1], [islands[0].cx, (islands[0].cx + hubX) / 2, hubX]);
-  const i0Y = useTransform(progress, [0, 0.5, 1], [islands[0].cy, (islands[0].cy + hubY) / 2, hubY]);
-  const i1X = useTransform(progress, [0, 0.5, 1], [islands[1].cx, (islands[1].cx + hubX) / 2, hubX]);
-  const i1Y = useTransform(progress, [0, 0.5, 1], [islands[1].cy, (islands[1].cy + hubY) / 2, hubY]);
-  const i2X = useTransform(progress, [0, 0.5, 1], [islands[2].cx, (islands[2].cx + hubX) / 2, hubX]);
-  const i2Y = useTransform(progress, [0, 0.5, 1], [islands[2].cy, (islands[2].cy + hubY) / 2, hubY]);
+  // Cluster 2 — bottom-left
+  { from: { x: 80, y: 480 },  to: { x: 130, y: 460 } },
+  { from: { x: 145, y: 510 }, to: { x: 200, y: 470 } },
+  { from: { x: 90, y: 555 },  to: { x: 130, y: 520 } },
+  { from: { x: 175, y: 555 }, to: { x: 195, y: 525 } },
 
-  const islandPos = [{ x: i0X, y: i0Y }, { x: i1X, y: i1Y }, { x: i2X, y: i2Y }];
+  // Cluster 3 — bottom-right
+  { from: { x: 480, y: 470 }, to: { x: 470, y: 460 } },
+  { from: { x: 540, y: 510 }, to: { x: 530, y: 510 } },
+  { from: { x: 470, y: 545 }, to: { x: 460, y: 530 } },
+];
 
-  // Connection opacity blossoms at end
-  const linkOpacity = useTransform(progress, [0.3, 0.7, 1], [0, 0.3, 0.8]);
-  const hubOpacity = useTransform(progress, [0.4, 1], [0, 1]);
-  const hubScale = useTransform(progress, [0.4, 1], [0.3, 1]);
+const INTRA_EDGES: ReadonlyArray<readonly [number, number]> = [
+  [0, 1], [0, 2], [0, 3],
+  [4, 5], [5, 6], [4, 6],
+  [7, 8], [8, 9], [9, 10], [7, 10],
+  [11, 12], [12, 13], [11, 13],
+];
+
+const INTER_EDGES: ReadonlyArray<readonly [number, number]> = [
+  [0, 4], [0, 7], [0, 11],
+  [4, 11], [7, 11], [4, 7],
+];
+
+function lerpMV(mix: MotionValue<number>, from: number, to: number) {
+  return useTransform(mix, [0, 1], [from, to]);
+}
+
+export function CoreTopology({ progress }: { progress: MotionValue<number> }) {
+  const mix = useTransform(progress, [0.15, 0.66], [0, 1], { clamp: true });
+  const dashoffset = useTransform(progress, [0.33, 0.66], [100, 0], { clamp: true });
+  const hubFillProgress = useTransform(progress, [0.62, 0.78], [0, 1], { clamp: true });
+  const hubFill = useTransform(hubFillProgress, [0, 1], ['rgba(226,232,240,0.85)', '#049fd9']);
+  const pulseOpacity = useTransform(progress, [0.66, 1], [0, 1], { clamp: true });
 
   return (
-    <svg viewBox={`0 0 ${VIEW} ${VIEW}`} className="h-full w-full">
-      <defs>
-        <radialGradient id="hubGlow" cx="50%" cy="50%">
-          <stop offset="0%" stopColor="#049fd9" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="#049fd9" stopOpacity="0" />
-        </radialGradient>
-        <filter id="ng" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3" />
-        </filter>
-      </defs>
-
-      {/* Connections from islands to hub */}
-      {islandPos.map((p, i) => (
-        <motion.line
-          key={`l-${i}`}
-          x1={p.x} y1={p.y}
-          x2={hubX} y2={hubY}
-          stroke="#049fd9"
-          strokeWidth="1"
-          style={{ opacity: linkOpacity }}
-          strokeDasharray="4 4"
-        />
-      ))}
-
-      {/* Hub glow */}
-      <motion.circle cx={hubX} cy={hubY} r="120" fill="url(#hubGlow)" style={{ opacity: hubOpacity, scale: hubScale, transformOrigin: `${hubX}px ${hubY}px` }} />
-
-      {/* Islands */}
-      {islands.map((island, i) => (
-        <motion.g key={`is-${i}`} style={{ x: islandPos[i].x, y: islandPos[i].y }}>
-          {/* satellite nodes */}
-          {island.nodes.map(([dx, dy], j) => (
-            <g key={`s-${j}`}>
-              <line x1={0} y1={0} x2={dx} y2={dy} stroke="rgba(255,255,255,0.15)" strokeWidth="0.75" />
-              <circle cx={dx} cy={dy} r={j === 0 ? 0 : 3} fill="rgba(255,255,255,0.6)" />
-            </g>
-          ))}
-          {/* island core */}
-          <circle r="6" fill="#049fd9" style={{ filter: 'drop-shadow(0 0 8px #049fd9)' }} />
-        </motion.g>
-      ))}
-
-      {/* Central hub */}
-      <motion.circle
-        cx={hubX} cy={hubY} r="10"
-        fill="#049fd9"
-        style={{ opacity: hubOpacity, filter: 'drop-shadow(0 0 12px #049fd9)' }}
-      />
-      <motion.circle
-        cx={hubX} cy={hubY} r="22"
-        fill="none"
-        stroke="#049fd9"
-        strokeWidth="1"
-        strokeDasharray="3 3"
-        style={{ opacity: hubOpacity }}
-      />
+    <svg
+      viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
+      preserveAspectRatio="xMidYMid meet"
+      className="h-full w-full"
+      role="img"
+      aria-label="System unification visualization"
+    >
+      <g stroke="rgba(148,163,184,0.35)" strokeWidth="1" fill="none">
+        {INTER_EDGES.map(([a, b]) => (
+          <InterEdge key={`inter-${a}-${b}`} aIdx={a} bIdx={b} mix={mix} dashoffset={dashoffset} />
+        ))}
+      </g>
+      <g stroke="rgba(148,163,184,0.45)" strokeWidth="1" fill="none">
+        {INTRA_EDGES.map(([a, b]) => (
+          <IntraEdge key={`intra-${a}-${b}`} aIdx={a} bIdx={b} mix={mix} />
+        ))}
+      </g>
+      <g>
+        {NODES.map((n, i) => (
+          <NodeCircle
+            key={`n-${i}`}
+            idx={i}
+            mix={mix}
+            hubFill={n.isHub ? hubFill : undefined}
+            pulseOpacity={n.isHub ? pulseOpacity : undefined}
+          />
+        ))}
+      </g>
     </svg>
   );
-};
+}
+
+function NodeCircle({
+  idx, mix, hubFill, pulseOpacity,
+}: {
+  idx: number;
+  mix: MotionValue<number>;
+  hubFill?: MotionValue<string>;
+  pulseOpacity?: MotionValue<number>;
+}) {
+  const n = NODES[idx]!;
+  const cx = lerpMV(mix, n.from.x, n.to.x);
+  const cy = lerpMV(mix, n.from.y, n.to.y);
+  return (
+    <>
+      {pulseOpacity && (
+        <motion.circle
+          cx={cx} cy={cy} r={14}
+          fill="#049fd9"
+          style={{ opacity: pulseOpacity, filter: 'drop-shadow(0 0 8px #049fd9)' }}
+          animate={{ r: [14, 24, 14], opacity: [0.4, 0, 0.4] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
+        />
+      )}
+      <motion.circle cx={cx} cy={cy} r={6} style={{ fill: hubFill ?? 'rgba(226,232,240,0.85)' }} />
+    </>
+  );
+}
+
+function IntraEdge({ aIdx, bIdx, mix }: { aIdx: number; bIdx: number; mix: MotionValue<number> }) {
+  const a = NODES[aIdx]!, b = NODES[bIdx]!;
+  const x1 = lerpMV(mix, a.from.x, a.to.x);
+  const y1 = lerpMV(mix, a.from.y, a.to.y);
+  const x2 = lerpMV(mix, b.from.x, b.to.x);
+  const y2 = lerpMV(mix, b.from.y, b.to.y);
+  return <motion.line x1={x1} y1={y1} x2={x2} y2={y2} />;
+}
+
+function InterEdge({ aIdx, bIdx, mix, dashoffset }: {
+  aIdx: number; bIdx: number; mix: MotionValue<number>; dashoffset: MotionValue<number>;
+}) {
+  const a = NODES[aIdx]!, b = NODES[bIdx]!;
+  const x1 = lerpMV(mix, a.from.x, a.to.x);
+  const y1 = lerpMV(mix, a.from.y, a.to.y);
+  const x2 = lerpMV(mix, b.from.x, b.to.x);
+  const y2 = lerpMV(mix, b.from.y, b.to.y);
+  const offset = useTransform(dashoffset, (v) => v / 100);
+  return (
+    <motion.line
+      x1={x1} y1={y1} x2={x2} y2={y2}
+      pathLength={1}
+      strokeDasharray="1"
+      style={{ strokeDashoffset: offset }}
+    />
+  );
+}

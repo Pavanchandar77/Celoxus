@@ -7,6 +7,9 @@ import { CaseStudies } from './pages/CaseStudies';
 import { NotFound } from './pages/NotFound';
 import { PrivacyPolicy, TermsOfService } from './pages/Legal';
 import { SmoothScroll } from './components/SmoothScroll';
+import { RuptureSection } from './components/RuptureSection';
+import { IntelligenceSection } from './components/IntelligenceSection';
+import { CustomCursor } from './components/CustomCursor';
 
 const Home = () => {
   return (
@@ -14,7 +17,9 @@ const Home = () => {
       <Hero />
       <TrustBanner />
       <CoreSection />
+      <RuptureSection />
       <BentoGrid />
+      <IntelligenceSection />
       <SplitMission />
       <CTASection />
     </>
@@ -25,6 +30,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <CustomCursor />
         <SmoothScroll>
           <Routes>
             <Route path="/" element={<Layout />}>

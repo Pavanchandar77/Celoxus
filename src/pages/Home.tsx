@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { ArrowRight, Cloud, Activity, Globe, Headphones, ChevronRight, Code, Shield, Database, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { InteractiveTopology } from '../components/InteractiveTopology';
+import { NetworkTopology } from '../components/NetworkTopology';
 import { MagneticButton } from '../components/MagneticButton';
 import { CoreTopology } from '../components/CoreTopology';
 
@@ -95,7 +95,7 @@ export const Hero = () => {
           className="absolute inset-0 -right-[6%]"
           style={{ transform: 'perspective(1200px) rotateX(8deg) rotateY(-6deg)', transformOrigin: '60% 50%' }}
         >
-          <InteractiveTopology />
+          <NetworkTopology />
         </div>
       </motion.div>
 
