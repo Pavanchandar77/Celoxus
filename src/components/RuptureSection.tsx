@@ -87,7 +87,7 @@ function AmbientField({ dashoffset }: { dashoffset: ReturnType<typeof useTransfo
             delay: i * 0.8,
             times: [0, 0.75, 1],
           }}
-          style={{ filter: 'drop-shadow(0 0 1px #049fd9)' }}
+          
         />
       ))}
     </svg>
@@ -164,7 +164,7 @@ function MaskedVisibility() {
             initial={{ cx: -10 }}
             animate={{ cx: [-10, 1010] }}
             transition={{ duration: 4 + i * 0.35, repeat: Infinity, ease: 'linear', delay: i * 0.2 }}
-            style={{ filter: 'drop-shadow(0 0 4px #049fd9)' }}
+            
           />
         ))}
       </g>

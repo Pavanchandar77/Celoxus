@@ -45,7 +45,7 @@ export const Products = () => {
              <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80" alt="Notification Network" className="w-full h-full object-cover opacity-10 mix-blend-screen group-hover:scale-105 transition-transform duration-1000" loading="lazy" referrerPolicy="no-referrer" />
           </div>
           <div className="lg:w-1/2 p-12 lg:p-20 flex flex-col justify-center relative z-10 bg-gradient-to-r from-[#020617] to-transparent">
-             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3 group-hover:bg-indigo-500/30 transition-colors duration-700"></div>
+             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#049fd9]/8 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3 group-hover:bg-indigo-500/30 transition-colors duration-700"></div>
              <div className="relative z-10">
                <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 flex items-center justify-center mb-8">
                  <Activity className="w-8 h-8 text-indigo-400" />
@@ -218,7 +218,7 @@ export const ProfessionalServices = () => {
         <div className="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2850&q=80" alt="Consulting" fetchPriority="high" className="w-full h-full object-cover opacity-20 sepia-[.3] hue-rotate-[200deg] mix-blend-luminosity" referrerPolicy="no-referrer" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-[#020617]/30"></div>
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#049fd9]/10 blur-[150px] rounded-full"></div>
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#049fd9]/10 blur-[110px] rounded-full"></div>
         </div>
         <div className="absolute inset-x-0 top-0 hidden lg:block h-full opacity-30 pointer-events-auto z-0">
           <NetworkTopology />
@@ -376,8 +376,8 @@ export const About = () => {
         </script>
       </Helmet>
       
-      <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-indigo-600/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
-      <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
+      <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-[#049fd9]/8 blur-[110px] rounded-full pointer-events-none z-0"></div>
+      <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-[#049fd9]/5 blur-[110px] rounded-full pointer-events-none z-0"></div>
 
       {/* Hero with full-bleed image background */}
       <div className="relative pt-40 pb-32 overflow-hidden border-b border-white/10 z-10 w-full mb-16">
@@ -434,7 +434,7 @@ export const About = () => {
             <div className="rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative aspect-[4/5]">
                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Data Analytics" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-60 mix-blend-luminosity" loading="lazy" referrerPolicy="no-referrer" />
                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent"></div>
-               <div className="absolute inset-0 bg-indigo-600/10 mix-blend-color"></div>
+               <div className="absolute inset-0 bg-[#049fd9]/8 mix-blend-color"></div>
                
                <div className="absolute bottom-10 left-10 right-10 p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20">
                  <div className="flex items-center gap-6 mb-6">
@@ -536,7 +536,7 @@ export const Contact = () => {
     <div className="pt-40 pb-32 px-6 flex items-center justify-center bg-[#020617] relative overflow-hidden min-h-screen">
       {/* Dark background effects */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-      <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-indigo-900/20 blur-[150px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-indigo-900/10 blur-[110px] rounded-full pointer-events-none"></div>
 
       <div className="w-full max-w-7xl relative z-10 bg-white rounded-[3rem] border border-slate-100 overflow-hidden flex flex-col lg:flex-row shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
         
@@ -548,7 +548,7 @@ export const Contact = () => {
              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/90 to-[#020617]/50"></div>
           </div>
           
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[100px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3 z-0"></div>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#049fd9]/8 blur-[100px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3 z-0"></div>
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#2b3c98]/30 blur-[100px] rounded-full pointer-events-none -translate-x-1/3 translate-y-1/3 z-0"></div>
           
           <div className="relative z-10">

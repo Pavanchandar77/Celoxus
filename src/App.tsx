@@ -10,6 +10,8 @@ import { SmoothScroll } from './components/SmoothScroll';
 import { RuptureSection } from './components/RuptureSection';
 import { IntelligenceSection } from './components/IntelligenceSection';
 import { CustomCursor } from './components/CustomCursor';
+import { OutcomesSection } from './components/OutcomesSection';
+import { ProcessSection } from './components/ProcessSection';
 
 const Home = () => {
   return (
@@ -17,8 +19,9 @@ const Home = () => {
       <Hero />
       <TrustBanner />
       <CoreSection />
-      <RuptureSection />
+      <OutcomesSection />
       <BentoGrid />
+      <ProcessSection />
       <IntelligenceSection />
       <SplitMission />
       <CTASection />

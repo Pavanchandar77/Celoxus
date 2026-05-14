@@ -67,16 +67,11 @@ export const Hero = () => {
         className="absolute inset-0 z-[1] pointer-events-none bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-30"
       />
 
-      {/* ----- Layer 3: animated glow orbs ----- */}
+      {/* ----- Layer 3: subtle ambient wash (toned down) ----- */}
       <motion.div
-        animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.14, 0.08], x: [0, 40, 0], y: [0, -20, 0] }}
+        animate={{ opacity: [0.04, 0.07, 0.04] }}
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-[10%] left-[10%] w-[700px] h-[700px] rounded-full bg-[#049fd9] blur-[160px] mix-blend-screen pointer-events-none z-[1]"
-      />
-      <motion.div
-        animate={{ scale: [1, 1.15, 1], opacity: [0.05, 0.12, 0.05], x: [0, -50, 0], y: [0, 40, 0] }}
-        transition={{ duration: 19, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] rounded-full bg-blue-700 blur-[160px] mix-blend-screen pointer-events-none z-[1]"
+        className="absolute top-[10%] left-[10%] w-[600px] h-[600px] rounded-full bg-[#049fd9] blur-[140px] mix-blend-screen pointer-events-none z-[1]"
       />
 
       {/* ----- Layer 4: chapter cipher 01 ----- */}
@@ -95,7 +90,7 @@ export const Hero = () => {
           className="absolute inset-0 -right-[6%]"
           style={{ transform: 'perspective(1200px) rotateX(8deg) rotateY(-6deg)', transformOrigin: '60% 50%' }}
         >
-          <NetworkTopology />
+          <NetworkTopology showLabels />
         </div>
       </motion.div>
 
@@ -168,16 +163,8 @@ export const Hero = () => {
         </div>
       </motion.div>
 
-      {/* ----- Persistent signal line ----- */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px z-[11]" style={{ backgroundColor: 'rgba(4, 159, 217, 0.4)' }}>
-        <motion.span
-          className="absolute top-1/2 block h-[3px] w-[3px] -translate-y-1/2 rounded-full bg-[#049fd9]"
-          style={{ filter: 'drop-shadow(0 0 6px #049fd9)' }}
-          initial={{ left: '0%' }}
-          animate={{ left: '100%' }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-        />
-      </div>
+      {/* ----- Quiet baseline rule ----- */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px z-[11] bg-white/10" />
     </section>
   );
 };
@@ -351,7 +338,7 @@ export const BentoGrid = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:80px_80px]"></div>
       </div>
       <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-[#049fd9]/[0.06] rounded-full blur-[140px] pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-600/[0.05] rounded-full blur-[160px] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-600/[0.05] rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -504,7 +491,7 @@ export const SplitMission = () => {
   return (
     <section className="py-32 bg-[#020617] overflow-hidden border-t border-white/5 relative">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#049fd9]/[0.08] blur-[160px] rounded-full"></div>
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#049fd9]/[0.08] blur-[120px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-20">
@@ -669,7 +656,7 @@ export const CTASection = () => {
           className="inline-block"
         >
           <MagneticButton to="/contact" strength={0.35}>
-            <div className="inline-flex items-center gap-3 px-14 py-6 rounded-full bg-[#049fd9] text-white font-normal shadow-[0_20px_50px_rgba(4,159,217,0.5)] text-lg relative overflow-hidden group">
+            <div className="inline-flex items-center gap-3 px-14 py-6 rounded-full bg-[#049fd9] text-white font-normal shadow-[0_10px_30px_rgba(4,159,217,0.2)] text-lg relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
               <span className="relative">Book a Strategic Assessment</span>
               <ArrowRight className="relative w-5 h-5" />

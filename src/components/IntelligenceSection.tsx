@@ -133,7 +133,7 @@ function DecisionTree({ active }: { active: number }) {
           cy: [top.y + 14, mid.y, live.y - 14],
         }}
         transition={{ duration: 2.8, repeat: Infinity, ease: 'linear' }}
-        style={{ filter: 'drop-shadow(0 0 6px #049fd9)' }}
+        
       />
     </svg>
   );

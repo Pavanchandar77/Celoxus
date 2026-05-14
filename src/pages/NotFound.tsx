@@ -6,7 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 export const NotFound = () => {
   return (
     <div className="bg-[#020617] text-white min-h-[80vh] flex items-center justify-center relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-900/20 blur-[150px] rounded-full pointer-events-none z-0"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-900/10 blur-[110px] rounded-full pointer-events-none z-0"></div>
 
       <div className="relative z-10 text-center px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>

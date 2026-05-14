@@ -119,7 +119,7 @@ export const Footer = () => {
   return (
     <footer className="bg-[#0b1120] text-slate-400 pt-32 pb-12 border-t-4 border-[#049fd9] relative overflow-hidden">
       {/* Background glow effects */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#049fd9]/5 blur-[150px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#049fd9]/5 blur-[110px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
