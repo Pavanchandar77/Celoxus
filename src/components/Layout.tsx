@@ -115,77 +115,126 @@ export const Navbar = () => {
   );
 };
 
+const FooterLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
+  <li>
+    <Link to={to} className="text-slate-400 hover:text-white text-[0.875rem] transition-colors inline-block">
+      {children}
+    </Link>
+  </li>
+);
+
+const FooterHeading = ({ children }: { children: React.ReactNode }) => (
+  <h4 className="text-white font-display font-semibold mb-6 text-[0.7rem] uppercase tracking-[0.22em]">
+    {children}
+  </h4>
+);
+
 export const Footer = () => {
   return (
-    <footer className="bg-[#0b1120] text-slate-400 pt-32 pb-12 border-t-4 border-[#049fd9] relative overflow-hidden">
-      {/* Background glow effects */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#049fd9]/5 blur-[110px] rounded-full pointer-events-none"></div>
+    <footer className="bg-[#0b1120] text-slate-400 pt-24 lg:pt-32 pb-10 relative overflow-hidden border-t border-white/5">
+      {/* Single quiet accent rule at top */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#049fd9]/40 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
-          <div className="lg:col-span-4 relative pr-8">
-            <Link to="/" className="flex items-center gap-3 mb-8 group">
-               <CeloxusLogo className="w-8 h-8 group-hover:scale-110 transition-all duration-500" />
-               <span className="text-2xl font-light tracking-tight text-white group-hover:text-[#049fd9] transition-colors uppercase">Celoxus</span>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        {/* Top: brand + 4 columns */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-10 lg:gap-12 mb-16">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-3 lg:col-span-4 lg:pr-12">
+            <Link to="/" className="flex items-center gap-3 mb-6 group">
+              <CeloxusLogo className="w-8 h-8 group-hover:scale-110 transition-transform duration-500" />
+              <span className="text-xl font-display font-bold tracking-tight text-white group-hover:text-[#049fd9] transition-colors">Celoxus</span>
             </Link>
-            <p className="text-base leading-relaxed mb-8 max-w-sm font-light text-slate-400">
-              Celoxus transforms how enterprises connect. We deliver next-generation Cisco collaboration architectures with CCIE-certified precision.
+            <p className="text-[0.95rem] leading-relaxed mb-8 max-w-xs text-slate-400">
+              CCIE-led engineering for the cloud calling, contact center, and observability stacks behind the world's most demanding enterprises.
             </p>
-            <div className="flex flex-col gap-4 font-normal text-sm tracking-widest uppercase">
-              <a href="tel:+14699944602" className="hover:text-[#049fd9] transition-colors flex items-center gap-4 group">
-                <Phone className="w-4 h-4 text-[#049fd9]" />
-                +1 469 994 4602
-              </a>
-              <a href="mailto:info@celoxus.com" className="hover:text-[#049fd9] transition-colors flex items-center gap-4 group">
-                <Mail className="w-4 h-4 text-[#049fd9]" />
-                info@celoxus.com
-              </a>
+            {/* Cisco partner badge */}
+            <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-lg border border-[#049fd9]/30 bg-[#049fd9]/[0.05]">
+              <div className="w-7 h-7 rounded-md bg-[#049fd9]/15 border border-[#049fd9]/30 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" className="w-4 h-4 text-[#049fd9]" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M 20 50 L 20 80 M 35 30 L 35 80 M 50 10 L 50 80 M 65 30 L 65 80 M 80 50 L 80 80" />
+                </svg>
+              </div>
+              <div>
+                <div className="text-[0.7rem] font-mono text-[#049fd9] uppercase tracking-[0.2em] leading-tight">Cisco Premier</div>
+                <div className="text-[0.65rem] font-mono text-slate-500 uppercase tracking-[0.18em] mt-0.5">Certified Partner</div>
+              </div>
             </div>
           </div>
-          
-          <div className="lg:col-span-3">
-            <h4 className="text-white font-normal mb-8 uppercase tracking-widest text-sm flex items-center gap-2">
-               <Database className="w-4 h-4 text-[#049fd9]" /> Products
-            </h4>
-            <ul className="space-y-4">
-              <li><Link to="/products" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Finesse Notifications</Link></li>
-              <li><Link to="/products" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Contact Center Monitoring</Link></li>
-              <li><Link to="/products" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Custom Integration</Link></li>
-            </ul>
-          </div>
 
-          <div className="lg:col-span-3">
-            <h4 className="text-white font-normal mb-8 uppercase tracking-widest text-sm flex items-center gap-2">
-               <Server className="w-4 h-4 text-[#049fd9]" /> Professional Services
-            </h4>
-            <ul className="space-y-4">
-              <li><Link to="/services" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Cisco Calling Solution</Link></li>
-              <li><Link to="/services" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Cisco Contact Center Solution</Link></li>
-              <li><Link to="/services" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Cisco Cloud Applications</Link></li>
-            </ul>
-          </div>
-
+          {/* Company */}
           <div className="lg:col-span-2">
-            <h4 className="text-white font-normal mb-8 uppercase tracking-widest text-sm flex items-center gap-2">
-              <Globe className="w-4 h-4 text-[#049fd9]" /> Quick Links
-            </h4>
-            <ul className="space-y-4">
-              <li><Link to="/" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Home</Link></li>
-              <li><Link to="/about" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">About Firm</Link></li>
-              <li><Link to="/case-studies" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Case Studies</Link></li>
-              <li><Link to="/contact" className="font-light text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Contact Us</Link></li>
+            <FooterHeading>Company</FooterHeading>
+            <ul className="space-y-3">
+              <FooterLink to="/about">About</FooterLink>
+              <FooterLink to="/case-studies">Case studies</FooterLink>
+              <FooterLink to="/contact">Contact</FooterLink>
+            </ul>
+          </div>
+
+          {/* Solutions */}
+          <div className="lg:col-span-2">
+            <FooterHeading>Solutions</FooterHeading>
+            <ul className="space-y-3">
+              <FooterLink to="/services">Cisco Calling</FooterLink>
+              <FooterLink to="/services">Contact Center</FooterLink>
+              <FooterLink to="/services">Cloud Applications</FooterLink>
+              <FooterLink to="/services">Custom Integration</FooterLink>
+            </ul>
+          </div>
+
+          {/* Products */}
+          <div className="lg:col-span-2">
+            <FooterHeading>Products</FooterHeading>
+            <ul className="space-y-3">
+              <FooterLink to="/products">Finesse Notifications</FooterLink>
+              <FooterLink to="/products">CC Monitoring</FooterLink>
+              <FooterLink to="/products">Custom Middleware</FooterLink>
+            </ul>
+          </div>
+
+          {/* Resources / Trust */}
+          <div className="lg:col-span-2">
+            <FooterHeading>Resources</FooterHeading>
+            <ul className="space-y-3">
+              <FooterLink to="/case-studies">Deployment briefs</FooterLink>
+              <FooterLink to="/#faq">FAQ</FooterLink>
+              <FooterLink to="/#security">Security &amp; trust</FooterLink>
+              <FooterLink to="/legal/privacy">Privacy</FooterLink>
+              <FooterLink to="/legal/terms">Terms</FooterLink>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6">
-          <div className="text-slate-500 text-sm font-light text-center lg:text-left">
-            &copy; {new Date().getFullYear()} Celoxus Systems Inc. All Rights Reserved. <br className="lg:hidden" />
-            Based in Bangalore, India.
+        {/* Contact strip */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-t border-b border-white/10">
+          <a href="tel:+14699944602" className="flex items-center gap-4 group">
+            <div className="w-10 h-10 rounded-lg bg-[#049fd9]/10 border border-[#049fd9]/20 flex items-center justify-center flex-shrink-0">
+              <Phone className="w-4 h-4 text-[#049fd9]" strokeWidth={1.5} />
+            </div>
+            <div>
+              <div className="font-mono text-[10px] text-slate-500 uppercase tracking-[0.22em] mb-0.5">Direct line</div>
+              <div className="text-white font-display font-semibold text-[0.95rem] tracking-tight group-hover:text-[#049fd9] transition-colors">+1 469 994 4602</div>
+            </div>
+          </a>
+          <a href="mailto:info@celoxus.com" className="flex items-center gap-4 group">
+            <div className="w-10 h-10 rounded-lg bg-[#049fd9]/10 border border-[#049fd9]/20 flex items-center justify-center flex-shrink-0">
+              <Mail className="w-4 h-4 text-[#049fd9]" strokeWidth={1.5} />
+            </div>
+            <div>
+              <div className="font-mono text-[10px] text-slate-500 uppercase tracking-[0.22em] mb-0.5">Senior architect</div>
+              <div className="text-white font-display font-semibold text-[0.95rem] tracking-tight group-hover:text-[#049fd9] transition-colors">info@celoxus.com</div>
+            </div>
+          </a>
+        </div>
+
+        {/* Copyright */}
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="font-mono text-[10px] text-slate-500 uppercase tracking-[0.2em] text-center md:text-left">
+            &copy; {new Date().getFullYear()} Celoxus Systems Inc. · Bangalore · Dallas
           </div>
-          <div className="flex flex-wrap justify-center gap-8 text-sm font-light text-slate-500">
-            <Link to="/legal/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/legal/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+          <div className="font-mono text-[10px] text-slate-500 uppercase tracking-[0.2em] flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            Status · Nominal
           </div>
         </div>
       </div>

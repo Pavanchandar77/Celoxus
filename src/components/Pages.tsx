@@ -5,6 +5,7 @@ import { Shield, Settings, Zap, ListCheck, Cloud, LayoutTemplate, Activity, Arro
 import { InteractiveCard } from './InteractiveCard';
 import { MagneticButton } from './MagneticButton';
 import { NetworkTopology } from './NetworkTopology';
+import { ProductShowcase } from './ProductShowcase';
 
 export const Products = () => {
   return (
@@ -32,6 +33,9 @@ export const Products = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Real product showcase — replaces the abstract notification illustration */}
+      <ProductShowcase />
 
       <div className="space-y-16 py-32 px-6 max-w-7xl mx-auto">
         {/* Product 1: Finesse Notifications */}
@@ -490,6 +494,79 @@ export const About = () => {
                 <p className="text-slate-400 leading-relaxed">Guaranteeing data integrity through air-gapped or localized logic loops, strictly designed for highly regulated Fortune 500 networks.</p>
               </div>
             </InteractiveCard>
+          </div>
+        </div>
+
+        {/* Founder note */}
+        <div className="mb-32 border-t border-white/10 pt-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5">
+              <p className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.28em] mb-5">A note from the founder</p>
+              <h2 className="font-display font-bold text-white text-[2rem] lg:text-[2.75rem] leading-[1.05] tracking-tight">
+                We started Celoxus because the network <span className="text-[#049fd9]">should never be the story.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7 space-y-6 text-slate-300 text-[1.0625rem] leading-relaxed font-normal">
+              <p>
+                In 2018 we walked into a Fortune 500 operations center where a single CUCM hiccup had taken down a regional contact center for ninety minutes. The lost revenue was eye-watering. The deeper problem was harder to fix: nobody on the floor could tell us why it happened, because nobody on the floor had built the system.
+              </p>
+              <p>
+                Celoxus is what we built so that never has to be your story. We do not staff junior engineers on solo delivery, we do not bait-and-switch from pitch to delivery, and we do not sell what you do not need. CCIE-led, NDA-first, architecture-warrantied.
+              </p>
+              <p className="text-slate-500 text-[0.95rem]">— Founding architect, Celoxus</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Timeline */}
+        <div className="mb-32 border-t border-white/10 pt-32">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <p className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.28em] mb-5">Milestones</p>
+            <h2 className="font-display font-bold text-white text-[2.25rem] lg:text-[3rem] leading-[1.0] tracking-tight">
+              Eight years of <span className="text-[#049fd9]">zero-downtime deployments.</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { y: '2018', t: 'Founded', b: 'Two CCIE architects, one promise: never deploy what we wouldn\'t operate.' },
+              { y: '2020', t: 'First Fortune 500', b: 'Multinational logistics contact center migration. 2,500 seats, zero downtime.' },
+              { y: '2023', t: 'Bangalore + Dallas', b: 'Dual-region operations. 24/7 follow-the-sun NOC integration available.' },
+              { y: '2026', t: 'SOC 2 in audit', b: '4,200-seat banking migration completed. SOC 2 Type II audit window open.' },
+            ].map((m, i) => (
+              <motion.div
+                key={m.y}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 hover:border-[#049fd9]/40 transition-colors group"
+              >
+                <div className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.22em] mb-4">{m.y}</div>
+                <h3 className="font-display font-semibold text-white text-[1.125rem] tracking-tight mb-3">{m.t}</h3>
+                <p className="text-slate-400 text-[0.9rem] leading-relaxed">{m.b}</p>
+                <div className="mt-6 h-px w-8 bg-white/10 group-hover:w-16 group-hover:bg-[#049fd9] transition-all duration-700" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Locations */}
+        <div className="border-t border-white/10 pt-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            {[
+              { city: 'Bangalore', country: 'India', addr: 'Engineering & 24/7 NOC integration', tz: 'IST · UTC+5:30' },
+              { city: 'Dallas',    country: 'USA',   addr: 'North American operations & sales',  tz: 'CST · UTC−6' },
+            ].map((loc) => (
+              <div
+                key={loc.city}
+                className="rounded-2xl border border-white/10 bg-[#0b1120]/60 p-10 backdrop-blur-md flex flex-col gap-4"
+              >
+                <p className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.22em]">{loc.country}</p>
+                <h3 className="font-display font-bold text-white text-[2rem] tracking-tight">{loc.city}</h3>
+                <p className="text-slate-400 text-[1rem]">{loc.addr}</p>
+                <p className="font-mono text-[10px] text-slate-500 uppercase tracking-[0.22em] mt-auto pt-6 border-t border-white/10">{loc.tz}</p>
+              </div>
+            ))}
           </div>
         </div>
 

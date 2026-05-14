@@ -1,29 +1,41 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
-import { Hero, TrustBanner, BentoGrid, SplitMission, CTASection, CoreSection } from './pages/Home';
+import { Hero, TrustBanner, BentoGrid, CTASection, CoreSection } from './pages/Home';
 import { Products, ProfessionalServices, About, Contact } from './components/Pages';
 import { CaseStudies } from './pages/CaseStudies';
 import { NotFound } from './pages/NotFound';
 import { PrivacyPolicy, TermsOfService } from './pages/Legal';
 import { SmoothScroll } from './components/SmoothScroll';
-import { RuptureSection } from './components/RuptureSection';
-import { IntelligenceSection } from './components/IntelligenceSection';
 import { CustomCursor } from './components/CustomCursor';
 import { OutcomesSection } from './components/OutcomesSection';
 import { ProcessSection } from './components/ProcessSection';
+import { LogoBar } from './components/LogoBar';
+import { ProductShowcase } from './components/ProductShowcase';
+import { WhyCeloxus } from './components/WhyCeloxus';
+import { Testimonials } from './components/Testimonials';
+import { CaseStudiesPreview } from './components/CaseStudiesPreview';
+import { SecuritySection } from './components/SecuritySection';
+import { IndustriesGrid } from './components/IndustriesGrid';
+import { FAQ } from './components/FAQ';
 
 const Home = () => {
   return (
     <>
       <Hero />
+      <LogoBar />
       <TrustBanner />
       <CoreSection />
       <OutcomesSection />
+      <ProductShowcase />
       <BentoGrid />
       <ProcessSection />
-      <IntelligenceSection />
-      <SplitMission />
+      <WhyCeloxus />
+      <Testimonials />
+      <CaseStudiesPreview />
+      <IndustriesGrid />
+      <SecuritySection />
+      <FAQ />
       <CTASection />
     </>
   );
