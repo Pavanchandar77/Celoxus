@@ -31,7 +31,7 @@ export const IntelligenceSection = () => {
       {/* Oversized cipher */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -bottom-[8vw] -left-[5vw] z-0 block font-display font-light leading-[0.78] text-[28vw] text-white/[0.025]"
+        className="pointer-events-none absolute -bottom-[8vw] -left-[5vw] z-0 block font-display font-bold leading-[0.78] text-[28vw] text-white/[0.025]"
       >
         04
       </span>
@@ -41,7 +41,7 @@ export const IntelligenceSection = () => {
           Chapter / 04 — Intelligence
         </p>
 
-        <h2 className="col-span-12 lg:col-span-9 lg:col-start-2 font-display font-light text-white text-[3rem] sm:text-[4rem] lg:text-[5.5rem] leading-[0.95] tracking-tight">
+        <h2 className="col-span-12 lg:col-span-9 lg:col-start-2 font-display font-bold text-white text-[3rem] sm:text-[4rem] lg:text-[5.5rem] leading-[0.95] tracking-tight">
           Systems that <span className="text-[#049fd9]">think ahead.</span>
         </h2>
 

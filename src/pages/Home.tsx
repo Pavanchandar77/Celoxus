@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
-import { ArrowRight, Cloud, Activity, Globe, Headphones, ChevronRight, Code, Shield, Database, Layers } from 'lucide-react';
+import { ArrowRight, Cloud, Activity, Globe, Headphones, ChevronRight, Code, Shield, Database, Layers, PlayCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { NetworkTopology } from '../components/NetworkTopology';
 import { MagneticButton } from '../components/MagneticButton';
@@ -8,27 +8,33 @@ import { CoreTopology } from '../components/CoreTopology';
 
 const SIGNAL_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const headlineVariant: Variants = {
-  hidden: { opacity: 0, y: 48, clipPath: 'inset(0 0 100% 0)' },
-  shown: {
-    opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)',
-    transition: { duration: 1.4, ease: SIGNAL_EASE, delay: 0.35 },
-  },
+const lineUp: Variants = {
+  hidden: { opacity: 0, y: 60 },
+  shown: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: SIGNAL_EASE, delay: 0.3 + i * 0.12 },
+  }),
 };
 const subcopyVariant: Variants = {
-  hidden: { opacity: 0, y: 30, clipPath: 'inset(0 0 100% 0)' },
-  shown: {
-    opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)',
-    transition: { duration: 1.1, ease: SIGNAL_EASE, delay: 0.7 },
-  },
+  hidden: { opacity: 0, y: 20 },
+  shown: { opacity: 1, y: 0, transition: { duration: 0.7, ease: SIGNAL_EASE, delay: 0.85 } },
 };
 const ctaVariant: Variants = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 16 },
   shown: { opacity: 1, y: 0, transition: { duration: 0.7, ease: SIGNAL_EASE, delay: 1.05 } },
 };
 const labelVariant: Variants = {
   hidden: { opacity: 0 },
-  shown: { opacity: 1, transition: { duration: 0.6, delay: 0.25 } },
+  shown: { opacity: 1, transition: { duration: 0.6, delay: 0.2 } },
+};
+const statVariant: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  shown: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: SIGNAL_EASE, delay: 1.3 + i * 0.08 },
+  }),
 };
 
 export const Hero = () => {
@@ -76,89 +82,126 @@ export const Hero = () => {
 
       {/* ----- Layer 4: chapter cipher 01 ----- */}
       <div className="pointer-events-none absolute bottom-0 left-0 z-[2] h-[55%] w-auto overflow-hidden leading-none">
-        <span className="block font-display font-light leading-none text-[20vw] text-white/[0.025]" style={{ lineHeight: 1 }}>
+        <span className="block font-display font-bold leading-none text-[20vw] text-white/[0.025]" style={{ lineHeight: 1 }}>
           01
         </span>
       </div>
 
-      {/* ----- Layer 5: mouse-reactive topology (right half) ----- */}
+      {/* ----- Layer 5: mouse-reactive topology — pulled back, top-right ----- */}
       <motion.div
         style={{ y: topologyY }}
-        className="pointer-events-auto absolute top-0 right-0 hidden lg:block h-full w-[55%] z-[3]"
+        className="pointer-events-auto absolute -top-[10%] right-[-10%] hidden lg:block h-[80%] w-[60%] z-[3] opacity-[0.7]"
       >
         <div
-          className="absolute inset-0 -right-[6%]"
-          style={{ transform: 'perspective(1200px) rotateX(8deg) rotateY(-6deg)', transformOrigin: '60% 50%' }}
+          className="absolute inset-0"
+          style={{ transform: 'perspective(1400px) rotateX(8deg) rotateY(-8deg)', transformOrigin: '60% 40%' }}
         >
           <NetworkTopology showLabels />
         </div>
       </motion.div>
 
-      {/* ----- Layer 6: haze separator ----- */}
+      {/* ----- Layer 6: haze separator from topology to typography ----- */}
       <motion.div
         style={{ y: hazeY }}
-        className="pointer-events-none absolute inset-x-0 top-[55%] hidden lg:block h-[40vh] z-[4]"
+        className="pointer-events-none absolute inset-x-0 top-[20%] hidden lg:block h-[60vh] z-[4]"
       >
         <div
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(80% 100% at 70% 50%, rgba(2,6,23,0.65) 0%, rgba(2,6,23,0.0) 70%)',
-            filter: 'blur(20px)',
+            background: 'radial-gradient(60% 100% at 30% 50%, rgba(2,6,23,0.85) 0%, rgba(2,6,23,0.0) 70%)',
+            filter: 'blur(28px)',
           }}
         />
       </motion.div>
 
-      {/* ----- Layer 7: typography (celoxus-2 editorial system) ----- */}
+      {/* ----- Layer 7: bold confident typography ----- */}
       <motion.div style={{ y: headlineY }} className="absolute inset-0 z-[10]">
-        <div className="mx-auto h-full w-full max-w-7xl px-6 lg:px-8 grid grid-cols-12 gap-4">
-          <div className="col-span-12 col-start-1 lg:col-span-7 lg:col-start-2 self-start pt-[36vh] lg:pt-[40vh]">
-            {/* Mono spec label */}
-            <motion.p
+        <div className="mx-auto h-full w-full max-w-7xl px-6 lg:px-8 flex flex-col justify-center pt-24 pb-32 lg:pt-32 lg:pb-40">
+          <div className="max-w-4xl">
+            {/* Status pill */}
+            <motion.div
               variants={labelVariant}
               initial="hidden"
               animate="shown"
-              className="font-mono text-[0.7rem] text-slate-500 uppercase tracking-[0.1em]"
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 mb-10 backdrop-blur-md"
             >
-              CELOXUS / SYSTEMS INTEGRATION
-            </motion.p>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="font-mono text-[11px] text-slate-300 uppercase tracking-[0.18em]">
+                Cisco Premier Partner <span className="text-slate-500 ml-2 hidden sm:inline">· CCIE Certified</span>
+              </span>
+            </motion.div>
 
-            {/* Headline — font-display font-light, single line, no gradient */}
-            <h1 className="mt-6 font-display font-light text-white text-[3rem] leading-[1.0] sm:text-[4.5rem] lg:text-[6rem] xl:text-[7rem] tracking-[-0.015em] break-words">
-              <motion.span
-                variants={headlineVariant}
-                initial="hidden"
-                animate="shown"
-                className="block"
-              >
-                Infrastructure without friction.
+            {/* Bold two-line headline */}
+            <h1 className="font-display font-bold text-white text-[3.5rem] sm:text-[5rem] lg:text-[6.5rem] xl:text-[7.5rem] leading-[0.95] tracking-[-0.035em]">
+              <motion.span custom={0} variants={lineUp} initial="hidden" animate="shown" className="block">
+                Infrastructure
+              </motion.span>
+              <motion.span custom={1} variants={lineUp} initial="hidden" animate="shown" className="block">
+                <span className="text-[#049fd9]">without</span> friction.
               </motion.span>
             </h1>
 
-            {/* Subcopy — intentionally narrow + indented to col 4 */}
+            {/* Subcopy */}
             <motion.p
               variants={subcopyVariant}
               initial="hidden"
               animate="shown"
-              className="mt-10 max-w-[300px] font-body font-light text-slate-400 text-[1rem] leading-relaxed lg:ml-[16.6667%]"
+              className="mt-10 max-w-2xl text-slate-300 text-lg sm:text-xl lg:text-[1.35rem] leading-relaxed font-normal"
             >
-              Cloud communications. Contact centers. Persistent operational visibility.
+              We architect the cloud calling, contact center, and observability stacks behind the world's most demanding enterprise networks.
             </motion.p>
 
-            {/* CTA — text-only, accent, hover nudges arrow */}
+            {/* CTA cluster */}
             <motion.div
               variants={ctaVariant}
               initial="hidden"
               animate="shown"
-              className="mt-8 lg:ml-[16.6667%]"
+              className="mt-12 flex flex-col sm:flex-row gap-4 sm:items-center"
             >
+              <MagneticButton to="/contact">
+                <div className="group inline-flex items-center gap-3 px-8 h-14 rounded-full bg-[#049fd9] hover:bg-[#0ab2f1] text-white font-semibold text-[0.95rem] tracking-tight transition-colors relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
+                  <span className="relative">Talk to an architect</span>
+                  <ArrowRight className="relative w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                </div>
+              </MagneticButton>
               <Link
                 to="/products"
-                className="group inline-flex items-baseline gap-2 font-body font-light text-[#049fd9] text-[0.95rem] tracking-[0.02em]"
+                className="group inline-flex items-center gap-3 px-8 h-14 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-white font-semibold text-[0.95rem] tracking-tight backdrop-blur-md transition-all"
               >
-                <span>Initialize the system</span>
-                <span aria-hidden className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-[4px]">→</span>
+                <PlayCircle className="w-4 h-4 text-[#049fd9]" />
+                <span>See the platform</span>
               </Link>
             </motion.div>
+
+            {/* Stat bar */}
+            <div className="mt-20 lg:mt-24 max-w-3xl border-t border-white/10 pt-8">
+              <div className="grid grid-cols-3 gap-8">
+                {[
+                  { v: '12,500+', l: 'Seats deployed' },
+                  { v: '99.997%', l: 'Architecture uptime' },
+                  { v: '−38%',    l: 'Mean AHT reduction' },
+                ].map((s, i) => (
+                  <motion.div
+                    key={s.l}
+                    custom={i}
+                    variants={statVariant}
+                    initial="hidden"
+                    animate="shown"
+                  >
+                    <div className="font-display font-bold text-white text-2xl sm:text-3xl lg:text-[2.25rem] leading-none tracking-tight tabular-nums">
+                      {s.v}
+                    </div>
+                    <div className="mt-2 font-mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-[0.18em]">
+                      {s.l}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -263,7 +306,7 @@ export const CoreSection = () => {
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/[0.05] blur-[140px] rounded-full"></div>
 
           {/* chapter cipher */}
-          <span aria-hidden className="pointer-events-none absolute -left-[2vw] -top-[6vw] block font-display font-light leading-none text-[20vw] text-white/[0.025]">
+          <span aria-hidden className="pointer-events-none absolute -left-[2vw] -top-[6vw] block font-display font-bold leading-none text-[20vw] text-white/[0.025]">
             02
           </span>
 
@@ -273,7 +316,7 @@ export const CoreSection = () => {
               <p className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.28em] mb-6">
                 Chapter / 02 · The Core
               </p>
-              <h2 className="font-display font-light text-white text-[3rem] lg:text-[5rem] leading-[0.95] mb-10">
+              <h2 className="font-display font-bold text-white text-[3rem] lg:text-[5rem] leading-[0.95] mb-10">
                 Convergence is the architecture.
               </h2>
               <p className="max-w-md text-lg text-slate-400 leading-relaxed font-light mb-12">
@@ -314,7 +357,7 @@ export const CoreSection = () => {
       {/* Mobile */}
       <div className="block md:hidden px-6 py-24">
         <p className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.28em] mb-4">Chapter / 02</p>
-        <h2 className="font-display font-light text-white text-[2.5rem] leading-[0.95] mb-6">The Core</h2>
+        <h2 className="font-display font-bold text-white text-[2.5rem] leading-[0.95] mb-6">The Core</h2>
         <p className="text-base text-slate-400 leading-relaxed font-light mb-12">
           Cisco calling, contact center, and observability unified into one always-on fabric.
         </p>
@@ -349,7 +392,7 @@ export const BentoGrid = () => {
           className="mb-20 max-w-3xl"
         >
           <p className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.28em] mb-5">Chapter / 03 · Capability</p>
-          <h2 className="text-4xl md:text-6xl font-display font-light text-white tracking-tight mb-6 leading-[1.0]">
+          <h2 className="text-4xl md:text-6xl font-display font-bold text-white tracking-tight mb-6 leading-[1.0]">
             Transforming complexity into <span className="text-[#049fd9]">modern advantage.</span>
           </h2>
           <p className="text-xl text-slate-400 font-light">
@@ -471,7 +514,7 @@ const BentoCard = ({ span, delay, icon: Icon, title, body, cta, to, image, featu
           <div className={`w-14 h-14 rounded-2xl ${featured ? 'bg-[#049fd9] shadow-lg shadow-[#049fd9]/30' : 'bg-white/5 border border-white/10 backdrop-blur-md'} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
             <Icon className={`w-7 h-7 ${featured ? 'text-white' : 'text-[#049fd9]'}`} />
           </div>
-          <h3 className="text-2xl md:text-3xl font-display font-light text-white mb-4 tracking-tight">{title}</h3>
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4 tracking-tight">{title}</h3>
           <p className="text-base md:text-lg text-slate-400 leading-relaxed flex-1 font-light max-w-xl">{body}</p>
           <Link
             to={to}
@@ -505,7 +548,7 @@ export const SplitMission = () => {
             <p className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.28em] mb-6 flex items-center gap-2">
               <Shield className="w-3.5 h-3.5" /> Chapter / 04 · Trust
             </p>
-            <h2 className="text-4xl md:text-6xl font-display font-light tracking-tight text-white mb-8 leading-[1.0]">
+            <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tight text-white mb-8 leading-[1.0]">
               Architecture trusted by the <span className="text-[#049fd9]">world's leading</span> organizations.
             </h2>
             <p className="text-xl text-slate-400 mb-12 leading-relaxed font-light">
@@ -530,7 +573,7 @@ export const SplitMission = () => {
                     <span className="text-[#049fd9] font-mono text-xs">0{i + 1}</span>
                   </div>
                   <div>
-                    <h4 className="text-xl font-display font-light text-white mb-1.5 tracking-tight">{item.h}</h4>
+                    <h4 className="text-xl font-display font-bold text-white mb-1.5 tracking-tight">{item.h}</h4>
                     <p className="text-slate-400 font-light">{item.b}</p>
                   </div>
                 </motion.li>
@@ -634,7 +677,7 @@ export const CTASection = () => {
           whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)' }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: SIGNAL_EASE }}
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-light text-white tracking-tight mb-10 leading-[0.95]"
+          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white tracking-tight mb-10 leading-[0.95]"
         >
           Evolve your <br className="hidden md:block" />
           <span className="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-white via-[#049fd9] to-blue-300">enterprise network.</span>

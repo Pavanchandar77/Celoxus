@@ -15,9 +15,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ["Outfit", "ui-sans-serif", "system-ui", "sans-serif"],
-        body: ["Outfit", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Syne", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        body: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Space Grotesk", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       }
     },

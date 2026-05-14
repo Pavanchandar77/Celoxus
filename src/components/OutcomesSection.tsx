@@ -37,7 +37,7 @@ export const OutcomesSection = () => {
         {/* Chapter cipher */}
         <span
           aria-hidden
-          className="pointer-events-none absolute -right-[3vw] -top-[5vw] hidden md:block font-display font-light leading-none text-[18vw] text-slate-900/[0.04]"
+          className="pointer-events-none absolute -right-[3vw] -top-[5vw] hidden md:block font-display font-bold leading-none text-[18vw] text-slate-900/[0.04]"
         >
           06
         </span>
@@ -47,7 +47,7 @@ export const OutcomesSection = () => {
             <p className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.28em] mb-6">
               Chapter / 06 — Outcomes
             </p>
-            <h2 className="font-display font-light text-slate-900 text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem] leading-[1.0] tracking-tight">
+            <h2 className="font-display font-bold text-slate-900 text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem] leading-[1.0] tracking-tight">
               The numbers from <span className="text-[#049fd9]">eight years</span> of zero-downtime deployments.
             </h2>
           </div>
@@ -132,7 +132,7 @@ function StatCard({ stat, delay }: { stat: Stat; delay: number }) {
       <p className="font-mono text-[10px] text-slate-500 uppercase tracking-[0.22em] mb-6">
         / 0{STATS.indexOf(stat) + 1}
       </p>
-      <div className="font-display font-light text-slate-900 text-[3rem] lg:text-[4rem] leading-none tracking-tight tabular-nums">
+      <div className="font-display font-bold text-slate-900 text-[3rem] lg:text-[4rem] leading-none tracking-tight tabular-nums">
         {display}
         <span className="text-[#049fd9]">{stat.suffix}</span>
       </div>

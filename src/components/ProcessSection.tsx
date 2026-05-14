@@ -43,7 +43,7 @@ export const ProcessSection = () => {
             <p className="font-mono text-[11px] text-[#049fd9] uppercase tracking-[0.28em] mb-6">
               Chapter / 07 — Process
             </p>
-            <h2 className="font-display font-light text-slate-900 text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem] leading-[1.0] tracking-tight">
+            <h2 className="font-display font-bold text-slate-900 text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem] leading-[1.0] tracking-tight">
               Architecture, in three considered movements.
             </h2>
             <p className="mt-8 font-light text-slate-500 text-lg leading-relaxed max-w-xl">
@@ -79,14 +79,14 @@ export const ProcessSection = () => {
               data-cursor="hover"
             >
               <div className="flex items-baseline justify-between mb-8">
-                <span className="font-display font-light text-[#049fd9] text-[3rem] leading-none">
+                <span className="font-display font-bold text-[#049fd9] text-[3rem] leading-none">
                   {p.n}
                 </span>
                 <span className="font-mono text-[10px] text-slate-400 uppercase tracking-[0.22em]">
                   Phase
                 </span>
               </div>
-              <h3 className="font-display font-light text-slate-900 text-[1.75rem] mb-5 tracking-tight">
+              <h3 className="font-display font-bold text-slate-900 text-[1.75rem] mb-5 tracking-tight">
                 {p.title}
               </h3>
               <p className="font-light text-slate-600 text-base leading-relaxed mb-8">
